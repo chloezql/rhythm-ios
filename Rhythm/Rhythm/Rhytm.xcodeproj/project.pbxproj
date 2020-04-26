@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D6C54336FB3EAC7445B95B8 /* Pods_RhytmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */; };
+		75D88BCD80060D0EF9CAA390 /* Pods_Rhytm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */; };
+		9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E70F055245557BA00712582 /* GoogleService-Info.plist */; };
 		9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30357244BD08A00ECB93A /* AppDelegate.swift */; };
 		9EC3035A244BD08A00ECB93A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30359244BD08A00ECB93A /* SceneDelegate.swift */; };
 		9EC3035C244BD08A00ECB93A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3035B244BD08A00ECB93A /* ViewController.swift */; };
@@ -18,6 +21,7 @@
 		9EC3037D244BD08B00ECB93A /* RhytmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */; };
 		9EDD9F09244BD99200EAD515 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD9F08244BD99200EAD515 /* login.storyboard */; };
 		9EDD9F0B244BDA0800EAD515 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */; };
+		F23B9AAAA527136C83C98D3A /* Pods_Rhytm_RhytmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		260F7FF30EA7500E1A500CC6 /* Pods-Rhytm-RhytmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm-RhytmUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		275036295CD6DD7C2AA5767B /* Pods-Rhytm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm.release.xcconfig"; path = "Target Support Files/Pods-Rhytm/Pods-Rhytm.release.xcconfig"; sourceTree = "<group>"; };
+		29A66813DFB895146E8994C0 /* Pods-Rhytm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm.debug.xcconfig"; path = "Target Support Files/Pods-Rhytm/Pods-Rhytm.debug.xcconfig"; sourceTree = "<group>"; };
+		344CF9506E29D4B7E9B30DB2 /* Pods-RhytmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhytmTests.release.xcconfig"; path = "Target Support Files/Pods-RhytmTests/Pods-RhytmTests.release.xcconfig"; sourceTree = "<group>"; };
+		59753A8179EE5358E26CFD13 /* Pods-RhytmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhytmTests.debug.xcconfig"; path = "Target Support Files/Pods-RhytmTests/Pods-RhytmTests.debug.xcconfig"; sourceTree = "<group>"; };
+		95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhytm_RhytmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E70F055245557BA00712582 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EC30354244BD08A00ECB93A /* Rhytm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhytm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC30357244BD08A00ECB93A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EC30359244BD08A00ECB93A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +66,9 @@
 		9EC3037E244BD08B00ECB93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EDD9F08244BD99200EAD515 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RhytmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhytm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAB9AA7E284244119B7C225A /* Pods-Rhytm-RhytmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm-RhytmUITests.release.xcconfig"; path = "Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D88BCD80060D0EF9CAA390 /* Pods_Rhytm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6C54336FB3EAC7445B95B8 /* Pods_RhytmTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +92,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F23B9AAAA527136C83C98D3A /* Pods_Rhytm_RhytmUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5CEDC412CF54E0FFB34F42D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */,
+				95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */,
+				B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9EC3034B244BD08A00ECB93A = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +116,8 @@
 				9EC30370244BD08B00ECB93A /* RhytmTests */,
 				9EC3037B244BD08B00ECB93A /* RhytmUITests */,
 				9EC30355244BD08A00ECB93A /* Products */,
+				F2C4C06A36C5048E5E4CE1B7 /* Pods */,
+				5CEDC412CF54E0FFB34F42D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +143,7 @@
 				9EC30363244BD08B00ECB93A /* Assets.xcassets */,
 				9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */,
 				9EC30368244BD08B00ECB93A /* Info.plist */,
+				9E70F055245557BA00712582 /* GoogleService-Info.plist */,
 				9EC30360244BD08A00ECB93A /* Rhytm.xcdatamodeld */,
 			);
 			path = Rhytm;
@@ -137,6 +167,19 @@
 			path = RhytmUITests;
 			sourceTree = "<group>";
 		};
+		F2C4C06A36C5048E5E4CE1B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29A66813DFB895146E8994C0 /* Pods-Rhytm.debug.xcconfig */,
+				275036295CD6DD7C2AA5767B /* Pods-Rhytm.release.xcconfig */,
+				260F7FF30EA7500E1A500CC6 /* Pods-Rhytm-RhytmUITests.debug.xcconfig */,
+				CAB9AA7E284244119B7C225A /* Pods-Rhytm-RhytmUITests.release.xcconfig */,
+				59753A8179EE5358E26CFD13 /* Pods-RhytmTests.debug.xcconfig */,
+				344CF9506E29D4B7E9B30DB2 /* Pods-RhytmTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EC30381244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "Rhytm" */;
 			buildPhases = (
+				858ABBF6D636EE8CD4577AFC /* [CP] Check Pods Manifest.lock */,
 				9EC30350244BD08A00ECB93A /* Sources */,
 				9EC30351244BD08A00ECB93A /* Frameworks */,
 				9EC30352244BD08A00ECB93A /* Resources */,
+				7A30BA69676B82D497A488AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EC30384244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "RhytmTests" */;
 			buildPhases = (
+				D48F70656BD329D090E79F47 /* [CP] Check Pods Manifest.lock */,
 				9EC30369244BD08B00ECB93A /* Sources */,
 				9EC3036A244BD08B00ECB93A /* Frameworks */,
 				9EC3036B244BD08B00ECB93A /* Resources */,
@@ -179,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EC30387244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "RhytmUITests" */;
 			buildPhases = (
+				A55E3FE365A79C0A751CECDE /* [CP] Check Pods Manifest.lock */,
 				9EC30374244BD08B00ECB93A /* Sources */,
 				9EC30375244BD08B00ECB93A /* Frameworks */,
 				9EC30376244BD08B00ECB93A /* Resources */,
+				C8F3B6A3537BA6482DE5AE0E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -243,6 +291,7 @@
 			files = (
 				9EDD9F09244BD99200EAD515 /* login.storyboard in Resources */,
 				9EC30367244BD08B00ECB93A /* LaunchScreen.storyboard in Resources */,
+				9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */,
 				9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */,
 				9EC3035F244BD08A00ECB93A /* Main.storyboard in Resources */,
 			);
@@ -263,6 +312,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A30BA69676B82D497A488AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rhytm/Pods-Rhytm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rhytm/Pods-Rhytm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rhytm/Pods-Rhytm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		858ABBF6D636EE8CD4577AFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rhytm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A55E3FE365A79C0A751CECDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rhytm-RhytmUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8F3B6A3537BA6482DE5AE0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D48F70656BD329D090E79F47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RhytmTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9EC30350244BD08A00ECB93A /* Sources */ = {
@@ -444,9 +596,11 @@
 		};
 		9EC30382244BD08B00ECB93A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29A66813DFB895146E8994C0 /* Pods-Rhytm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Rhytm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,9 +615,11 @@
 		};
 		9EC30383244BD08B00ECB93A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 275036295CD6DD7C2AA5767B /* Pods-Rhytm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Rhytm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -478,6 +634,7 @@
 		};
 		9EC30385244BD08B00ECB93A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59753A8179EE5358E26CFD13 /* Pods-RhytmTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -499,6 +656,7 @@
 		};
 		9EC30386244BD08B00ECB93A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 344CF9506E29D4B7E9B30DB2 /* Pods-RhytmTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +678,7 @@
 		};
 		9EC30388244BD08B00ECB93A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 260F7FF30EA7500E1A500CC6 /* Pods-Rhytm-RhytmUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +698,7 @@
 		};
 		9EC30389244BD08B00ECB93A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAB9AA7E284244119B7C225A /* Pods-Rhytm-RhytmUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
