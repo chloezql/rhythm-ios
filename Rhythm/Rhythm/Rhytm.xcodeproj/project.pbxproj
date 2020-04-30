@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		6D6C54336FB3EAC7445B95B8 /* Pods_RhytmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */; };
 		75D88BCD80060D0EF9CAA390 /* Pods_Rhytm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */; };
+		9E604B772455848900EEDBCA /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E604B762455848900EEDBCA /* welcomeViewController.swift */; };
 		9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E70F055245557BA00712582 /* GoogleService-Info.plist */; };
+		9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */; };
 		9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30357244BD08A00ECB93A /* AppDelegate.swift */; };
 		9EC3035A244BD08A00ECB93A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30359244BD08A00ECB93A /* SceneDelegate.swift */; };
 		9EC3035C244BD08A00ECB93A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3035B244BD08A00ECB93A /* ViewController.swift */; };
@@ -19,8 +21,8 @@
 		9EC30367244BD08B00ECB93A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */; };
 		9EC30372244BD08B00ECB93A /* RhytmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30371244BD08B00ECB93A /* RhytmTests.swift */; };
 		9EC3037D244BD08B00ECB93A /* RhytmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */; };
+		9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECA001C245A408B00C944FF /* loginViewController.swift */; };
 		9EDD9F09244BD99200EAD515 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD9F08244BD99200EAD515 /* login.storyboard */; };
-		9EDD9F0B244BDA0800EAD515 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */; };
 		F23B9AAAA527136C83C98D3A /* Pods_Rhytm_RhytmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +50,9 @@
 		344CF9506E29D4B7E9B30DB2 /* Pods-RhytmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhytmTests.release.xcconfig"; path = "Target Support Files/Pods-RhytmTests/Pods-RhytmTests.release.xcconfig"; sourceTree = "<group>"; };
 		59753A8179EE5358E26CFD13 /* Pods-RhytmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhytmTests.debug.xcconfig"; path = "Target Support Files/Pods-RhytmTests/Pods-RhytmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhytm_RhytmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E604B762455848900EEDBCA /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
 		9E70F055245557BA00712582 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9EC30354244BD08A00ECB93A /* Rhytm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhytm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC30357244BD08A00ECB93A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EC30359244BD08A00ECB93A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,8 +68,8 @@
 		9EC30378244BD08B00ECB93A /* RhytmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhytmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmUITests.swift; sourceTree = "<group>"; };
 		9EC3037E244BD08B00ECB93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ECA001C245A408B00C944FF /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		9EDD9F08244BD99200EAD515 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
-		9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RhytmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhytm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB9AA7E284244119B7C225A /* Pods-Rhytm-RhytmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm-RhytmUITests.release.xcconfig"; path = "Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,7 +143,9 @@
 				9EC3035B244BD08A00ECB93A /* ViewController.swift */,
 				9EC3035D244BD08A00ECB93A /* Main.storyboard */,
 				9EDD9F08244BD99200EAD515 /* login.storyboard */,
-				9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */,
+				9E604B762455848900EEDBCA /* welcomeViewController.swift */,
+				9ECA001C245A408B00C944FF /* loginViewController.swift */,
+				9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */,
 				9EC30363244BD08B00ECB93A /* Assets.xcassets */,
 				9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */,
 				9EC30368244BD08B00ECB93A /* Info.plist */,
@@ -421,11 +427,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */,
 				9EC3035C244BD08A00ECB93A /* ViewController.swift in Sources */,
+				9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */,
 				9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */,
 				9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */,
+				9E604B772455848900EEDBCA /* welcomeViewController.swift in Sources */,
 				9EC3035A244BD08A00ECB93A /* SceneDelegate.swift in Sources */,
-				9EDD9F0B244BDA0800EAD515 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
