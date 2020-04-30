@@ -1,0 +1,654 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30357244BD08A00ECB93A /* AppDelegate.swift */; };
+		9EC3035A244BD08A00ECB93A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30359244BD08A00ECB93A /* SceneDelegate.swift */; };
+		9EC3035C244BD08A00ECB93A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3035B244BD08A00ECB93A /* ViewController.swift */; };
+		9EC3035F244BD08A00ECB93A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC3035D244BD08A00ECB93A /* Main.storyboard */; };
+		9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30360244BD08A00ECB93A /* Rhytm.xcdatamodeld */; };
+		9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30363244BD08B00ECB93A /* Assets.xcassets */; };
+		9EC30367244BD08B00ECB93A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */; };
+		9EC30372244BD08B00ECB93A /* RhytmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30371244BD08B00ECB93A /* RhytmTests.swift */; };
+		9EC3037D244BD08B00ECB93A /* RhytmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */; };
+		9EDD9F09244BD99200EAD515 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD9F08244BD99200EAD515 /* login.storyboard */; };
+		9EDD9F0B244BDA0800EAD515 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */; };
+		EAFC59A72452BD2200098076 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC59A62452BD2200098076 /* NewActivityViewController.swift */; };
+		EAFC59A92452BD7800098076 /* SaveActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC59A82452BD7800098076 /* SaveActivityViewController.swift */; };
+		EAFC59AB2452E69000098076 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC59AA2452E69000098076 /* Activity.swift */; };
+		EAFC59AD24547BB900098076 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC59AC24547BB900098076 /* DatePickerTableViewCell.swift */; };
+		EAFC59B124548EF200098076 /* AH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAFC59B024548EF200098076 /* AH.jpg */; };
+		EAFC59B82454A51800098076 /* DateTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC59B62454A51800098076 /* DateTextTableViewCell.swift */; };
+		EAFC59B92454A51800098076 /* DateTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFC59B72454A51800098076 /* DateTextTableViewCell.xib */; };
+		EAFC59BB245717C200098076 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFC59BA245717C200098076 /* DatePickerTableViewCell.xib */; };
+		EAFC59BE245A7F4400098076 /* DisplayScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC59BC245A7F4300098076 /* DisplayScheduleTableViewCell.swift */; };
+		EAFC59BF245A7F4400098076 /* DisplayScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFC59BD245A7F4300098076 /* DisplayScheduleTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9EC3036E244BD08B00ECB93A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EC3034C244BD08A00ECB93A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EC30353244BD08A00ECB93A;
+			remoteInfo = Rhytm;
+		};
+		9EC30379244BD08B00ECB93A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EC3034C244BD08A00ECB93A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EC30353244BD08A00ECB93A;
+			remoteInfo = Rhytm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9EC30354244BD08A00ECB93A /* Rhytm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhytm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EC30357244BD08A00ECB93A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9EC30359244BD08A00ECB93A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9EC3035B244BD08A00ECB93A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9EC3035E244BD08A00ECB93A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9EC30361244BD08A00ECB93A /* Rhytm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rhytm.xcdatamodel; sourceTree = "<group>"; };
+		9EC30363244BD08B00ECB93A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9EC30366244BD08B00ECB93A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9EC30368244BD08B00ECB93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EC3036D244BD08B00ECB93A /* RhytmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhytmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EC30371244BD08B00ECB93A /* RhytmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmTests.swift; sourceTree = "<group>"; };
+		9EC30373244BD08B00ECB93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EC30378244BD08B00ECB93A /* RhytmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhytmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmUITests.swift; sourceTree = "<group>"; };
+		9EC3037E244BD08B00ECB93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EDD9F08244BD99200EAD515 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		EAFC59A62452BD2200098076 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
+		EAFC59A82452BD7800098076 /* SaveActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveActivityViewController.swift; sourceTree = "<group>"; };
+		EAFC59AA2452E69000098076 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		EAFC59AC24547BB900098076 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		EAFC59B024548EF200098076 /* AH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AH.jpg; sourceTree = "<group>"; };
+		EAFC59B62454A51800098076 /* DateTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextTableViewCell.swift; sourceTree = "<group>"; };
+		EAFC59B72454A51800098076 /* DateTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTextTableViewCell.xib; sourceTree = "<group>"; };
+		EAFC59BA245717C200098076 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		EAFC59BC245A7F4300098076 /* DisplayScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		EAFC59BD245A7F4300098076 /* DisplayScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayScheduleTableViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EC30351244BD08A00ECB93A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EC3036A244BD08B00ECB93A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EC30375244BD08B00ECB93A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9EC3034B244BD08A00ECB93A = {
+			isa = PBXGroup;
+			children = (
+				9EC30356244BD08A00ECB93A /* Rhytm */,
+				9EC30370244BD08B00ECB93A /* RhytmTests */,
+				9EC3037B244BD08B00ECB93A /* RhytmUITests */,
+				9EC30355244BD08A00ECB93A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9EC30355244BD08A00ECB93A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EC30354244BD08A00ECB93A /* Rhytm.app */,
+				9EC3036D244BD08B00ECB93A /* RhytmTests.xctest */,
+				9EC30378244BD08B00ECB93A /* RhytmUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EC30356244BD08A00ECB93A /* Rhytm */ = {
+			isa = PBXGroup;
+			children = (
+				9EC30357244BD08A00ECB93A /* AppDelegate.swift */,
+				9EC30359244BD08A00ECB93A /* SceneDelegate.swift */,
+				EAFC59AA2452E69000098076 /* Activity.swift */,
+				EAFC59B62454A51800098076 /* DateTextTableViewCell.swift */,
+				EAFC59B72454A51800098076 /* DateTextTableViewCell.xib */,
+				EAFC59AC24547BB900098076 /* DatePickerTableViewCell.swift */,
+				EAFC59BA245717C200098076 /* DatePickerTableViewCell.xib */,
+				EAFC59BC245A7F4300098076 /* DisplayScheduleTableViewCell.swift */,
+				EAFC59BD245A7F4300098076 /* DisplayScheduleTableViewCell.xib */,
+				9EC3035B244BD08A00ECB93A /* ViewController.swift */,
+				EAFC59A62452BD2200098076 /* NewActivityViewController.swift */,
+				EAFC59A82452BD7800098076 /* SaveActivityViewController.swift */,
+				9EC3035D244BD08A00ECB93A /* Main.storyboard */,
+				9EDD9F08244BD99200EAD515 /* login.storyboard */,
+				9EDD9F0A244BDA0800EAD515 /* loginViewController.swift */,
+				EAFC59B024548EF200098076 /* AH.jpg */,
+				9EC30363244BD08B00ECB93A /* Assets.xcassets */,
+				9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */,
+				9EC30368244BD08B00ECB93A /* Info.plist */,
+				9EC30360244BD08A00ECB93A /* Rhytm.xcdatamodeld */,
+			);
+			path = Rhytm;
+			sourceTree = "<group>";
+		};
+		9EC30370244BD08B00ECB93A /* RhytmTests */ = {
+			isa = PBXGroup;
+			children = (
+				9EC30371244BD08B00ECB93A /* RhytmTests.swift */,
+				9EC30373244BD08B00ECB93A /* Info.plist */,
+			);
+			path = RhytmTests;
+			sourceTree = "<group>";
+		};
+		9EC3037B244BD08B00ECB93A /* RhytmUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */,
+				9EC3037E244BD08B00ECB93A /* Info.plist */,
+			);
+			path = RhytmUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9EC30353244BD08A00ECB93A /* Rhytm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EC30381244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "Rhytm" */;
+			buildPhases = (
+				9EC30350244BD08A00ECB93A /* Sources */,
+				9EC30351244BD08A00ECB93A /* Frameworks */,
+				9EC30352244BD08A00ECB93A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rhytm;
+			productName = Rhytm;
+			productReference = 9EC30354244BD08A00ECB93A /* Rhytm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9EC3036C244BD08B00ECB93A /* RhytmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EC30384244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "RhytmTests" */;
+			buildPhases = (
+				9EC30369244BD08B00ECB93A /* Sources */,
+				9EC3036A244BD08B00ECB93A /* Frameworks */,
+				9EC3036B244BD08B00ECB93A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EC3036F244BD08B00ECB93A /* PBXTargetDependency */,
+			);
+			name = RhytmTests;
+			productName = RhytmTests;
+			productReference = 9EC3036D244BD08B00ECB93A /* RhytmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9EC30377244BD08B00ECB93A /* RhytmUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EC30387244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "RhytmUITests" */;
+			buildPhases = (
+				9EC30374244BD08B00ECB93A /* Sources */,
+				9EC30375244BD08B00ECB93A /* Frameworks */,
+				9EC30376244BD08B00ECB93A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EC3037A244BD08B00ECB93A /* PBXTargetDependency */,
+			);
+			name = RhytmUITests;
+			productName = RhytmUITests;
+			productReference = 9EC30378244BD08B00ECB93A /* RhytmUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EC3034C244BD08A00ECB93A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = NYUiOS;
+				TargetAttributes = {
+					9EC30353244BD08A00ECB93A = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					9EC3036C244BD08B00ECB93A = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 9EC30353244BD08A00ECB93A;
+					};
+					9EC30377244BD08B00ECB93A = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 9EC30353244BD08A00ECB93A;
+					};
+				};
+			};
+			buildConfigurationList = 9EC3034F244BD08A00ECB93A /* Build configuration list for PBXProject "Rhytm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9EC3034B244BD08A00ECB93A;
+			productRefGroup = 9EC30355244BD08A00ECB93A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9EC30353244BD08A00ECB93A /* Rhytm */,
+				9EC3036C244BD08B00ECB93A /* RhytmTests */,
+				9EC30377244BD08B00ECB93A /* RhytmUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9EC30352244BD08A00ECB93A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAFC59B92454A51800098076 /* DateTextTableViewCell.xib in Resources */,
+				EAFC59B124548EF200098076 /* AH.jpg in Resources */,
+				EAFC59BB245717C200098076 /* DatePickerTableViewCell.xib in Resources */,
+				9EDD9F09244BD99200EAD515 /* login.storyboard in Resources */,
+				9EC30367244BD08B00ECB93A /* LaunchScreen.storyboard in Resources */,
+				9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */,
+				EAFC59BF245A7F4400098076 /* DisplayScheduleTableViewCell.xib in Resources */,
+				9EC3035F244BD08A00ECB93A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EC3036B244BD08B00ECB93A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EC30376244BD08B00ECB93A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EC30350244BD08A00ECB93A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EC3035C244BD08A00ECB93A /* ViewController.swift in Sources */,
+				EAFC59A92452BD7800098076 /* SaveActivityViewController.swift in Sources */,
+				9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */,
+				EAFC59A72452BD2200098076 /* NewActivityViewController.swift in Sources */,
+				EAFC59B82454A51800098076 /* DateTextTableViewCell.swift in Sources */,
+				9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */,
+				9EC3035A244BD08A00ECB93A /* SceneDelegate.swift in Sources */,
+				EAFC59BE245A7F4400098076 /* DisplayScheduleTableViewCell.swift in Sources */,
+				EAFC59AB2452E69000098076 /* Activity.swift in Sources */,
+				9EDD9F0B244BDA0800EAD515 /* loginViewController.swift in Sources */,
+				EAFC59AD24547BB900098076 /* DatePickerTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EC30369244BD08B00ECB93A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EC30372244BD08B00ECB93A /* RhytmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EC30374244BD08B00ECB93A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EC3037D244BD08B00ECB93A /* RhytmUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9EC3036F244BD08B00ECB93A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EC30353244BD08A00ECB93A /* Rhytm */;
+			targetProxy = 9EC3036E244BD08B00ECB93A /* PBXContainerItemProxy */;
+		};
+		9EC3037A244BD08B00ECB93A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EC30353244BD08A00ECB93A /* Rhytm */;
+			targetProxy = 9EC30379244BD08B00ECB93A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9EC3035D244BD08A00ECB93A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EC3035E244BD08A00ECB93A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EC30366244BD08B00ECB93A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9EC3037F244BD08B00ECB93A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9EC30380244BD08B00ECB93A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9EC30382244BD08B00ECB93A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Rhytm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NYUiOS.Rhytm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9EC30383244BD08B00ECB93A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Rhytm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NYUiOS.Rhytm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9EC30385244BD08B00ECB93A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RhytmTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NYUiOS.RhytmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rhytm.app/Rhytm";
+			};
+			name = Debug;
+		};
+		9EC30386244BD08B00ECB93A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RhytmTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NYUiOS.RhytmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rhytm.app/Rhytm";
+			};
+			name = Release;
+		};
+		9EC30388244BD08B00ECB93A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RhytmUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NYUiOS.RhytmUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Rhytm;
+			};
+			name = Debug;
+		};
+		9EC30389244BD08B00ECB93A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RhytmUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NYUiOS.RhytmUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Rhytm;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9EC3034F244BD08A00ECB93A /* Build configuration list for PBXProject "Rhytm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EC3037F244BD08B00ECB93A /* Debug */,
+				9EC30380244BD08B00ECB93A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EC30381244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "Rhytm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EC30382244BD08B00ECB93A /* Debug */,
+				9EC30383244BD08B00ECB93A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EC30384244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "RhytmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EC30385244BD08B00ECB93A /* Debug */,
+				9EC30386244BD08B00ECB93A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EC30387244BD08B00ECB93A /* Build configuration list for PBXNativeTarget "RhytmUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EC30388244BD08B00ECB93A /* Debug */,
+				9EC30389244BD08B00ECB93A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9EC30360244BD08A00ECB93A /* Rhytm.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9EC30361244BD08A00ECB93A /* Rhytm.xcdatamodel */,
+			);
+			currentVersion = 9EC30361244BD08A00ECB93A /* Rhytm.xcdatamodel */;
+			path = Rhytm.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9EC3034C244BD08A00ECB93A /* Project object */;
+}
