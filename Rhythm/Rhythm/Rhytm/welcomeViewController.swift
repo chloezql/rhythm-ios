@@ -8,7 +8,7 @@
 
 import UIKit
 
-class welcomeViewController: UIViewController {
+class welcomeViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

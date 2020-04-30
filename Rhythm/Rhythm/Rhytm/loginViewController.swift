@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class loginViewController: UIViewController {
+class loginViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -25,13 +25,28 @@ class loginViewController: UIViewController {
     }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+           self.view.endEditing(true)
+       }
+    
+    func textFieldShouldReturn(_textField: UITextField) -> Bool
+    {
+        _textField.resignFirstResponder();
+
+    }
+
+    
     func checkFields() -> Bool
     {
         if(email.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             password.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "")
         {
+            callError(errorText: "One or more fields have been left empty")
             return false
         }
+        
+        
+        
         
         return true
     }
@@ -48,17 +63,13 @@ class loginViewController: UIViewController {
             Auth.auth().signIn(withEmail: em, password: pword) { (result, error) in
                 if error != nil
                 {
-                    //Couldnt Sign in
+                    self.callError(errorText: "Incorrect Email or Password")
                 }
                 else
                 {
                     self.transitionToHomeScreen()
                 }
             }
-        }
-        else
-        {
-            
         }
         
         

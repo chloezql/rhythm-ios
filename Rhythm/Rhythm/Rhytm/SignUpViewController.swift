@@ -14,12 +14,14 @@ import FirebaseAuth
 
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
+    
     @IBOutlet weak var errorMessage: UILabel!
     
     
@@ -30,6 +32,16 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func textFieldShouldReturn(_textField: UITextField) -> Bool
+    {
+        _textField.resignFirstResponder();
+
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     func checkFields() -> Bool
     {
@@ -40,13 +52,22 @@ class SignUpViewController: UIViewController {
             callError(errorText: "One or more fields have been left empty")
             return false
         }
+
+        if(isValidPassword(password: password.text!) == false)
+        {
+            callError(errorText: "Password must include at least one number, a special character ($@$#!%?&), and an uppercase letter.")
+            return false
+        }
         
-        //TODO: If password invalid
+        if(confirmPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) != password.text?.trimmingCharacters(in: .whitespacesAndNewlines))
+        {
+            callError(errorText: "Passwords do not match")
+            return false
+        }
+        
         return true
     }
-    
-    //TODO: ADD isPasswordValid method
-    // func isPasswordValid() -> Bool{}
+
     
     
     @IBAction func signUp(_ sender: Any)
@@ -77,11 +98,6 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
-            
-        else
-        {
-        }
-        
     }
     
     func callError(errorText: String)
@@ -98,6 +114,16 @@ class SignUpViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
+    
+    
+    func isValidPassword(password: String) -> Bool
+    {
+        //Password requires 1 uppercase, 1 lowercase, one special char, one number, length 8
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[$@$#!%*?&])(?=.*[0-9])[A-Za-z\\d$@$#!%*?&]{8,}")
+        return passwordTest.evaluate(with: password)
+        
+    }
+    
     
     /*
     // MARK: - Navigation
