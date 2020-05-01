@@ -13,9 +13,6 @@
 		9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E70F055245557BA00712582 /* GoogleService-Info.plist */; };
 		9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */; };
 		9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30357244BD08A00ECB93A /* AppDelegate.swift */; };
-		9EC3035A244BD08A00ECB93A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30359244BD08A00ECB93A /* SceneDelegate.swift */; };
-		9EC3035C244BD08A00ECB93A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3035B244BD08A00ECB93A /* ViewController.swift */; };
-		9EC3035F244BD08A00ECB93A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC3035D244BD08A00ECB93A /* Main.storyboard */; };
 		9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30360244BD08A00ECB93A /* Rhytm.xcdatamodeld */; };
 		9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30363244BD08B00ECB93A /* Assets.xcassets */; };
 		9EC30367244BD08B00ECB93A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */; };
@@ -23,6 +20,19 @@
 		9EC3037D244BD08B00ECB93A /* RhytmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */; };
 		9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECA001C245A408B00C944FF /* loginViewController.swift */; };
 		9EDD9F09244BD99200EAD515 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD9F08244BD99200EAD515 /* login.storyboard */; };
+		9EFC6EA3245BF76600B1CB93 /* DateTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EFC6E94245BF76500B1CB93 /* DateTextTableViewCell.xib */; };
+		9EFC6EA4245BF76600B1CB93 /* DateTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E95245BF76500B1CB93 /* DateTextTableViewCell.swift */; };
+		9EFC6EA5245BF76600B1CB93 /* DisplayScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EFC6E96245BF76500B1CB93 /* DisplayScheduleTableViewCell.xib */; };
+		9EFC6EA6245BF76600B1CB93 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E97245BF76500B1CB93 /* DatePickerTableViewCell.swift */; };
+		9EFC6EA7245BF76600B1CB93 /* AH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EFC6E98245BF76500B1CB93 /* AH.jpg */; };
+		9EFC6EA8245BF76600B1CB93 /* SaveActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E99245BF76500B1CB93 /* SaveActivityViewController.swift */; };
+		9EFC6EA9245BF76600B1CB93 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EFC6E9A245BF76600B1CB93 /* DatePickerTableViewCell.xib */; };
+		9EFC6EAA245BF76600B1CB93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E9B245BF76600B1CB93 /* SceneDelegate.swift */; };
+		9EFC6EAB245BF76600B1CB93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E9C245BF76600B1CB93 /* ViewController.swift */; };
+		9EFC6EAD245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E9E245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift */; };
+		9EFC6EAE245BF76600B1CB93 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E9F245BF76600B1CB93 /* NewActivityViewController.swift */; };
+		9EFC6EB0245BF76600B1CB93 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6EA1245BF76600B1CB93 /* Activity.swift */; };
+		9EFC6EB7245BFA4C00B1CB93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFC6EB4245BFA4C00B1CB93 /* Main.storyboard */; };
 		F23B9AAAA527136C83C98D3A /* Pods_Rhytm_RhytmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,9 +65,6 @@
 		9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9EC30354244BD08A00ECB93A /* Rhytm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhytm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC30357244BD08A00ECB93A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9EC30359244BD08A00ECB93A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9EC3035B244BD08A00ECB93A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9EC3035E244BD08A00ECB93A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EC30361244BD08A00ECB93A /* Rhytm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rhytm.xcdatamodel; sourceTree = "<group>"; };
 		9EC30363244BD08B00ECB93A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EC30366244BD08B00ECB93A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +77,19 @@
 		9EC3037E244BD08B00ECB93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9ECA001C245A408B00C944FF /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		9EDD9F08244BD99200EAD515 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		9EFC6E94245BF76500B1CB93 /* DateTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTextTableViewCell.xib; sourceTree = "<group>"; };
+		9EFC6E95245BF76500B1CB93 /* DateTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTextTableViewCell.swift; sourceTree = "<group>"; };
+		9EFC6E96245BF76500B1CB93 /* DisplayScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		9EFC6E97245BF76500B1CB93 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		9EFC6E98245BF76500B1CB93 /* AH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AH.jpg; sourceTree = "<group>"; };
+		9EFC6E99245BF76500B1CB93 /* SaveActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveActivityViewController.swift; sourceTree = "<group>"; };
+		9EFC6E9A245BF76600B1CB93 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		9EFC6E9B245BF76600B1CB93 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
+		9EFC6E9C245BF76600B1CB93 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Rhytm/ViewController.swift; sourceTree = "<group>"; };
+		9EFC6E9E245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		9EFC6E9F245BF76600B1CB93 /* NewActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
+		9EFC6EA1245BF76600B1CB93 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		9EFC6EB5245BFA4C00B1CB93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RhytmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhytm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB9AA7E284244119B7C225A /* Pods-Rhytm-RhytmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm-RhytmUITests.release.xcconfig"; path = "Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,10 +158,20 @@
 		9EC30356244BD08A00ECB93A /* Rhytm */ = {
 			isa = PBXGroup;
 			children = (
+				9EFC6E9F245BF76600B1CB93 /* NewActivityViewController.swift */,
+				9EFC6E99245BF76500B1CB93 /* SaveActivityViewController.swift */,
+				9EFC6E97245BF76500B1CB93 /* DatePickerTableViewCell.swift */,
+				9EFC6E9A245BF76600B1CB93 /* DatePickerTableViewCell.xib */,
+				9EFC6E95245BF76500B1CB93 /* DateTextTableViewCell.swift */,
+				9EFC6E94245BF76500B1CB93 /* DateTextTableViewCell.xib */,
+				9EFC6E9E245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift */,
+				9EFC6E96245BF76500B1CB93 /* DisplayScheduleTableViewCell.xib */,
+				9EFC6EA1245BF76600B1CB93 /* Activity.swift */,
+				9EFC6E98245BF76500B1CB93 /* AH.jpg */,
 				9EC30357244BD08A00ECB93A /* AppDelegate.swift */,
-				9EC30359244BD08A00ECB93A /* SceneDelegate.swift */,
-				9EC3035B244BD08A00ECB93A /* ViewController.swift */,
-				9EC3035D244BD08A00ECB93A /* Main.storyboard */,
+				9EFC6E9B245BF76600B1CB93 /* SceneDelegate.swift */,
+				9EFC6E9C245BF76600B1CB93 /* ViewController.swift */,
+				9EFC6EB4245BFA4C00B1CB93 /* Main.storyboard */,
 				9EDD9F08244BD99200EAD515 /* login.storyboard */,
 				9E604B762455848900EEDBCA /* welcomeViewController.swift */,
 				9ECA001C245A408B00C944FF /* loginViewController.swift */,
@@ -296,10 +326,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EDD9F09244BD99200EAD515 /* login.storyboard in Resources */,
+				9EFC6EA9245BF76600B1CB93 /* DatePickerTableViewCell.xib in Resources */,
 				9EC30367244BD08B00ECB93A /* LaunchScreen.storyboard in Resources */,
+				9EFC6EA3245BF76600B1CB93 /* DateTextTableViewCell.xib in Resources */,
+				9EFC6EB7245BFA4C00B1CB93 /* Main.storyboard in Resources */,
 				9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */,
+				9EFC6EA5245BF76600B1CB93 /* DisplayScheduleTableViewCell.xib in Resources */,
 				9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */,
-				9EC3035F244BD08A00ECB93A /* Main.storyboard in Resources */,
+				9EFC6EA7245BF76600B1CB93 /* AH.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,13 +461,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFC6EB0245BF76600B1CB93 /* Activity.swift in Sources */,
 				9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */,
-				9EC3035C244BD08A00ECB93A /* ViewController.swift in Sources */,
+				9EFC6EA8245BF76600B1CB93 /* SaveActivityViewController.swift in Sources */,
 				9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */,
 				9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */,
+				9EFC6EA4245BF76600B1CB93 /* DateTextTableViewCell.swift in Sources */,
+				9EFC6EAB245BF76600B1CB93 /* ViewController.swift in Sources */,
 				9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */,
+				9EFC6EAA245BF76600B1CB93 /* SceneDelegate.swift in Sources */,
 				9E604B772455848900EEDBCA /* welcomeViewController.swift in Sources */,
-				9EC3035A244BD08A00ECB93A /* SceneDelegate.swift in Sources */,
+				9EFC6EAD245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift in Sources */,
+				9EFC6EA6245BF76600B1CB93 /* DatePickerTableViewCell.swift in Sources */,
+				9EFC6EAE245BF76600B1CB93 /* NewActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,20 +509,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9EC3035D244BD08A00ECB93A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9EC3035E244BD08A00ECB93A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9EC30365244BD08B00ECB93A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9EC30366244BD08B00ECB93A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9EFC6EB4245BFA4C00B1CB93 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EFC6EB5245BFA4C00B1CB93 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
