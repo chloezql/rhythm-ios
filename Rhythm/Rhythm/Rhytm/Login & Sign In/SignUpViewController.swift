@@ -53,11 +53,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             return false
         }
 
-        if(isValidPassword(password: password.text!) == false)
-        {
-            callError(errorText: "Password must include at least one number, a special character ($@$#!%?&), and an uppercase letter.")
-            return false
-        }
+//        if(isValidPassword(password: password.text!) == false)
+//        {
+//            callError(errorText: "Password must include at least one number, a special character ($@$#!%?&), and an uppercase letter.")
+//            return false
+//        }
         
         if(confirmPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) != password.text?.trimmingCharacters(in: .whitespacesAndNewlines))
         {

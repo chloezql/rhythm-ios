@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-class Activity: NSObject {
+class Activity: NSObject, Codable {
     var name: String
     var descrip: String
     var start_time = Date()
