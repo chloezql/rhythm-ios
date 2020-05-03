@@ -88,12 +88,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                 else
                 {
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName":fName , "lastName": lName, "uid": result!.user.uid]) { (error) in
-                        if error != nil
-                        {
-                            self.callError(errorText: error!.localizedDescription)
-                        }
-                    }
+                    db.collection("users").document(result!.user.uid).setData(["firstName":fName, "lastName": lName])
+//                    db.collection("users").addDocument(data: ["firstName": fName , "lastName": lName, "uid": result!.user.uid]) { (error) in
+//                        if error != nil
+//                        {
+//                            self.callError(errorText: error!.localizedDescription)
+//                        }
+            //}
                     self.transitionToHomeScreen()
                 }
             }

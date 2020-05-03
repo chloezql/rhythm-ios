@@ -89,6 +89,8 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
                 currentColor = "yellow"
             }
             
+            
+            //TODO: Modifty Add Activity 
             newActivity = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
             
             self.delegate?.addActivity(activity: newActivity)

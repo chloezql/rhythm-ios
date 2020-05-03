@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, activityDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,6 +18,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var createActivity: UIPickerView!
     @IBOutlet weak var photo: UIImageView!
+    
+    
+    let userID = Auth.auth().currentUser!.uid
+    let db = Firestore.firestore()
+    
     
     var createAct: [String] = [String]()
     var pickerRow = 0
@@ -100,7 +107,33 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         mySchedule.sort(by: {$0.start_time < $1.start_time})
         scheduleTable.reloadData()
+        
+        
+        addActivityToFirebase(activity: activity)
     }
+    
+    
+    
+    //Add Activity to firebase
+    func addActivityToFirebase(activity: Activity)
+    {
+        let title = activity.name
+        let desc = activity.descrip
+        let startT = activity.start_time
+        let endT = activity.end_time
+        let color = activity.color
+        
+        db.collection("users").document(userID).collection("Activities").addDocument(data:[ "Activity_Name":title, "Color":color, "Description":desc, "Start_Time":startT, "End_Time":endT])
+    }
+    
+    
+    func createActivityFromFirebase()
+    {
+        
+    }
+    
+    
+    
     
     
     
