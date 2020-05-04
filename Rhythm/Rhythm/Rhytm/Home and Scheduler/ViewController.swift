@@ -13,26 +13,26 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, activityDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, activityDelegate, activityEditDelegate,saveActivityDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var scheduleTable: UITableView!
-    
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var createActivity: UIPickerView!
     @IBOutlet weak var photo: UIImageView!
-    
-    
-    let userID = Auth.auth().currentUser!.uid
-    let db = Firestore.firestore()
-    
-    let dateFormatter = DateFormatter()
-    
+    @IBOutlet weak var username: UILabel!
     
     var createAct: [String] = [String]()
     var pickerRow = 0
     var mySchedule: [Activity] = []
+    var savedList: [Activity] = [Activity]()
     var scheduleIndexPath: IndexPath?
+    var indexToEdit = -1
+    
+    let userID = Auth.auth().currentUser!.uid
+    let db = Firestore.firestore()
+    let dateFormatter = DateFormatter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.createActivity.dataSource = self;
         createAct = [" ","Create a new activity", "Create from save"]
         
+        photo.roundImage()
         photo.image = UIImage(named: "AH.jpg")
         
         self.scheduleTable.delegate = self
@@ -78,20 +79,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
 
     //set up pickerView
-    @IBAction func selectCreate(_ sender: Any) {
-        pickerRow = createActivity.selectedRow(inComponent: 0)
-        if pickerRow == 1 {
-            
-            self.performSegue(withIdentifier: "createNewSegue", sender: self)
-            createActivity.isHidden = true
-            selectButton.isHidden = true
-        }
-        else if pickerRow == 2 {
-            self.performSegue(withIdentifier: "fromSaveSegue", sender: self)
-            createActivity.isHidden = true
-            selectButton.isHidden = true
-        }
-    }
+     @IBAction func selectCreate(_ sender: Any) {
+           pickerRow = createActivity.selectedRow(inComponent: 0)
+           if pickerRow == 0 {
+               
+               self.performSegue(withIdentifier: "createNewSegue", sender: self)
+               createActivity.isHidden = true
+               selectButton.isHidden = true
+           }
+           else if pickerRow == 1 {
+               self.performSegue(withIdentifier: "fromSaveSegue", sender: self)
+               createActivity.isHidden = true
+               selectButton.isHidden = true
+           }
+       }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
@@ -105,20 +106,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func addActivity(activity: Activity) {
-//        let vc = NewActivityViewController(nibName: "NewActivityViewController", bundle: nil)
-//        vc.delegate = self
-        //let newActivity = vc.newActivity
         mySchedule.append(activity)
         addActivityToFirebase(activity: activity)
-
-        
-        //dateFormatter.timeStyle = .short
-        
-
         mySchedule.sort(by: {$0.start_time < $1.start_time})
+        savedList.append(activity)
+        savedList.sort(by: {$0.name < $1.name})
         scheduleTable.reloadData()
     }
     
+    //update activity when segue back after editing
+    func saveChange(activity: Activity, index:Int){
+        mySchedule[index] = activity
+        mySchedule.sort(by: {$0.start_time < $1.start_time})
+        scheduleTable.reloadData()
+    }
+    //add activity from saved when segue back
+    func addSavedActivity(activity: Activity) {
+        mySchedule.append(activity)
+        mySchedule.sort(by: {$0.start_time < $1.start_time})
+        scheduleTable.reloadData()
+        print(savedList.count)
+    }
     
     
     //Add Activity to firebase
@@ -235,11 +243,51 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     
+    //edit existing activity and update table cell (swipe to the right)
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion) in
+            
+            self.indexToEdit = indexPath.row
+            self.performSegue(withIdentifier: "editSegue", sender: self)
+            completion(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [edit])
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "createNewSegue" {
             let vc: NewActivityViewController = segue.destination as! NewActivityViewController
             vc.delegate = self
         }
+        else if segue.identifier == "editSegue"{
+            let vc: EditActivityViewController = segue.destination as! EditActivityViewController
+            vc.delegate = self
+            vc.activityToEdit = mySchedule[indexToEdit]
+            vc.activityIndex = indexToEdit
+            
+        }
+        else if segue.identifier == "fromSaveSegue"{
+            let vc: SaveActivityViewController = segue.destination as! SaveActivityViewController
+            vc.delegate = self
+            vc.savedSchedule = savedList
+        }
+//        else if segue.identifier == "viewSavedSegue"{
+//            let vc: SavedDisplayViewController = segue.destination as! SavedDisplayViewController
+//            vc.delegate = self
+//            vc.mySchedule = mySchedule
+//        }
+    }
+}
+
+extension UIImageView {
+    
+    func roundImage() {
+        let radius = self.frame.width / 2
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
     }
 }
 

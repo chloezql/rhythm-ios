@@ -41,6 +41,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
+        delegate?.removeFromFirebase(activity: activityToEdit)
         
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
@@ -149,8 +150,12 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
             
             activityToEdit = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
             
-            //self.delegate?.saveChange(activity: activityToEdit, index: activityIndex)
+            
+            
+            self.delegate?.saveChange(activity: activityToEdit, index: activityIndex)
 
+            self.delegate?.addActivityToFirebase(activity: activityToEdit)
+            
             dismiss(animated: true, completion: nil)
             
         }
@@ -173,6 +178,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     //go back without adding anything
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        self.delegate?.addActivityToFirebase(activity: activityToEdit)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

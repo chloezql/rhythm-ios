@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D6C54336FB3EAC7445B95B8 /* Pods_RhytmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */; };
 		75D88BCD80060D0EF9CAA390 /* Pods_Rhytm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */; };
+		9E0B1DA0245FD9BB00C02DA5 /* EditActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0B1D9F245FD9BA00C02DA5 /* EditActivityViewController.swift */; };
 		9E278136245C0442004C7888 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E278135245C0442004C7888 /* SceneDelegate.swift */; };
 		9E27813B245C0536004C7888 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E278138245C0536004C7888 /* LaunchScreen.storyboard */; };
 		9E27813C245C0536004C7888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E278139245C0536004C7888 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		344CF9506E29D4B7E9B30DB2 /* Pods-RhytmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhytmTests.release.xcconfig"; path = "Target Support Files/Pods-RhytmTests/Pods-RhytmTests.release.xcconfig"; sourceTree = "<group>"; };
 		59753A8179EE5358E26CFD13 /* Pods-RhytmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhytmTests.debug.xcconfig"; path = "Target Support Files/Pods-RhytmTests/Pods-RhytmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhytm_RhytmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E0B1D9F245FD9BA00C02DA5 /* EditActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditActivityViewController.swift; sourceTree = "<group>"; };
 		9E278135245C0442004C7888 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E278138245C0536004C7888 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E278139245C0536004C7888 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				9E278140245C0970004C7888 /* ViewController.swift */,
+				9E0B1D9F245FD9BA00C02DA5 /* EditActivityViewController.swift */,
 				9E278139245C0536004C7888 /* Main.storyboard */,
 				9EFC6E99245BF76500B1CB93 /* SaveActivityViewController.swift */,
 				9EFC6E9F245BF76600B1CB93 /* NewActivityViewController.swift */,
@@ -487,6 +490,7 @@
 				9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */,
 				9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */,
 				9EFC6EA4245BF76600B1CB93 /* DateTextTableViewCell.swift in Sources */,
+				9E0B1DA0245FD9BB00C02DA5 /* EditActivityViewController.swift in Sources */,
 				9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */,
 				9E278136245C0442004C7888 /* SceneDelegate.swift in Sources */,
 				9E278141245C0970004C7888 /* ViewController.swift in Sources */,
