@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestoreSwift
+import FirebaseFirestore
+
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, activityDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,14 +22,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var createActivity: UIPickerView!
     @IBOutlet weak var photo: UIImageView!
     
+    
+    let userID = Auth.auth().currentUser!.uid
+    let db = Firestore.firestore()
+    
+    let dateFormatter = DateFormatter()
+    
+    
     var createAct: [String] = [String]()
     var pickerRow = 0
-    var mySchedule: [Activity] = [Activity]()
+    var mySchedule: [Activity] = []
     var scheduleIndexPath: IndexPath?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getActivitiesFromFirestore()
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        
         // Do any additional setup after loading the view.
         createActivity.isHidden = true
         selectButton.isHidden = true
@@ -43,8 +60,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         scheduleTable.tableFooterView = UIView()
 //        var act = Activity(myName: "ame", myDesc: "", myStart: Date(), myEnd: Date(), myColor: "blue")
 //        mySchedule.append(act)
-    }
-    
+    } 
     
 
     @IBAction func dropDownCreate(_ sender: Any) {
@@ -93,13 +109,83 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //        vc.delegate = self
         //let newActivity = vc.newActivity
         mySchedule.append(activity)
+        addActivityToFirebase(activity: activity)
+
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
+        //dateFormatter.timeStyle = .short
         
 
         mySchedule.sort(by: {$0.start_time < $1.start_time})
         scheduleTable.reloadData()
+    }
+    
+    
+    
+    //Add Activity to firebase
+    func addActivityToFirebase(activity: Activity)
+    {
+        //dateFormatter.dateStyle = .short
+        let docuTitle = activityTitle(activity: activity)
+        do{
+            try
+                _ = //db.collection("users").document(userID).collection("Activities").addDocument(from: activity)
+                db.collection("users").document(userID).collection("Activities").document(docuTitle).setData(from: activity)
+                    
+        } catch{
+            print("Unable to add activity to firestore")
+        }
+    }
+    
+    
+    func getActivitiesFromFirestore()
+    {
+        print("isCalled")
+        db.collection("users").document(userID).collection("Activities").getDocuments() { (snapshot, error) in
+            if let error = error
+            {
+                print(error)
+                return
+            }
+            else
+            {
+                for document in snapshot!.documents
+                {
+                    let result = Result{
+                        try document.data(as: Activity.self)
+                    }
+                    switch result{
+                    case .success(let newAct):
+                        let newAct = newAct
+                        
+                        if(newAct!.start_time > Date())
+                        {
+                            self.mySchedule.append(newAct!)
+                            self.scheduleTable.reloadData()
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
+        
+    
+    func removeFromFirebase(activity: Activity)
+    {
+        let docuTitle = activityTitle(activity: activity)
+        db.collection("users").document(userID).collection("Activities").document(docuTitle).delete()
+    }
+    
+    
+    func activityTitle(activity:Activity) ->String
+    {
+        let title = dateFormatter.string(from: activity.start_time)
+        print(title)
+        return title
     }
     
     
@@ -138,6 +224,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
+           
+            //TODO:Implement Delete from firebase
+            let actToRemove = mySchedule[mySchedule.index(after: (indexPath.row)-1)]
+            removeFromFirebase(activity: actToRemove)
+            
             mySchedule.remove(at: indexPath.row)
             scheduleTable.deleteRows(at: [indexPath], with: .fade)
         }
