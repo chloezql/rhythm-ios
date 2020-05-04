@@ -296,6 +296,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion) in
             
+            let actToRemove = self.mySchedule[self.mySchedule.index(after: (indexPath.row)-1)]
+            self.removeFromFirebase(activity: actToRemove)            
             self.indexToEdit = indexPath.row
             self.performSegue(withIdentifier: "editSegue", sender: self)
             completion(true)
