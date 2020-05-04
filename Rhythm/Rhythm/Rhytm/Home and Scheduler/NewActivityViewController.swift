@@ -28,6 +28,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var redHL: UIButton!
     @IBOutlet weak var yellowHL: UIButton!
     
+    @IBOutlet weak var MusicButton: UIButton!
     weak var delegate: ViewController?
     
     var datePickerIndexPath: IndexPath?
@@ -39,7 +40,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
-        
+         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
         timeTable.tableFooterView = UIView()
@@ -49,8 +50,6 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.timeTable.delegate = self
         self.timeTable.dataSource = self
-//        self.nameText.delegate = self
-//        self.descriptionText.delegate = self
         
         blueHL.isHidden = true
         redHL.isHidden = true
@@ -75,8 +74,16 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
-        
-        //if date is in the past, pop up alert
+            
+        //schedule end time must be equal or later to start time
+        else if (myDates[1]<myDates[0]){
+            let alert2 = UIAlertController(title: "Cannot add activity", message: "You activity cannot end before it starts", preferredStyle: .alert)
+                
+                alert2.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+                self.present(alert2, animated: true)
+        }
+            
+        //startDate cannot be in the past
         else if(myDates[0] < Date())
         {
             let alert = UIAlertController(title: "Cannot Add activity", message: "Start date cannot be in the past", preferredStyle: .alert)
@@ -92,8 +99,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             self.present(alert, animated: true)
         }
             
-            
-            //go back and add activity to schedule if all requirements satisfied
+        //go back and add activity to schedule if all requirements satisfied
         else {
             var currentColor = ""
             if (blueTag.isSelected == true){
@@ -105,7 +111,6 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             else if(yellowTag.isSelected == true){
                 currentColor = "yellow"
             }
-        
             
             newActivity = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
             
@@ -116,23 +121,18 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
     func invalidStartTime() -> (Bool)
     {
-        let formatter = self.delegate!.dateFormatter
         
         for activity in self.delegate!.mySchedule
         {
-            if(formatter.string(from: myDates[0]) == formatter.string(from: activity.start_time))
+            if(myDates[0] == activity.start_time)
             {
                 return (true)
             }
         }
         return (false)
     }
-    
-    
-    
 
     //go back without adding anything
     @IBAction func goBack(_ sender: Any) {
@@ -194,8 +194,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             let dateCell = tableView.dequeueReusableCell(withIdentifier: "DateTextTableViewCellIdentifier") as! DateTextTableViewCell
             dateCell.updateText(text: myTexts[indexPath.row], date: myDates[indexPath.row])
-            
-            //dateCell.delegate = self
+
             return dateCell
         }
     }
@@ -239,7 +238,14 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-
+    
+    //go pick music in music library
+    @IBAction func goToLibrary(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MusicStoryboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "playlist") as UIViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
     /*
      
      // MARK: - Navigation

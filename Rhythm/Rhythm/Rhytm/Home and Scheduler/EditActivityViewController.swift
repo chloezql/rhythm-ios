@@ -34,6 +34,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     var myTexts: [String] = ["Start time", "End time"]
     var myDates: [Date] = [Date(),Date()]
     var displayViewController: ViewController?
+    var myStartTime = Date()
     
     var activityToEdit: Activity!
     var activityIndex: Int!
@@ -41,7 +42,6 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
-        delegate?.removeFromFirebase(activity: activityToEdit)
         
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
@@ -93,7 +93,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
         
         myDates[0] = activityToEdit.start_time
         myDates[1] = activityToEdit.end_time
-        
+        myStartTime = activityToEdit.start_time
     }
     
     
@@ -120,12 +120,12 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
         }
             
         //startDate cannot be in the past
-        else if(myDates[0] < Date())
-        {
-            let alert = UIAlertController(title: "Cannot save activity", message: "Start date cannot be in the past", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
-            self.present(alert, animated: true)
-        }
+//        else if(myDates[0] < Date())
+//        {
+//            let alert = UIAlertController(title: "Cannot save activity", message: "Start date cannot be in the past", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+//            self.present(alert, animated: true)
+//        }
         
         //If start time is the same as another schedule item, pop up alert
         else if (invalidStartTime())
@@ -150,16 +150,15 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
             
             activityToEdit = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
             
-            
-            
             self.delegate?.saveChange(activity: activityToEdit, index: activityIndex)
-
             self.delegate?.addActivityToFirebase(activity: activityToEdit)
-            
+
             dismiss(animated: true, completion: nil)
             
         }
     }
+    
+    
     
     func invalidStartTime() -> (Bool)
     {
@@ -167,7 +166,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
         
         for activity in self.delegate!.mySchedule
         {
-            if(formatter.string(from: myDates[0]) == formatter.string(from: activity.start_time))
+            if(formatter.string(from: myDates[0]) == formatter.string(from: activity.start_time) && myDates[0] != myStartTime )
             {
                 return (true)
             }
@@ -177,8 +176,8 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     //go back without adding anything
     @IBAction func goBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
         self.delegate?.addActivityToFirebase(activity: activityToEdit)
+        dismiss(animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
