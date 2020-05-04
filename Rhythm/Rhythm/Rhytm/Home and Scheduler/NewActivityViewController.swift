@@ -28,6 +28,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var redHL: UIButton!
     @IBOutlet weak var yellowHL: UIButton!
     
+    @IBOutlet weak var MusicButton: UIButton!
     weak var delegate: ViewController?
     
     var datePickerIndexPath: IndexPath?
@@ -39,7 +40,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
-        
+         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
         timeTable.tableFooterView = UIView()
@@ -203,7 +204,14 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-
+    
+    //go pick music in music library
+    @IBAction func goToLibrary(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MusicStoryboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "playlist") as UIViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
     /*
      
      // MARK: - Navigation

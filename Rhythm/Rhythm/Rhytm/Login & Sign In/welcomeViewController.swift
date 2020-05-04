@@ -12,6 +12,7 @@ class welcomeViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "login-background.png")!)
 
         // Do any additional setup after loading the view.
     }

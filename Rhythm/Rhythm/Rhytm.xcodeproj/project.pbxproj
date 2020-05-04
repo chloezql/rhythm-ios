@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02D70978245FB0C00095CE2F /* You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D70976245FB0B90095CE2F /* You.mp3 */; };
+		02D70979245FB0C00095CE2F /* Comfort Zone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D70977245FB0BF0095CE2F /* Comfort Zone.mp3 */; };
+		02D7097B245FB0FB0095CE2F /* Echelon-Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D7097A245FB0FB0095CE2F /* Echelon-Effect.mp3 */; };
+		02D7097E245FB41E0095CE2F /* MusicStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D7097D245FB41E0095CE2F /* MusicStoryboard.storyboard */; };
+		02D70980245FB7FE0095CE2F /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D7097F245FB7FE0095CE2F /* MusicViewController.swift */; };
 		6D6C54336FB3EAC7445B95B8 /* Pods_RhytmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */; };
 		75D88BCD80060D0EF9CAA390 /* Pods_Rhytm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */; };
 		9E278136245C0442004C7888 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E278135245C0442004C7888 /* SceneDelegate.swift */; };
@@ -53,6 +58,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02D70976245FB0B90095CE2F /* You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = You.mp3; sourceTree = "<group>"; };
+		02D70977245FB0BF0095CE2F /* Comfort Zone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Comfort Zone.mp3"; sourceTree = "<group>"; };
+		02D7097A245FB0FB0095CE2F /* Echelon-Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Echelon-Effect.mp3"; sourceTree = "<group>"; };
+		02D7097D245FB41E0095CE2F /* MusicStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MusicStoryboard.storyboard; sourceTree = "<group>"; };
+		02D7097F245FB7FE0095CE2F /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		260F7FF30EA7500E1A500CC6 /* Pods-Rhytm-RhytmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm-RhytmUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		275036295CD6DD7C2AA5767B /* Pods-Rhytm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm.release.xcconfig"; path = "Target Support Files/Pods-Rhytm/Pods-Rhytm.release.xcconfig"; sourceTree = "<group>"; };
 		29A66813DFB895146E8994C0 /* Pods-Rhytm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm.debug.xcconfig"; path = "Target Support Files/Pods-Rhytm/Pods-Rhytm.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +131,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02D70975245FACB90095CE2F /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				02D7097A245FB0FB0095CE2F /* Echelon-Effect.mp3 */,
+				02D70977245FB0BF0095CE2F /* Comfort Zone.mp3 */,
+				02D70976245FB0B90095CE2F /* You.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		02D7097C245FB22B0095CE2F /* Music Library */ = {
+			isa = PBXGroup;
+			children = (
+				02D7097D245FB41E0095CE2F /* MusicStoryboard.storyboard */,
+				02D7097F245FB7FE0095CE2F /* MusicViewController.swift */,
+			);
+			path = "Music Library";
+			sourceTree = "<group>";
+		};
 		5CEDC412CF54E0FFB34F42D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +222,8 @@
 		9EC30356244BD08A00ECB93A /* Rhytm */ = {
 			isa = PBXGroup;
 			children = (
+				02D7097C245FB22B0095CE2F /* Music Library */,
+				02D70975245FACB90095CE2F /* Audio */,
 				9EC30357244BD08A00ECB93A /* AppDelegate.swift */,
 				9E278135245C0442004C7888 /* SceneDelegate.swift */,
 				9E27813F245C0607004C7888 /* Launch  */,
@@ -346,13 +377,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02D7097E245FB41E0095CE2F /* MusicStoryboard.storyboard in Resources */,
 				9EFC6EA9245BF76600B1CB93 /* DatePickerTableViewCell.xib in Resources */,
 				9EFC6EA3245BF76600B1CB93 /* DateTextTableViewCell.xib in Resources */,
 				9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */,
 				9E27813D245C0536004C7888 /* login.storyboard in Resources */,
+				02D7097B245FB0FB0095CE2F /* Echelon-Effect.mp3 in Resources */,
 				9E27813C245C0536004C7888 /* Main.storyboard in Resources */,
+				02D70979245FB0C00095CE2F /* Comfort Zone.mp3 in Resources */,
 				9EFC6EA5245BF76600B1CB93 /* DisplayScheduleTableViewCell.xib in Resources */,
 				9E27813B245C0536004C7888 /* LaunchScreen.storyboard in Resources */,
+				02D70978245FB0C00095CE2F /* You.mp3 in Resources */,
 				9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +524,7 @@
 				9EFC6EA4245BF76600B1CB93 /* DateTextTableViewCell.swift in Sources */,
 				9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */,
 				9E278136245C0442004C7888 /* SceneDelegate.swift in Sources */,
+				02D70980245FB7FE0095CE2F /* MusicViewController.swift in Sources */,
 				9E278141245C0970004C7888 /* ViewController.swift in Sources */,
 				9E604B772455848900EEDBCA /* welcomeViewController.swift in Sources */,
 				9EFC6EAD245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift in Sources */,

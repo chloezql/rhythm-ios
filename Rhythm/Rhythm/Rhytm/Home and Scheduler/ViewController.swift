@@ -35,7 +35,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         createAct = [" ","Create a new activity", "Create from save"]
         
         photo.image = UIImage(named: "AH.jpg")
-        
+        photo.layer.borderWidth = 1
+        photo.layer.masksToBounds = false
+        photo.layer.borderColor = UIColor.black.cgColor
+        photo.layer.cornerRadius = photo.frame.height/2
+        photo.clipsToBounds = true
         self.scheduleTable.delegate = self
         self.scheduleTable.dataSource = self
         scheduleTable.register(UINib(nibName: "DisplayScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "DisplayScheduleTableViewCellIdentifier")

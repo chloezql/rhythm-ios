@@ -28,7 +28,8 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        //set background image
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
         timeTable.tableFooterView = UIView()
