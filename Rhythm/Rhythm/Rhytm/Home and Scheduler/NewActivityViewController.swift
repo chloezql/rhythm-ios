@@ -119,10 +119,11 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     
     func invalidStartTime() -> (Bool)
     {
+        let formatter = self.delegate!.dateFormatter
         
         for activity in self.delegate!.mySchedule
         {
-            if(myDates[0] == activity.start_time)
+            if(formatter.string(from: myDates[0]) == formatter.string(from: activity.start_time))
             {
                 return (true)
             }

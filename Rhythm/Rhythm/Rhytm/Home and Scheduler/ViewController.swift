@@ -31,7 +31,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var createAct: [String] = [String]()
     var pickerRow = 0
-    var mySchedule: [Activity] = []// = [Activity]()
+    var mySchedule: [Activity] = []
     var scheduleIndexPath: IndexPath?
 
     
@@ -43,6 +43,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        
         // Do any additional setup after loading the view.
         createActivity.isHidden = true
         selectButton.isHidden = true
@@ -113,7 +117,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         addActivityToFirebase(activity: activity)
 
         
-        dateFormatter.timeStyle = .short
+        //dateFormatter.timeStyle = .short
         
 
         mySchedule.sort(by: {$0.start_time < $1.start_time})
@@ -125,12 +129,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //Add Activity to firebase
     func addActivityToFirebase(activity: Activity)
     {
-        dateFormatter.timeStyle = .short
-        let dateAsString = dateFormatter.string(from: activity.start_time)
+        //dateFormatter.dateStyle = .short
+        let docuTitle = activityTitle(activity: activity)
         do{
             try
                 _ = //db.collection("users").document(userID).collection("Activities").addDocument(from: activity)
-                db.collection("users").document(userID).collection("Activities").document(dateAsString).setData(from: activity)
+                db.collection("users").document(userID).collection("Activities").document(docuTitle).setData(from: activity)
                     
         } catch{
             print("Unable to add activity to firestore")
@@ -157,7 +161,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     switch result{
                     case .success(let newAct):
                         let newAct = newAct
-                        self.mySchedule.append(newAct!)
+                        
+                        if(newAct!.start_time > Date())
+                        {
+                            self.mySchedule.append(newAct!)
+                            self.scheduleTable.reloadData()
+                        }
                     case .failure(let error):
                         print(error)
                     }
@@ -170,13 +179,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
         
     
-//    func removeFromFirebase(activity: Activity)
-//    {
-//        let activitySearch = db.collection("users").document(userID).collection("Activities").whereField("name", isEqualTo: activity.name).whereField("start_time", isEqualTo: activity.start_time)
-//        
-//        db.collection("users").document(userID).collection("Activities").document(activitySearch)
-//    }
-//    
+    func removeFromFirebase(activity: Activity)
+    {
+        let docuTitle = activityTitle(activity: activity)
+        db.collection("users").document(userID).collection("Activities").document(docuTitle).delete()
+    }
+    
+    
+    func activityTitle(activity:Activity) ->String
+    {
+        let title = dateFormatter.string(from: activity.start_time)
+        print(title)
+        return title
+    }
+    
     
     
     //set up tableView
@@ -215,8 +231,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if editingStyle == .delete{
            
             //TODO:Implement Delete from firebase
-            //let actToRemove = mySchedule[mySchedule.index(after: (indexPath.row)-1)]
-            //removeFromFirebase(activity: actToRemove)
+            let actToRemove = mySchedule[mySchedule.index(after: (indexPath.row)-1)]
+            removeFromFirebase(activity: actToRemove)
             
             mySchedule.remove(at: indexPath.row)
             scheduleTable.deleteRows(at: [indexPath], with: .fade)
