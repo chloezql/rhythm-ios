@@ -33,16 +33,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var pickerRow = 0
     var mySchedule: [Activity] = []
     var scheduleIndexPath: IndexPath?
-
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getActivitiesFromFirestore()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getActivitiesFromFirestore()
         
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
