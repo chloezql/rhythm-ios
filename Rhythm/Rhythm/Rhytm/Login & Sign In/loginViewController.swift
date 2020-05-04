@@ -45,9 +45,6 @@ class loginViewController: UIViewController, UITextFieldDelegate{
             return false
         }
         
-        
-        
-        
         return true
     }
     

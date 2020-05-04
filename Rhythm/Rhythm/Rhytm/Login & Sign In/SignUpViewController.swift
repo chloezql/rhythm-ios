@@ -53,11 +53,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             return false
         }
 
-        if(isValidPassword(password: password.text!) == false)
-        {
-            callError(errorText: "Password must include at least one number, a special character ($@$#!%?&), and an uppercase letter.")
-            return false
-        }
+//        if(isValidPassword(password: password.text!) == false)
+//        {
+//            callError(errorText: "Password must include at least one number, a special character ($@$#!%?&), and an uppercase letter.")
+//            return false
+//        }
         
         if(confirmPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) != password.text?.trimmingCharacters(in: .whitespacesAndNewlines))
         {
@@ -88,12 +88,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                 else
                 {
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName":fName , "lastName": lName, "uid": result!.user.uid]) { (error) in
-                        if error != nil
-                        {
-                            self.callError(errorText: error!.localizedDescription)
-                        }
-                    }
+                    db.collection("users").document(result!.user.uid).setData(["firstName":fName, "lastName": lName])
+//                    db.collection("users").addDocument(data: ["firstName": fName , "lastName": lName, "uid": result!.user.uid]) { (error) in
+//                        if error != nil
+//                        {
+//                            self.callError(errorText: error!.localizedDescription)
+//                        }
+            //}
                     self.transitionToHomeScreen()
                 }
             }

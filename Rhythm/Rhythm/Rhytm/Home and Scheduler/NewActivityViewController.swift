@@ -76,6 +76,23 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+        
+        //if date is in the past, pop up alert
+        else if(myDates[0] < Date())
+        {
+            let alert = UIAlertController(title: "Cannot Add activity", message: "Start date cannot be in the past", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        
+        //If start time is the same as another schedule item, pop up alert
+        else if (invalidStartTime())
+        {
+            let alert = UIAlertController(title: "Cannot add activity", message: "Start time confilict with other schedule item", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+            
             
             //go back and add activity to schedule if all requirements satisfied
         else {
@@ -89,6 +106,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             else if(yellowTag.isSelected == true){
                 currentColor = "yellow"
             }
+        
             
             newActivity = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
             
@@ -98,6 +116,24 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
     }
+    
+    
+    func invalidStartTime() -> (Bool)
+    {
+        let formatter = self.delegate!.dateFormatter
+        
+        for activity in self.delegate!.mySchedule
+        {
+            if(formatter.string(from: myDates[0]) == formatter.string(from: activity.start_time))
+            {
+                return (true)
+            }
+        }
+        return (false)
+    }
+    
+    
+    
 
     //go back without adding anything
     @IBAction func goBack(_ sender: Any) {
