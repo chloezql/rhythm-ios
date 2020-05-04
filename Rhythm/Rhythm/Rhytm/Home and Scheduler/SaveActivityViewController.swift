@@ -13,34 +13,40 @@ protocol saveActivityDelegate{
 }
 
 
-class SaveActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate,UIPickerViewDelegate, UIPickerViewDataSource, UISearchBarDelegate {
+class SaveActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UISearchBarDelegate {
     //@IBOutlet weak var scrolllView: UIScrollView!
     
     @IBOutlet weak var blueTag: UIButton!
     @IBOutlet weak var redTag: UIButton!
     @IBOutlet weak var yellowTag: UIButton!
     
-    @IBOutlet weak var savedSearch: UISearchBar!
+ 
     @IBOutlet weak var blueHL: UIButton!
     @IBOutlet weak var redHL: UIButton!
     @IBOutlet weak var yellowHL: UIButton!
     
-    @IBOutlet weak var dropDownButton: UIButton!
+    @IBOutlet weak var savedSearch: UISearchBar!
     @IBOutlet weak var pickFromSave: UIPickerView!
     @IBOutlet weak var selectButton: UIButton!
-    var pickerRow = 0
+
     var activityName: [String] = [String]()
     
+    @IBOutlet weak var selectTable: UITableView!
     @IBOutlet weak var timeTable: UITableView!
     var datePickerIndexPath: IndexPath?
     var myTexts: [String] = ["Start time", "End time"]
     var myDates: [Date] = [Date(),Date()]
     
+    var hasSelectedAnActivity = false
+    
     weak var delegate: ViewController?
     
     var selectedActivity: Activity!
+    var selectedIndex = -1
     var newActivity = Activity(myName: "",myDesc: "",myStart: Date(), myEnd: Date(), myColor:"")
     var savedSchedule: [Activity] = [Activity]()
+    var filteredSchedule: [Activity] = [Activity]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,20 +55,24 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
 
         timeTable.tableFooterView = UIView()
-
+        selectTable.tableFooterView = UIView()
         
         timeTable.register(UINib(nibName: "DatePickerTableViewCell", bundle: nil), forCellReuseIdentifier: "DatePickerTableViewCellIdentifier")
         timeTable.register(UINib(nibName: "DateTextTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTextTableViewCellIdentifier")
+        selectTable.register(UINib(nibName: "SearchableSavedDataTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchableSavedDataTableViewCellIdentifier")
         
         self.timeTable.delegate = self
         self.timeTable.dataSource = self
         
-        self.pickFromSave.delegate = self
-        self.pickFromSave.dataSource = self
-        
+       
         self.savedSearch.delegate = self
         
-        pickFromSave.isHidden = true
+        self.selectTable.delegate = self
+        self.selectTable.dataSource = self
+        
+        selectTable.isHidden = true
+        //selectTable.backgroundColor = UIColor(red: 205/255, green: 213/255, blue: 238/255, alpha: 1)
+        
         selectButton.isHidden = true
         
         blueHL.isHidden = true
@@ -73,10 +83,10 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         redTag.isSelected = false
         yellowTag.isSelected = false
         
-        print(activityName.count)
         for activity in savedSchedule{
             activityName.append(activity.name)
         }
+        filteredSchedule = savedSchedule
         
     }
     
@@ -104,7 +114,11 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
             alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
-            
+        else if hasSelectedAnActivity == false{
+            let alert = UIAlertController(title: "Cannot add activity", message: "You must select an activity", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
             //go back and add activity to schedule if all requirements satisfied
         else {
             var currentColor = ""
@@ -125,20 +139,16 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func invalidStartTime() -> (Bool)
-    {
-        
-        for activity in self.delegate!.mySchedule
-        {
-            if(myDates[0] == activity.start_time)
-            {
+    func invalidStartTime() -> (Bool){
+        for activity in self.delegate!.mySchedule{
+            if(myDates[0] == activity.start_time){
                 return (true)
             }
         }
         return (false)
     }
     
-    //go back to home without adding schedule
+    //go back to home page without adding schedule
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -151,35 +161,41 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     //display/close pickerView
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         
-        pickFromSave.isHidden = false
-        selectButton.isHidden = false
         
+        selectButton.isHidden = false
+        selectTable.isHidden = false
         return true
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        pickFromSave.isHidden = true
+        
         selectButton.isHidden = true
+        selectTable.isHidden = true
         return true
     }
     
-    
-    //set up pickerView
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1;
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredSchedule = searchText.isEmpty ? savedSchedule : savedSchedule.filter { (item: Activity) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        selectTable.reloadData()
+        if selectedIndex >= 0{
+            selectedActivity = filteredSchedule[selectedIndex]
+        }
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return savedSchedule.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return activityName[row]
-    }
+    
     
     @IBAction func selected(_ sender: Any) {
-        pickerRow = pickFromSave.selectedRow(inComponent: 0)
-        selectedActivity = savedSchedule[pickerRow]
-        savedSearch.text = selectedActivity.name
+        
+        if (selectedIndex < 0 || (selectTable.isHidden == false && selectTable.numberOfRows(inSection: 0) == 0)){
+            let alert = UIAlertController(title: "Error", message: "You must select an activity", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        //savedSearch.text = selectedActivity.name
         if selectedActivity.color == "blue"{
             blueHL.isHidden = false
             redHL.isHidden = true
@@ -221,10 +237,12 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         myDates[1] = selectedActivity.end_time
         timeTable.reloadData()
         
-        pickFromSave.isHidden = true
+        
         selectButton.isHidden = true
+        selectedIndex = -1
         
         self.view.endEditing(true)
+        hasSelectedAnActivity = true
     }
     
     
@@ -263,49 +281,75 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     //setting up inline date picker
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if datePickerIndexPath != nil {
-            return 3
-        } else {
-            return 2
+        if tableView == selectTable{
+            return filteredSchedule.count
+        }
+        else{
+            if datePickerIndexPath != nil {
+                return 3
+            } else {
+                return 2
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if datePickerIndexPath == indexPath {
-            let datePickerCell = tableView.dequeueReusableCell(withIdentifier: "DatePickerTableViewCellIdentifier") as! DatePickerTableViewCell
-            datePickerCell.updatePicker(date: myDates[indexPath.row - 1], indexPath: indexPath)
-            datePickerCell.delegate = self
-            return datePickerCell
-        } else {
-            let dateCell = tableView.dequeueReusableCell(withIdentifier: "DateTextTableViewCellIdentifier") as! DateTextTableViewCell
-            dateCell.updateText(text: myTexts[indexPath.row], date: myDates[indexPath.row])
-            
-            return dateCell
+        if tableView == selectTable{
+            let nameCell = tableView.dequeueReusableCell(withIdentifier: "SearchableSavedDataTableViewCellIdentifier") as! SearchableSavedDataTableViewCell
+            nameCell.updateText(text:filteredSchedule[indexPath.row].name)
+            return nameCell
+        }
+        else{
+            if datePickerIndexPath == indexPath {
+                let datePickerCell = tableView.dequeueReusableCell(withIdentifier: "DatePickerTableViewCellIdentifier") as! DatePickerTableViewCell
+                datePickerCell.updatePicker(date: myDates[indexPath.row - 1], indexPath: indexPath)
+                datePickerCell.delegate = self
+                return datePickerCell
+            } else {
+                let dateCell = tableView.dequeueReusableCell(withIdentifier: "DateTextTableViewCellIdentifier") as! DateTextTableViewCell
+                dateCell.updateText(text: myTexts[indexPath.row], date: myDates[indexPath.row])
+                
+                return dateCell
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if datePickerIndexPath == indexPath {
-            return 165.0
-        } else {
+        if tableView == selectTable{
             return 44.0
+        }
+        else{
+            if datePickerIndexPath == indexPath {
+                return 165.0
+            } else {
+                return 44.0
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.beginUpdates()
-        if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row - 1 == indexPath.row {
-            tableView.deleteRows(at: [datePickerIndexPath], with: .fade)
-            self.datePickerIndexPath = nil
-        } else {
-            if let datePickerIndexPath = datePickerIndexPath {
+        if tableView == timeTable{
+            tableView.beginUpdates()
+            if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row - 1 == indexPath.row {
                 tableView.deleteRows(at: [datePickerIndexPath], with: .fade)
+                self.datePickerIndexPath = nil
+            } else {
+                if let datePickerIndexPath = datePickerIndexPath {
+                    tableView.deleteRows(at: [datePickerIndexPath], with: .fade)
+                }
+                datePickerIndexPath = indexPathToInsertDatePicker(indexPath: indexPath)
+                tableView.insertRows(at: [datePickerIndexPath!], with: .fade)
+                tableView.deselectRow(at: indexPath, animated: true)
             }
-            datePickerIndexPath = indexPathToInsertDatePicker(indexPath: indexPath)
-            tableView.insertRows(at: [datePickerIndexPath!], with: .fade)
-            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.endUpdates()
         }
-        tableView.endUpdates()
+        else{
+            
+            selectedIndex = indexPath.row
+         
+            selectedActivity = filteredSchedule[selectedIndex]
+            savedSearch.text = selectedActivity.name
+        }
     }
     
     func indexPathToInsertDatePicker(indexPath: IndexPath) -> IndexPath {
