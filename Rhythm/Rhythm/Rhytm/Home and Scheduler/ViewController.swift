@@ -233,7 +233,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
            
-            //TODO:Implement Delete from firebase
             let actToRemove = mySchedule[mySchedule.index(after: (indexPath.row)-1)]
             removeFromFirebase(activity: actToRemove)
             
