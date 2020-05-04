@@ -151,18 +151,22 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
             activityToEdit = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
             
             self.delegate?.saveChange(activity: activityToEdit, index: activityIndex)
+            self.delegate?.addActivityToFirebase(activity: activityToEdit)
 
             dismiss(animated: true, completion: nil)
             
         }
     }
     
+    
+    
     func invalidStartTime() -> (Bool)
     {
+        let formatter = self.delegate!.dateFormatter
         
         for activity in self.delegate!.mySchedule
         {
-            if(myDates[0] == activity.start_time && myDates[0] != myStartTime)
+            if(formatter.string(from: myDates[0]) == formatter.string(from: activity.start_time) && myDates[0] != myStartTime )
             {
                 return (true)
             }
@@ -172,6 +176,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     //go back without adding anything
     @IBAction func goBack(_ sender: Any) {
+        self.delegate?.addActivityToFirebase(activity: activityToEdit)
         dismiss(animated: true, completion: nil)
     }
     
