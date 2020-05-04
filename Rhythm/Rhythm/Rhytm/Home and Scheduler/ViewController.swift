@@ -187,7 +187,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let dateAsString = dateFormatter.string(from: activity.start_time)
         do{
             try
-                _ = //db.collection("users").document(userID).collection("Activities").addDocument(from: activity)
+                _ =
                 db.collection("users").document(userID).collection("Activities").document(dateAsString).setData(from: activity)
         } catch{
             print("Unable to add activity to firestore")
@@ -197,7 +197,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func getActivitiesFromFirestore()
     {
-        //print("isCalled")
+        print("isCalled")
         db.collection("users").document(userID).collection("Activities").getDocuments() { (snapshot, error) in
             if let error = error
             {
@@ -214,15 +214,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     switch result{
                     case .success(let newAct):
                         let newAct = newAct
-                        self.mySchedule.append(newAct!)
-                        self.setNotification(time: newAct!.start_time)
-                        self.scheduleTable.reloadData()
                         
-                        
+                        if(newAct!.start_time > Date())
+                        {
+                            self.mySchedule.append(newAct!)
+                            self.scheduleTable.reloadData()
+                        }
                     case .failure(let error):
                         print(error)
-                    
-                    
                     }
                     
                 }
