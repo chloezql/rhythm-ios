@@ -12,7 +12,7 @@ import CoreData
 import Firebase
 //import GoogleSignIn
 import FirebaseAuth
-
+import FirebaseStorage
 
 
 @UIApplicationMain
