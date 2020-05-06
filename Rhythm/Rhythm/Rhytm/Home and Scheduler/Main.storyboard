@@ -28,7 +28,7 @@
                                 <rect key="frame" x="144" y="87" width="270" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4g-Dm-tzA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4g-Dm-tzA">
                                 <rect key="frame" x="20" y="7" width="96" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="9zc-ps-DKr"/>
@@ -60,14 +60,6 @@
                                     <action selector="dropDownCreate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WZ5-V5-2Z1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJB-UX-xPf">
-                                <rect key="frame" x="132" y="51" width="151" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Click to see the music"/>
-                                <connections>
-                                    <segue destination="TSV-0z-fRN" kind="show" id="66k-FH-lhh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -97,7 +89,6 @@
                         <segue destination="Q9w-TG-Gb2" kind="presentation" identifier="fromSaveSegue" id="8Ul-us-7sy"/>
                         <segue destination="HW5-jL-my8" kind="presentation" identifier="editSegue" id="mTm-z3-Mgh"/>
                         <segue destination="gZq-gF-gKX" kind="presentation" identifier="viewSavedSegue" id="dBp-Ub-6Wu"/>
-                        <segue destination="TSV-0z-fRN" kind="show" id="gXI-gF-VB9"/>
                         <segue destination="C9P-KC-YKM" kind="show" identifier="timerSegue" id="9yl-lS-2EY"/>
                     </connections>
                 </viewController>
@@ -366,7 +357,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="A3v-FS-AZs" kind="show" id="AAY-Fi-yUb"/>
+                                    <segue destination="TSV-0z-fRN" kind="show" id="AtO-by-4gv"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XKI-0T-LOb">
@@ -445,11 +436,11 @@
             <objects>
                 <viewController storyboardIdentifier="playlist" id="A3v-FS-AZs" customClass="MusicViewController" customModule="Rhytm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nc7-HX-iTn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ORq-FN-vf2">
-                                <rect key="frame" x="20" y="8" width="100" height="129"/>
+                                <rect key="frame" x="20" y="52" width="100" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="7yr-fi-BVi"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="KPT-It-ud5"/>
@@ -457,13 +448,13 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The Echelon Effect             Your First Light My Eventide" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aZK-g5-gVB">
-                                <rect key="frame" x="128" y="41.666666666666671" width="192" height="61.666666666666671"/>
+                                <rect key="frame" x="128" y="85.666666666666686" width="192" height="133"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wc-SQ-YPQ">
-                                <rect key="frame" x="40" y="43" width="60" height="58.000000000000014"/>
+                                <rect key="frame" x="40" y="87" width="60" height="58.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="963-Ip-y8F"/>
                                     <constraint firstAttribute="height" constant="59.333333333333329" id="L4Q-Wm-M6E"/>
@@ -478,7 +469,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="Rq3-OY-1fM">
-                                <rect key="frame" x="20" y="145" width="100" height="129"/>
+                                <rect key="frame" x="20" y="260" width="100" height="129"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="129" id="KEd-gc-XZm"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="cnv-B6-5CL"/>
@@ -487,7 +478,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="General Fuzz                 Comfort Zone" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eb6-O9-GdX">
-                                <rect key="frame" x="128" y="178.33333333333334" width="192" height="62"/>
+                                <rect key="frame" x="128" y="293.66666666666669" width="192" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="W1T-nL-rZT"/>
                                 </constraints>
@@ -496,7 +487,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk3-5S-tI0">
-                                <rect key="frame" x="40" y="180.66666666666666" width="60" height="58.000000000000014"/>
+                                <rect key="frame" x="40" y="296" width="60" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59.333333333333329" id="OAJ-nQ-SaH"/>
                                     <constraint firstAttribute="width" constant="60" id="nNQ-OG-isU"/>
@@ -512,7 +503,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="6P6-aD-ZTN">
-                                <rect key="frame" x="20" y="8" width="100" height="700"/>
+                                <rect key="frame" x="20" y="123" width="100" height="700"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Dui-5g-f1Z"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="d3r-9I-HEH"/>
@@ -520,13 +511,13 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Nils Frahm                        You" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-LM-axW">
-                                <rect key="frame" x="128" y="329.33333333333331" width="192" height="62.666666666666686"/>
+                                <rect key="frame" x="128" y="444.66666666666669" width="192" height="1.3333333333333144"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5o0-oN-7OT">
-                                <rect key="frame" x="40" y="330.33333333333331" width="60" height="58"/>
+                                <rect key="frame" x="40" y="445.66666666666669" width="60" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="UL3-lK-dys"/>
                                     <constraint firstAttribute="height" constant="59.333333333333329" id="c8T-HR-zmJ"/>
@@ -580,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksj-E0-NVn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="1031"/>
+            <point key="canvasLocation" x="2291" y="1031"/>
         </scene>
         <!--Saved Activity View Controller-->
         <scene sceneID="leD-jC-mx6">
@@ -755,7 +746,7 @@
                                     <color key="titleColor" red="0.41008609530000001" green="0.42107832429999997" blue="0.76082009080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="A3v-FS-AZs" kind="show" id="WuC-na-RNJ"/>
+                                    <segue destination="TSV-0z-fRN" kind="show" id="xQQ-kU-dZe"/>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" placeholder="search saved activity" translatesAutoresizingMaskIntoConstraints="NO" id="LeF-sA-Ldv">
@@ -1135,7 +1126,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hP9-yv-tHC">
-                                                    <rect key="frame" x="37" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="37" y="0.0" width="237" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="titleLabel"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1143,9 +1134,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <connections>
-                                                <outlet property="titleLabel" destination="hP9-yv-tHC" id="XBg-dS-yS7"/>
-                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="hP9-yv-tHC" id="BkV-ch-iy0"/>
@@ -1175,12 +1163,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qF-Re-jX6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-730.43478260869574" y="-598.66071428571422"/>
+            <point key="canvasLocation" x="1324.6376811594205" y="1030.5803571428571"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="66k-FH-lhh"/>
-        <segue reference="WuC-na-RNJ"/>
+        <segue reference="xQQ-kU-dZe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="500" height="500"/>

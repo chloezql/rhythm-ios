@@ -26,7 +26,6 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var yellowHL: UIButton!
     
     @IBOutlet weak var savedSearch: UISearchBar!
-    @IBOutlet weak var pickFromSave: UIPickerView!
     @IBOutlet weak var selectButton: UIButton!
 
     var activityName: [String] = [String]()
@@ -196,6 +195,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
             alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+        else{
         //savedSearch.text = selectedActivity.name
         if selectedActivity.color == "blue"{
             blueHL.isHidden = false
@@ -244,6 +244,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         
         self.view.endEditing(true)
         hasSelectedAnActivity = true
+        }
     }
     
     

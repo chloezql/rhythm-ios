@@ -25,10 +25,13 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.TableView.delegate = self
+        self.TableView.dataSource = self
+         TableView.tableFooterView = UIView()
         ref = Database.database().reference().child("songs")
         ref.observe(DataEventType.value, with: {(snapshot) in
             if snapshot.childrenCount > 0 {
-                print(snapshot)//worked
+                //print(snapshot)//worked
                 self.table.removeAll()
                 
                 for video in snapshot.children.allObjects as! [DataSnapshot] {
@@ -40,7 +43,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     let video = Videos(Title: Title as! String, Link: (videolink as! String))
                     self.table.append(video)
-                    print(video.Title!)//worked
+                    //print(video.Title!)//worked
                     
                     self.TableView.reloadData()
                 
@@ -69,7 +72,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         
         
     }
-    /*
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let videoURL = URL(string: table[indexPath.row].Link!) else {
             return
@@ -84,7 +87,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
             player.play()
         }
     }
-    */
+    
     
     
     override func didReceiveMemoryWarning() {
