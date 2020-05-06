@@ -29,7 +29,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var savedList: [Activity] = [Activity]()
     var scheduleIndexPath: IndexPath?
     var indexToEdit = -1
-    
+    var myIndex = 0
     
     let userID = Auth.auth().currentUser!.uid
     let db = Firestore.firestore()
@@ -326,11 +326,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let vc: SavedDisplayViewController = segue.destination as! SavedDisplayViewController
             vc.delegate = self
             vc.mySchedule = mySchedule
+        }else if (segue.identifier == "timerSegue") {
+            let vc: TimerViewController = segue.destination as! TimerViewController
+            
+            vc.schedule = mySchedule[indexToEdit]
         }
+        
+        
        
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        self.indexToEdit = indexPath.row
+        // Create an instance of PlayerTableViewController and pass the variable
+        //let destinationVC = TimerViewController()
+        //destinationVC.schedule = schedule
+        //destinationVC.performSegue(withIdentifier: "timerSegue", sender: self)
+        self.performSegue(withIdentifier: "timerSegue", sender: self)
     
+    }
 }
 
 extension UIImageView {

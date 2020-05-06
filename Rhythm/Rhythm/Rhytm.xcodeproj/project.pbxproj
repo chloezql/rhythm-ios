@@ -11,6 +11,7 @@
 		028D36EC24611A51008C0400 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36E924611A49008C0400 /* PlaylistViewController.swift */; };
 		028D36ED24611A51008C0400 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36EA24611A4E008C0400 /* Videos.swift */; };
 		028D36EE24611A51008C0400 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36EB24611A51008C0400 /* TableViewCell.swift */; };
+		028D36F024626AF8008C0400 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36EF24626AF8008C0400 /* TimerViewController.swift */; };
 		02D70978245FB0C00095CE2F /* You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D70976245FB0B90095CE2F /* You.mp3 */; };
 		02D70979245FB0C00095CE2F /* Comfort Zone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D70977245FB0BF0095CE2F /* Comfort Zone.mp3 */; };
 		02D7097B245FB0FB0095CE2F /* Echelon-Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D7097A245FB0FB0095CE2F /* Echelon-Effect.mp3 */; };
@@ -72,6 +73,7 @@
 		028D36E924611A49008C0400 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		028D36EA24611A4E008C0400 /* Videos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
 		028D36EB24611A51008C0400 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		028D36EF24626AF8008C0400 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		02D70976245FB0B90095CE2F /* You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = You.mp3; sourceTree = "<group>"; };
 		02D70977245FB0BF0095CE2F /* Comfort Zone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Comfort Zone.mp3"; sourceTree = "<group>"; };
 		02D7097A245FB0FB0095CE2F /* Echelon-Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Echelon-Effect.mp3"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				028D36EB24611A51008C0400 /* TableViewCell.swift */,
 				028D36EA24611A4E008C0400 /* Videos.swift */,
 				028D36E924611A49008C0400 /* PlaylistViewController.swift */,
+				028D36EF24626AF8008C0400 /* TimerViewController.swift */,
 			);
 			path = "Music Library";
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				028D36EC24611A51008C0400 /* PlaylistViewController.swift in Sources */,
 				9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */,
 				9E278136245C0442004C7888 /* SceneDelegate.swift in Sources */,
+				028D36F024626AF8008C0400 /* TimerViewController.swift in Sources */,
 				02D70980245FB7FE0095CE2F /* MusicViewController.swift in Sources */,
 				9E278141245C0970004C7888 /* ViewController.swift in Sources */,
 				9E0B1DA8246018AA00C02DA5 /* SearchableSavedDataTableViewCell.swift in Sources */,
