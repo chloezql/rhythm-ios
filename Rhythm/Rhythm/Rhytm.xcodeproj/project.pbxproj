@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		028D36E82460EAB6008C0400 /* SongFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36E72460EAB6008C0400 /* SongFirebase.swift */; };
+		028D36EC24611A51008C0400 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36E924611A49008C0400 /* PlaylistViewController.swift */; };
+		028D36ED24611A51008C0400 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36EA24611A4E008C0400 /* Videos.swift */; };
+		028D36EE24611A51008C0400 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36EB24611A51008C0400 /* TableViewCell.swift */; };
+		028D36F024626AF8008C0400 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D36EF24626AF8008C0400 /* TimerViewController.swift */; };
 		02D70978245FB0C00095CE2F /* You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D70976245FB0B90095CE2F /* You.mp3 */; };
 		02D70979245FB0C00095CE2F /* Comfort Zone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D70977245FB0BF0095CE2F /* Comfort Zone.mp3 */; };
 		02D7097B245FB0FB0095CE2F /* Echelon-Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02D7097A245FB0FB0095CE2F /* Echelon-Effect.mp3 */; };
@@ -43,6 +48,7 @@
 		9EFC6EAD245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E9E245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift */; };
 		9EFC6EAE245BF76600B1CB93 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E9F245BF76600B1CB93 /* NewActivityViewController.swift */; };
 		9EFC6EB0245BF76600B1CB93 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6EA1245BF76600B1CB93 /* Activity.swift */; };
+		EA1C71FD24651AFE00A36965 /* addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C71FC24651AFE00A36965 /* addViewController.swift */; };
 		F23B9AAAA527136C83C98D3A /* Pods_Rhytm_RhytmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EC94D23C06CD3FF89B900A /* Pods_Rhytm_RhytmUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +70,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		028D36E72460EAB6008C0400 /* SongFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFirebase.swift; sourceTree = "<group>"; };
+		028D36E924611A49008C0400 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
+		028D36EA24611A4E008C0400 /* Videos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
+		028D36EB24611A51008C0400 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		028D36EF24626AF8008C0400 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		02D70976245FB0B90095CE2F /* You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = You.mp3; sourceTree = "<group>"; };
 		02D70977245FB0BF0095CE2F /* Comfort Zone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Comfort Zone.mp3"; sourceTree = "<group>"; };
 		02D7097A245FB0FB0095CE2F /* Echelon-Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Echelon-Effect.mp3"; sourceTree = "<group>"; };
@@ -113,6 +124,7 @@
 		B30A1CD26DBAA5AAE292B447 /* Pods_RhytmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RhytmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97449BA6B30B4858478BE7B /* Pods_Rhytm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhytm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB9AA7E284244119B7C225A /* Pods-Rhytm-RhytmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhytm-RhytmUITests.release.xcconfig"; path = "Target Support Files/Pods-Rhytm-RhytmUITests/Pods-Rhytm-RhytmUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EA1C71FC24651AFE00A36965 /* addViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +170,11 @@
 			children = (
 				02D7097D245FB41E0095CE2F /* MusicStoryboard.storyboard */,
 				02D7097F245FB7FE0095CE2F /* MusicViewController.swift */,
+				028D36E72460EAB6008C0400 /* SongFirebase.swift */,
+				028D36EB24611A51008C0400 /* TableViewCell.swift */,
+				028D36EA24611A4E008C0400 /* Videos.swift */,
+				028D36E924611A49008C0400 /* PlaylistViewController.swift */,
+				028D36EF24626AF8008C0400 /* TimerViewController.swift */,
 			);
 			path = "Music Library";
 			sourceTree = "<group>";
@@ -176,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				9E278140245C0970004C7888 /* ViewController.swift */,
+				EA1C71FC24651AFE00A36965 /* addViewController.swift */,
 				9E0B1DA5246018AA00C02DA5 /* ActivityCollectionViewCell.swift */,
 				9E0B1DA1246018A900C02DA5 /* ActivityCollectionViewCell.xib */,
 				9E0B1DA2246018AA00C02DA5 /* SavedDisplayViewController.swift */,
@@ -539,17 +557,23 @@
 				9E0B1DA7246018AA00C02DA5 /* SavedDisplayViewController.swift in Sources */,
 				9EFC6EB0245BF76600B1CB93 /* Activity.swift in Sources */,
 				9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */,
+				028D36ED24611A51008C0400 /* Videos.swift in Sources */,
 				9EFC6EA8245BF76600B1CB93 /* SaveActivityViewController.swift in Sources */,
 				9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */,
+				028D36E82460EAB6008C0400 /* SongFirebase.swift in Sources */,
 				9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */,
 				9EFC6EA4245BF76600B1CB93 /* DateTextTableViewCell.swift in Sources */,
 				9E0B1DA0245FD9BB00C02DA5 /* EditActivityViewController.swift in Sources */,
+				EA1C71FD24651AFE00A36965 /* addViewController.swift in Sources */,
 				9E0B1DAA246018AA00C02DA5 /* ActivityCollectionViewCell.swift in Sources */,
+				028D36EC24611A51008C0400 /* PlaylistViewController.swift in Sources */,
 				9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */,
 				9E278136245C0442004C7888 /* SceneDelegate.swift in Sources */,
+				028D36F024626AF8008C0400 /* TimerViewController.swift in Sources */,
 				02D70980245FB7FE0095CE2F /* MusicViewController.swift in Sources */,
 				9E278141245C0970004C7888 /* ViewController.swift in Sources */,
 				9E0B1DA8246018AA00C02DA5 /* SearchableSavedDataTableViewCell.swift in Sources */,
+				028D36EE24611A51008C0400 /* TableViewCell.swift in Sources */,
 				9E604B772455848900EEDBCA /* welcomeViewController.swift in Sources */,
 				9EFC6EAD245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift in Sources */,
 				9EFC6EA6245BF76600B1CB93 /* DatePickerTableViewCell.swift in Sources */,

@@ -26,10 +26,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var yellowHL: UIButton!
     
     @IBOutlet weak var savedSearch: UISearchBar!
-    @IBOutlet weak var pickFromSave: UIPickerView!
     @IBOutlet weak var selectButton: UIButton!
-
-    var activityName: [String] = [String]()
     
     @IBOutlet weak var selectTable: UITableView!
     @IBOutlet weak var timeTable: UITableView!
@@ -52,7 +49,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //set background image
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
 
         timeTable.tableFooterView = UIView()
@@ -83,10 +80,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         blueTag.isSelected = false
         redTag.isSelected = false
         yellowTag.isSelected = false
-        
-        for activity in savedSchedule{
-            activityName.append(activity.name)
-        }
+       
         filteredSchedule = savedSchedule
         
     }
@@ -141,12 +135,14 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func invalidStartTime() -> (Bool){
-        for activity in self.delegate!.mySchedule{
-            if(myDates[0] == activity.start_time){
-                return (true)
+        for activity in self.delegate!.mySchedule
+        {
+            if(myDates[0] == activity.start_time)
+            {
+                return true
             }
         }
-        return (false)
+        return false
     }
     
     //go back to home page without adding schedule
@@ -196,6 +192,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
             alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+        else{
         //savedSearch.text = selectedActivity.name
         if selectedActivity.color == "blue"{
             blueHL.isHidden = false
@@ -244,6 +241,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         
         self.view.endEditing(true)
         hasSelectedAnActivity = true
+        }
     }
     
     

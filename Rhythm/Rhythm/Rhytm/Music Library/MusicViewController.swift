@@ -18,9 +18,10 @@ class MusicViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var button: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
-    var player: AVAudioPlayer?
-    var player2: AVAudioPlayer?
-    var player3: AVAudioPlayer?
+    let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/rhythm-4586f.appspot.com/o/songs%2FNils%20Frahm%20-%20You.mp3?alt=media&token=94d6ed5f-7ca6-463f-a94c-5e5dcebbf2c0")
+    
+    var player2: AVPlayer!
+    var player3: AVPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,40 +30,20 @@ class MusicViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didPressButton(){
-        if let player = player,player.isPlaying{
-           button.setBackgroundImage(UIImage(systemName: "play.circle"), for: .normal)
-            player.stop()
-            
-        }else{
-            
-            button.setBackgroundImage(UIImage(systemName:"stop.circle" ), for: .normal)
-            let urlString = Bundle.main.path(forResource:"Echelon-Effect" , ofType: "mp3")
-            do{
-                if let player2 = player2,player2.isPlaying {
-                    player2.stop()
-                    button2.setBackgroundImage(UIImage(systemName: "play.circle"), for: .normal)
-                }
-                if let player3 = player3,player3.isPlaying {
-                    player3.stop()
-                    button3.setBackgroundImage(UIImage(systemName: "play.circle"), for: .normal)
-                }
-                try AVAudioSession.sharedInstance().setMode(.default)
-                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                guard let urlString = urlString else{
-                    return
-                }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-                guard let player  = player else{
-                    return
-                }
-                player.play()
+        
+        let player = AVPlayer(url: videoURL!)
+        
+        if player.timeControlStatus == .playing {
+               player.pause()
+               button.setBackgroundImage(UIImage(systemName: "play.circle"), for: .normal)
+           } else if player.timeControlStatus == .paused {
+               player.play()
+               button.setBackgroundImage(UIImage(systemName: "stop.circle"), for: .normal)
                 
-            }catch{
-                print("something went wrong.")
-            }
-        }
+           }
+        
     }
-    
+    /*
     @IBAction func play(_ sender: UIButton) {
         if let player2 = player2,player2.isPlaying{
                   button2.setBackgroundImage(UIImage(systemName: "play.circle"), for: .normal)
@@ -129,5 +110,7 @@ class MusicViewController: UIViewController, UITextFieldDelegate {
                        print("something went wrong.")
                    }
                }
-    }
+ 
+ }
+ */
 }
