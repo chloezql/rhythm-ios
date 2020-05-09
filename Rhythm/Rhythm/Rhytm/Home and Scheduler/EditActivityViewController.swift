@@ -119,14 +119,6 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
             self.present(alert2, animated: true)
         }
             
-        //startDate cannot be in the past
-//        else if(myDates[0] < Date())
-//        {
-//            let alert = UIAlertController(title: "Cannot save activity", message: "Start date cannot be in the past", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Got it!", style: .default, handler: nil))
-//            self.present(alert, animated: true)
-//        }
-        
         //If start time is the same as another schedule item, pop up alert
         else if (invalidStartTime())
         {

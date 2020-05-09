@@ -58,6 +58,8 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         blueTag.isSelected = false
         redTag.isSelected = false
         yellowTag.isSelected = false
+        
+        
     }
     
     
@@ -115,7 +117,6 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             newActivity = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
             
             self.delegate?.addActivity(activity: newActivity)
-            
             dismiss(animated: true, completion: nil)
             
         }
@@ -123,7 +124,6 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     
     func invalidStartTime() -> (Bool)
     {
-        
         for activity in self.delegate!.mySchedule
         {
             if(myDates[0] == activity.start_time)
@@ -131,6 +131,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
                 return (true)
             }
         }
+            
         return (false)
     }
 

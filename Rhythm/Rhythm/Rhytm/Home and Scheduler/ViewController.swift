@@ -13,28 +13,28 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, activityDelegate, activityEditDelegate,saveActivityDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, activityDelegate, activityEditDelegate,saveActivityDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var scheduleTable: UITableView!
-    
-    @IBOutlet weak var selectButton: UIButton!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var createActivity: UIPickerView!
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var username: UILabel!
     
-    var createAct: [String] = [String]()
+    
     var pickerRow = 0
     var mySchedule: [Activity] = []
     var savedList: [Activity] = [Activity]()
     var scheduleIndexPath: IndexPath?
     var indexToEdit = -1
+    var myIndex = 0
     
+    var addNewSegue: UIStoryboardSegue!
+    var addSaveSegue: UIStoryboardSegue!
     
     let userID = Auth.auth().currentUser!.uid
     let db = Firestore.firestore()
     
     let dateFormatter = DateFormatter()
+
     
     
     override func viewDidLoad() {
@@ -51,13 +51,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         // Do any additional setup after loading the view.
-        createActivity.isHidden = true
-        selectButton.isHidden = true
-        
-        self.createActivity.delegate = self;
-        self.createActivity.dataSource = self;
-        createAct = ["Create a new activity", "Create from save", "View Saved Activities"]
-        
         photo.roundImage()
         photo.image = UIImage(named: "AH.jpg")
         photo.layer.borderWidth = 1
@@ -77,13 +70,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
-
+    
     
     //set up notification
     func setNotification(time:Date){
         let content = UNMutableNotificationContent()
         content.body = "You have a schedule happening. Play your music now!"
-
+        
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: time), repeats: true)
         
@@ -98,55 +91,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
     }
-  
     
-    //add button
-    @IBAction func dropDownCreate(_ sender: Any) {
-        if (createActivity.isHidden == true){
-            createActivity.selectRow(0, inComponent: 0, animated: false)
-            createActivity.isHidden = false
-            selectButton.isHidden = false
-        }
-        else{
-            createActivity.isHidden = true
-            selectButton.isHidden = true
-            
-        }
-    }
     
-    //set up pickerView
-    @IBAction func selectCreate(_ sender: Any) {
-        pickerRow = createActivity.selectedRow(inComponent: 0)
-        if pickerRow == 0 {
-            
-            self.performSegue(withIdentifier: "createNewSegue", sender: self)
-            createActivity.isHidden = true
-            selectButton.isHidden = true
-        }
-        else if pickerRow == 1 {
-            self.performSegue(withIdentifier: "fromSaveSegue", sender: self)
-            createActivity.isHidden = true
-            selectButton.isHidden = true
-        }
-        else if pickerRow == 2 {
-            self.performSegue(withIdentifier: "viewSavedSegue", sender: self)
-            createActivity.isHidden = true
-            selectButton.isHidden = true
-        }
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return createAct[row]
-    }
-    
-    //add activity when segue back
+    //add activity
     func addActivity(activity: Activity) {
         mySchedule.append(activity)
         addActivityToFirebase(activity: activity)
@@ -171,11 +118,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     
-    //add activity from saved when segue back
+    //add activity from saved
     func addSavedActivity(activity: Activity) {
         mySchedule.append(activity)
         addActivityToFirebase(activity: activity)
         mySchedule.sort(by: {$0.start_time < $1.start_time})
+        
         scheduleTable.reloadData()
         setNotification(time: activity.start_time)
     }
@@ -197,7 +145,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func getActivitiesFromFirestore()
     {
-        print("isCalled")
         db.collection("users").document(userID).collection("Activities").getDocuments() { (snapshot, error) in
             if let error = error
             {
@@ -218,6 +165,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                         if(newAct!.start_time > Date())
                         {
                             self.mySchedule.append(newAct!)
+                            self.mySchedule.sort(by: {$0.start_time < $1.start_time})
                             self.scheduleTable.reloadData()
                         }
                     case .failure(let error):
@@ -307,30 +255,34 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "createNewSegue" {
-            let vc: NewActivityViewController = segue.destination as! NewActivityViewController
-            vc.delegate = self
-        }
-        else if segue.identifier == "editSegue"{
+        if segue.identifier == "editSegue"{
             let vc: EditActivityViewController = segue.destination as! EditActivityViewController
             vc.delegate = self
             vc.activityToEdit = mySchedule[indexToEdit]
             vc.activityIndex = indexToEdit
         }
-        else if segue.identifier == "fromSaveSegue"{
-            let vc: SaveActivityViewController = segue.destination as! SaveActivityViewController
-            vc.delegate = self
-            vc.savedSchedule = savedList
+        else if (segue.identifier == "timerSegue") {
+            let vc: TimerViewController = segue.destination as! TimerViewController
+            vc.schedule = mySchedule[indexToEdit]
         }
-        else if segue.identifier == "viewSavedSegue"{
-            let vc: SavedDisplayViewController = segue.destination as! SavedDisplayViewController
-            vc.delegate = self
-            vc.mySchedule = mySchedule
-        }
-       
+        
+        
+        
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        self.indexToEdit = indexPath.row
+
+        // Create an instance of PlayerTableViewController and pass the variable
+        //let destinationVC = TimerViewController()
+        //destinationVC.schedule = schedule
+        //destinationVC.performSegue(withIdentifier: "timerSegue", sender: self)
+        self.performSegue(withIdentifier: "timerSegue", sender: self)
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+    }
 }
 
 extension UIImageView {

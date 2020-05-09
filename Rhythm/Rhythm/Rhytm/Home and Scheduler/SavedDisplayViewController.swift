@@ -10,12 +10,25 @@ import UIKit
 
 class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var mySchedule: [Activity] = []
-    weak var delegate: ViewController?
+    //weak var delegate: ViewController?
     
     @IBOutlet weak var displaySavedActivities: UICollectionView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
+        mySchedule = homeVC.savedList
+        displaySavedActivities.reloadData()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let bar = self.tabBarController!
+        let homeVC = bar.viewControllers![0] as! ViewController
+        mySchedule = homeVC.savedList
+        
         displaySavedActivities.backgroundColor = UIColor(red: 205/255, green: 213/255, blue: 238/255, alpha: 1)
         
         self.displaySavedActivities.delegate = self
@@ -29,31 +42,12 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
         flow.minimumLineSpacing = 10
 
         displaySavedActivities.setCollectionViewLayout(flow, animated: false)
-        //create a set
+
+        
     }
     
-    @IBAction func goBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//      return 3
-//    }
-//
-//
-//
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
-//    {
-//
-//        return 10;
-//    }
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat
-//    {
-//
-//        return 5;
-//    }
-
-
+    
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -63,18 +57,7 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
         return mySchedule.count
     }
     
-//     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-//    sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//
-//        //let numberOfSets = CGFloat(self.currentExSets.count)
-//
-//        let width = CGFloat(128)
-//
-//        let height = CGFloat(128)
-//        return CGSize(width: width, height: height)
-//    }
-//
-//
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
