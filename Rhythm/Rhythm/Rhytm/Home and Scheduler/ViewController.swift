@@ -98,9 +98,10 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         mySchedule.append(activity)
         addActivityToFirebase(activity: activity)
         mySchedule.sort(by: {$0.start_time < $1.start_time})
-        
-        savedList.append(activity)
-        savedList.sort(by: {$0.name < $1.name})
+        if addOrNot == true{
+            savedList.append(activity)
+            savedList.sort(by: {$0.name < $1.name})
+        }
         scheduleTable.reloadData()
         
         setNotification(time: activity.start_time)
