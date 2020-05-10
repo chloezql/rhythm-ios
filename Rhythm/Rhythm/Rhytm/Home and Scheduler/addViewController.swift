@@ -40,6 +40,7 @@ class addViewController: UIViewController {
             let homeVC = bar.viewControllers![0] as! ViewController
             let vc: NewActivityViewController = segue.destination as! NewActivityViewController
             vc.delegate = homeVC
+            print(homeVC)
 
         }
         else if segue.identifier == "fromSaveSegue"{

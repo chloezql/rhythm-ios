@@ -40,7 +40,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     var selectedActivity: Activity!
     var selectedIndex = -1
-    var newActivity = Activity(myName: "",myDesc: "",myStart: Date(), myEnd: Date(), myColor:"")
+    var newActivity = Activity(myName: "",myDesc: "",myStart: Date(), myEnd: Date(), myColor:"",mySong:Videos(Title:" temp", Link: "temp",Image:"none" ) )
     var savedSchedule: [Activity] = [Activity]()
     var filteredSchedule: [Activity] = [Activity]()
     
@@ -127,7 +127,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
                 currentColor = "yellow"
             }
             
-            newActivity = Activity(myName: selectedActivity.name,myDesc: selectedActivity.descrip,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
+            newActivity = Activity(myName: selectedActivity.name,myDesc: selectedActivity.descrip,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor,mySong:Videos(Title:" temp", Link: "temp",Image:"none" ))
             
             self.delegate?.addSavedActivity(activity: newActivity)
             dismiss(animated: true, completion: nil)

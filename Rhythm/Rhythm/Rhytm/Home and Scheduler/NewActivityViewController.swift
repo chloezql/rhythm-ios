@@ -12,7 +12,8 @@ protocol activityDelegate{
     func addActivity(activity: Activity)
 }
 
-class NewActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UITextFieldDelegate{
+class NewActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UITextFieldDelegate,
+    PlaylistDelegate{
     
     //@IBOutlet weak var scrollView: UIScrollView!
     
@@ -20,6 +21,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var descriptionText: UITextField!
     @IBOutlet weak var timeTable: UITableView!
     
+    @IBOutlet weak var thumbnailSong: UIImageView!
     @IBOutlet weak var blueTag: UIButton!
     @IBOutlet weak var redTag: UIButton!
     @IBOutlet weak var yellowTag: UIButton!
@@ -30,16 +32,24 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var MusicButton: UIButton!
     weak var delegate: ViewController?
-    
+    @IBOutlet weak var playlistViewController : PlaylistViewController?
     var datePickerIndexPath: IndexPath?
     var myTexts: [String] = ["Start time", "End time"]
     var myDates: [Date] = [Date(),Date()]
-    var newActivity = Activity(myName: "",myDesc: "",myStart: Date(), myEnd: Date(), myColor:"")
+    var mySong = Videos(Title:" temp", Link: "temp",Image:"none" )
+    var newActivity = Activity(myName: "",myDesc: "",myStart: Date(), myEnd: Date(), myColor:"",mySong: Videos(Title:" temp", Link: "temp",Image:"none" ))
     var displayViewController: ViewController?
+    static var sharedInstace : NewActivityViewController!
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
+        playlistViewController?.mydelegate = self
          self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
@@ -50,7 +60,6 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.timeTable.delegate = self
         self.timeTable.dataSource = self
-        
         blueHL.isHidden = true
         redHL.isHidden = true
         yellowHL.isHidden = true
@@ -59,6 +68,13 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         redTag.isSelected = false
         yellowTag.isSelected = false
         
+        
+        thumbnailSong.layer.borderColor = UIColor.blue.cgColor
+        thumbnailSong.layer.masksToBounds = true
+        thumbnailSong.layer.borderWidth = 1
+        
+        
+         NewActivityViewController.sharedInstace = self;
         
     }
     
@@ -114,7 +130,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
                 currentColor = "yellow"
             }
             
-            newActivity = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
+            newActivity = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor,mySong: mySong)
             
             self.delegate?.addActivity(activity: newActivity)
             dismiss(animated: true, completion: nil)
@@ -238,15 +254,35 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         timeTable.reloadRows(at: [indexPath], with: .none)
     }
     
+   //add song into activity
+    func addSong(song: Videos) {
+        mySong = song
+        print("addSong")
+        print(mySong.Title)
+        
+        
+        let url = URL(string: song.Image!)
+        //print(url)
+        let data = try? Data(contentsOf: url!)
+        thumbnailSong.image = UIImage(data: data!)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "playlistSegue"){
+            let playlistVC = segue.destination as! PlaylistViewController
+            playlistVC.mydelegate = self
+        }
+    }
     
     //go pick music in music library
-    @IBAction func goToLibrary(_ sender: UIButton) {
+   /* @IBAction func goToLibrary(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "MusicStoryboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "playlist") as UIViewController
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
+ */
+    
     /*
      
      // MARK: - Navigation

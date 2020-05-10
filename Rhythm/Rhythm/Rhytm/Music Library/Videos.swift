@@ -8,15 +8,16 @@
 
 import Foundation
 
-class Videos {
+class Videos:Codable {
     
     var Title: String?
     var Link: String?
+    var Image: String?
     
-    
-    init(Title: String?, Link: String?) {
+    init(Title: String?, Link: String?,Image :String?) {
         self.Title = Title;
         self.Link = Link;
+        self.Image = Image;
         
     }
     

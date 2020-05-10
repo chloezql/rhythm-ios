@@ -13,6 +13,8 @@ class DisplayScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var activityName: UILabel!
     
+    @IBOutlet weak var songTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,12 +25,13 @@ class DisplayScheduleTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateCell(startingTime: Date, color: String, name: String){
+    func updateCell(startingTime: Date, color: String, name: String, title: String){
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         
         startTime.text = dateFormatter.string(from: startingTime)
         activityName.text = name
+        songTitle.text = title
         if (color == ""){
             colorButton.isHidden = true
         }

@@ -140,7 +140,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
                 currentColor = "yellow"
             }
             
-            activityToEdit = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor)
+            activityToEdit = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor , mySong : Videos(Title:" temp", Link: "temp",Image:"none" ))
             
             self.delegate?.saveChange(activity: activityToEdit, index: activityIndex)
             self.delegate?.addActivityToFirebase(activity: activityToEdit)

@@ -12,9 +12,7 @@ import AVFoundation
 
 class TimerViewController : UIViewController{
     
-    
     @IBOutlet weak var goBack: UIButton!
-
     @IBOutlet weak var activityName: UILabel!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var pauseBtn: UIButton!
@@ -46,13 +44,14 @@ class TimerViewController : UIViewController{
         
     }
     
+    
     @IBAction func goBack(_ sender: Any) {
         //only going back now for testing purporse
         dismiss(animated: true, completion: nil)
        
     }
     
-
+    
     func calculateDifference(){
         let formatter = DateComponentsFormatter()
            formatter.allowedUnits = [.second]

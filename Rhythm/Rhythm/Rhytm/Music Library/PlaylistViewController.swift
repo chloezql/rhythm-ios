@@ -11,22 +11,30 @@ import Firebase
 import FirebaseDatabase
 import AVKit
 
+protocol PlaylistDelegate : NSObjectProtocol{
+    func addSong(song: Videos)
+}
+
 
 class PlaylistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
    
 
     @IBOutlet weak var TableView: UITableView!
-    
+    //var mydelegate: PlaylistDelegate?
+    weak var mydelegate: PlaylistDelegate?
     var table = [Videos]()
     var ref: DatabaseReference!
     //var ref2 : Firebase(url: FIREBASE_URL)
-
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.TableView.delegate = self
         self.TableView.dataSource = self
+        
+        
+        
          TableView.tableFooterView = UIView()
         ref = Database.database().reference().child("songs")
         ref.observe(DataEventType.value, with: {(snapshot) in
@@ -39,9 +47,10 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
                     let Object = video.value as? [String: AnyObject]
                     let Title = Object?["Title"]
                     let videolink = Object?["Link"]
+                     let Image = Object?["Image"]
                     
                     
-                    let video = Videos(Title: Title as! String, Link: (videolink as! String))
+                    let video = Videos(Title: Title as! String, Link: (videolink as! String),Image: Image as! String)
                     self.table.append(video)
                     //print(video.Title!)//worked
                     
@@ -67,6 +76,18 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         
         video = table[indexPath.row]
         cell.titleLabel.text = video.Title
+        let url = URL(string: video.Image!)
+        //print(url)
+        let data = try? Data(contentsOf: url!)
+        cell.songimageView.image = UIImage(data: data!)
+        cell.songimageView.layer.cornerRadius = 10.0
+        
+        cell.playbutton.tag = indexPath.row
+        
+        cell.playbutton.addTarget(self, action: #selector(self.buttonClicked(_:)), for: UIControl.Event.touchUpInside)
+
+
+
         
         return cell
         
@@ -74,7 +95,20 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let videoURL = URL(string: table[indexPath.row].Link!) else {
+        
+        let video: Videos
+        video = table[indexPath.row]
+        print("tableview")
+        print(video.Title!)
+        
+        self.mydelegate?.addSong(song:video)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func buttonClicked(_ sender:UIButton) {
+
+        let buttonRow = sender.tag
+        guard let videoURL = URL(string: table[buttonRow].Link!) else {
             return
         }
         
@@ -86,10 +120,30 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         present(controller, animated: true) {
             player.play()
         }
+        
     }
     
+    @IBAction func test(_ sender: Any) {
+        let video: Videos
+        video = table[0]
+        print("test")
+        print(video.Title!)
+        
+        self.mydelegate?.addSong(song: video)
+
+        self.dismiss(animated: true, completion: nil)
+    }
     
-    
+    @IBAction func selectBtn(_ sender: Any) {
+        let video: Videos
+        video = table[0]
+        print("select")
+        print(video.Title!)
+        
+        self.mydelegate?.addSong(song: video)
+
+        self.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
