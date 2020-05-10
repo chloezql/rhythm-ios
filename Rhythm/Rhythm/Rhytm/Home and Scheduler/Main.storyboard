@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYo-qv-EWg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYo-qv-EWg">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuP-kz-cTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-604.34782608695662" y="-959.59821428571422"/>
+            <point key="canvasLocation" x="-635" y="-960"/>
         </scene>
         <!--New Activity View Controller-->
         <scene sceneID="E1n-nt-eGI">
@@ -1142,21 +1142,50 @@
             </objects>
             <point key="canvasLocation" x="-1655.072463768116" y="570.53571428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--User Profile View Controller-->
         <scene sceneID="8pN-cS-r7W">
             <objects>
-                <viewController id="r1f-sn-ydG" sceneMemberID="viewController">
+                <viewController id="r1f-sn-ydG" customClass="UserProfileViewController" customModule="Rhytm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIA-0o-96y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LDy-9a-n3t">
+                                <rect key="frame" x="157" y="144" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Af4-Mz-nk8"/>
+                                    <constraint firstAttribute="height" constant="100" id="Q55-wO-57Y"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcZ-Wg-WeM">
+                                <rect key="frame" x="132" y="713" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.35476381379999999" green="0.38766836919999997" blue="0.76859930200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="FmK-g0-GEv"/>
+                                    <constraint firstAttribute="height" constant="50" id="gZ3-p1-ve8"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut:" destination="r1f-sn-ydG" eventType="touchUpInside" id="8fr-hf-wfY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hcZ-Wg-WeM" firstAttribute="centerX" secondItem="PIA-0o-96y" secondAttribute="centerX" id="5bp-JM-ZdK"/>
+                            <constraint firstItem="LDy-9a-n3t" firstAttribute="centerX" secondItem="PIA-0o-96y" secondAttribute="centerX" id="FiO-7z-sHI"/>
+                            <constraint firstItem="VtD-0O-RRn" firstAttribute="bottom" secondItem="hcZ-Wg-WeM" secondAttribute="bottom" constant="50" id="YwO-7g-gIH"/>
+                            <constraint firstItem="LDy-9a-n3t" firstAttribute="top" secondItem="VtD-0O-RRn" secondAttribute="top" constant="100" id="uI9-wN-pnO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VtD-0O-RRn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="cdF-5I-Mh1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9g-lo-2n8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3264" y="571"/>
+            <point key="canvasLocation" x="-3265.217391304348" y="569.86607142857144"/>
         </scene>
         <!--Playlist View Controller-->
         <scene sceneID="MCM-hb-j5Q">
@@ -1290,24 +1319,24 @@
             <point key="canvasLocation" x="521.73913043478262" y="-208.25892857142856"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="xO3-TO-feO"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="500" height="500"/>
         <image name="2" width="700" height="700"/>
         <image name="3" width="700" height="700"/>
-        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowtriangle.down.fill" catalog="system" width="64" height="62"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
+        <image name="circle" catalog="system" width="64" height="60"/>
+        <image name="circle.fill" catalog="system" width="64" height="60"/>
         <image name="content-create" width="444" height="960"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="main" width="448" height="968"/>
-        <image name="music.note" catalog="system" width="97" height="128"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="play.circle" catalog="system" width="128" height="121"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
+        <image name="music.note" catalog="system" width="48" height="64"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="play.circle" catalog="system" width="64" height="60"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="square.split.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xO3-TO-feO"/>
+    </inferredMetricsTieBreakers>
 </document>

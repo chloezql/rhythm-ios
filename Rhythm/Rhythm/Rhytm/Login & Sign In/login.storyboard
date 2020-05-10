@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nma-aY-Pu0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nma-aY-Pu0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--loginSignUpViewController-->
         <scene sceneID="fja-yj-Vhr">
             <objects>
-                <viewController title="loginSignUpViewController" id="Nma-aY-Pu0" customClass="welcomeViewController" customModule="Rhytm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomeVC" title="loginSignUpViewController" id="Nma-aY-Pu0" customClass="welcomeViewController" customModule="Rhytm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h0z-HH-Go1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="zt5-Jc-DbZ">
-                                <rect key="frame" x="103.5" y="380.5" width="207" height="81"/>
+                                <rect key="frame" x="103.5" y="357.5" width="207" height="127"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rfb-Nv-Myu" userLabel="Email">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="34"/>
@@ -118,39 +118,38 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLG-Qj-wJ2" userLabel="Login">
+                                        <rect key="frame" x="0.0" y="94" width="207" height="33"/>
+                                        <color key="backgroundColor" red="0.41008609530000001" green="0.42107832429999997" blue="0.76082009080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Login!">
+                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="gPH-Id-A0c" eventType="touchUpInside" id="2Dm-wX-XGK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97N-PE-vFW">
-                                <rect key="frame" x="52" y="476.5" width="310.5" height="0.0"/>
+                                <rect key="frame" x="52" y="499.5" width="310.5" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLG-Qj-wJ2" userLabel="Login">
-                                <rect key="frame" x="104" y="483" width="207" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.41008609530000001" green="0.42107832429999997" blue="0.76082009080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Login!">
-                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="loginPressed:" destination="gPH-Id-A0c" eventType="touchUpInside" id="2Dm-wX-XGK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="97N-PE-vFW" firstAttribute="centerX" secondItem="3Qb-66-BS0" secondAttribute="centerX" id="91R-qv-hcq"/>
                             <constraint firstItem="zt5-Jc-DbZ" firstAttribute="centerX" secondItem="ffN-Py-h8n" secondAttribute="centerX" id="NHA-8n-k1y"/>
+                            <constraint firstItem="97N-PE-vFW" firstAttribute="top" secondItem="zt5-Jc-DbZ" secondAttribute="bottom" constant="15" id="aHv-cF-d7t"/>
                             <constraint firstItem="97N-PE-vFW" firstAttribute="width" secondItem="zt5-Jc-DbZ" secondAttribute="width" multiplier="1.5" id="dew-Y6-U6o"/>
-                            <constraint firstItem="97N-PE-vFW" firstAttribute="top" secondItem="zt5-Jc-DbZ" secondAttribute="bottom" constant="15" id="hlw-KY-CRs"/>
                             <constraint firstItem="zt5-Jc-DbZ" firstAttribute="width" secondItem="ffN-Py-h8n" secondAttribute="width" multiplier="0.5" id="kTA-Qs-BYT"/>
                             <constraint firstItem="zt5-Jc-DbZ" firstAttribute="centerX" secondItem="3Qb-66-BS0" secondAttribute="centerX" id="oGK-sQ-1Ex"/>
                             <constraint firstItem="zt5-Jc-DbZ" firstAttribute="centerY" secondItem="3Qb-66-BS0" secondAttribute="centerY" id="y0j-xF-6Io"/>

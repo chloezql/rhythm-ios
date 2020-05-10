@@ -38,6 +38,7 @@
 		9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30363244BD08B00ECB93A /* Assets.xcassets */; };
 		9EC30372244BD08B00ECB93A /* RhytmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30371244BD08B00ECB93A /* RhytmTests.swift */; };
 		9EC3037D244BD08B00ECB93A /* RhytmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */; };
+		9EC845312467E8A200CB542C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC845302467E8A200CB542C /* UserProfileViewController.swift */; };
 		9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECA001C245A408B00C944FF /* loginViewController.swift */; };
 		9EFC6EA3245BF76600B1CB93 /* DateTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EFC6E94245BF76500B1CB93 /* DateTextTableViewCell.xib */; };
 		9EFC6EA4245BF76600B1CB93 /* DateTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC6E95245BF76500B1CB93 /* DateTextTableViewCell.swift */; };
@@ -111,6 +112,7 @@
 		9EC30378244BD08B00ECB93A /* RhytmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhytmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC3037C244BD08B00ECB93A /* RhytmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmUITests.swift; sourceTree = "<group>"; };
 		9EC3037E244BD08B00ECB93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EC845302467E8A200CB542C /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		9ECA001C245A408B00C944FF /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		9EFC6E94245BF76500B1CB93 /* DateTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTextTableViewCell.xib; sourceTree = "<group>"; };
 		9EFC6E95245BF76500B1CB93 /* DateTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTextTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				9E278140245C0970004C7888 /* ViewController.swift */,
 				EA1C71FC24651AFE00A36965 /* addViewController.swift */,
+				9EC845302467E8A200CB542C /* UserProfileViewController.swift */,
 				9E0B1DA5246018AA00C02DA5 /* ActivityCollectionViewCell.swift */,
 				9E0B1DA1246018A900C02DA5 /* ActivityCollectionViewCell.xib */,
 				9E0B1DA2246018AA00C02DA5 /* SavedDisplayViewController.swift */,
@@ -555,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E0B1DA7246018AA00C02DA5 /* SavedDisplayViewController.swift in Sources */,
+				9EC845312467E8A200CB542C /* UserProfileViewController.swift in Sources */,
 				9EFC6EB0245BF76600B1CB93 /* Activity.swift in Sources */,
 				9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */,
 				028D36ED24611A51008C0400 /* Videos.swift in Sources */,

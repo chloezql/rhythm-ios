@@ -7,15 +7,35 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class welcomeViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "login-background.png")!)
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil{
+                self.transitionToHomeScreen()
+            }
+        }
+        
+        
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    func transitionToHomeScreen()
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "homeVC") as UIViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     
 
     /*
