@@ -9,7 +9,7 @@
 import UIKit
 
 protocol activityDelegate{
-    func addActivity(activity: Activity)
+    func addActivity(activity: Activity, addOrNot: Bool)
 }
 
 class NewActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UITextFieldDelegate,
@@ -30,6 +30,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var redHL: UIButton!
     @IBOutlet weak var yellowHL: UIButton!
     
+    @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var MusicButton: UIButton!
     weak var delegate: ViewController?
     @IBOutlet weak var playlistViewController : PlaylistViewController?
@@ -41,7 +42,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
     var displayViewController: ViewController?
     static var sharedInstace : NewActivityViewController!
     
-    
+    var ifAdd = true
     
     
     
@@ -68,6 +69,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         redTag.isSelected = false
         yellowTag.isSelected = false
         
+        checkBox.isSelected = true
         
         thumbnailSong.layer.borderColor = UIColor.blue.cgColor
         thumbnailSong.layer.masksToBounds = true
@@ -132,7 +134,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
             
             newActivity = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor,mySong: mySong)
             
-            self.delegate?.addActivity(activity: newActivity)
+            self.delegate?.addActivity(activity: newActivity, addOrNot: ifAdd)
             dismiss(animated: true, completion: nil)
             
         }
@@ -191,6 +193,18 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         blueHL.isHidden = true;
         redHL.isHidden = true;
     }
+    
+    @IBAction func check(_ sender: Any) {
+        if checkBox.isSelected == false{
+            checkBox.isSelected = true
+            ifAdd = true
+        }
+        else{
+            checkBox.isSelected = false
+            ifAdd = false
+        }
+    }
+    
     
 
     //setting up table view for inline date picker

@@ -94,7 +94,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     
     
     //add activity
-    func addActivity(activity: Activity) {
+    func addActivity(activity: Activity,addOrNot: Bool) {
         mySchedule.append(activity)
         addActivityToFirebase(activity: activity)
         mySchedule.sort(by: {$0.start_time < $1.start_time})

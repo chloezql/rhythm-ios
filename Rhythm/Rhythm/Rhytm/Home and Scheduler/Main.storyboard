@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYo-qv-EWg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYo-qv-EWg">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -228,24 +228,6 @@
                                     <segue destination="TSV-0z-fRN" kind="show" identifier="playlistSegue" id="xO3-TO-feO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq4-g8-297">
-                                <rect key="frame" x="61" y="726" width="291" height="54"/>
-                                <color key="backgroundColor" red="0.41008609530000001" green="0.42107832429999997" blue="0.76082009080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="Puy-bH-JtX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Add to my schedule"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addNew:" destination="T5D-51-B34" eventType="touchUpInside" id="FSe-ti-FRU"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PW-Qf-8zQ">
                                 <rect key="frame" x="260" y="342" width="28" height="28"/>
                                 <constraints>
@@ -369,17 +351,52 @@
                                 <rect key="frame" x="106" y="639" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq4-g8-297">
+                                <rect key="frame" x="61" y="754" width="291" height="54"/>
+                                <color key="backgroundColor" red="0.41008609530000001" green="0.42107832429999997" blue="0.76082009080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="Puy-bH-JtX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Add to my schedule"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addNew:" destination="T5D-51-B34" eventType="touchUpInside" id="FSe-ti-FRU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83m-J2-GHp">
+                                <rect key="frame" x="74" y="723" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="square" catalog="system"/>
+                                <state key="selected" image="checkmark.square" catalog="system"/>
+                                <connections>
+                                    <action selector="check:" destination="T5D-51-B34" eventType="touchUpInside" id="dxJ-iQ-LFx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add current template to saved list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iR6-sN-QsC">
+                                <rect key="frame" x="106" y="723" width="242" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jJJ-hx-a2f" firstAttribute="leading" secondItem="4sC-jv-VOU" secondAttribute="leading" constant="52" id="2ow-pn-gnI"/>
-                            <constraint firstItem="4sC-jv-VOU" firstAttribute="bottom" secondItem="wq4-g8-297" secondAttribute="bottom" constant="28" id="3N9-cZ-fOt"/>
+                            <constraint firstItem="4sC-jv-VOU" firstAttribute="bottom" secondItem="wq4-g8-297" secondAttribute="bottom" id="3N9-cZ-fOt"/>
                             <constraint firstItem="poW-R4-kkZ" firstAttribute="leading" secondItem="4sC-jv-VOU" secondAttribute="leading" constant="26" id="4bt-1Y-FNT"/>
                             <constraint firstItem="4sC-jv-VOU" firstAttribute="trailing" secondItem="wq4-g8-297" secondAttribute="trailing" constant="62" id="9gj-nP-Agl"/>
                             <constraint firstItem="Mvd-Pz-CJA" firstAttribute="leading" secondItem="4sC-jv-VOU" secondAttribute="leading" constant="200" id="AsI-Vg-mRG"/>
                             <constraint firstItem="wq4-g8-297" firstAttribute="leading" secondItem="4sC-jv-VOU" secondAttribute="leading" constant="61" id="BdP-Zl-OiN"/>
                             <constraint firstItem="6PW-Qf-8zQ" firstAttribute="centerY" secondItem="jqS-1M-uiL" secondAttribute="centerY" id="Cd7-u9-dps"/>
-                            <constraint firstItem="wq4-g8-297" firstAttribute="top" secondItem="Mvd-Pz-CJA" secondAttribute="bottom" constant="30" id="D9z-qZ-woa"/>
+                            <constraint firstItem="wq4-g8-297" firstAttribute="top" secondItem="Mvd-Pz-CJA" secondAttribute="bottom" constant="58" id="D9z-qZ-woa"/>
                             <constraint firstItem="4sC-jv-VOU" firstAttribute="trailing" secondItem="Ibc-HU-jXK" secondAttribute="trailing" constant="55" id="FJh-JP-yRr"/>
                             <constraint firstItem="OfB-rL-AxG" firstAttribute="top" secondItem="IMK-Bx-VXW" secondAttribute="bottom" constant="28" id="FLX-Iy-U0b"/>
                             <constraint firstItem="6PW-Qf-8zQ" firstAttribute="leading" secondItem="OfB-rL-AxG" secondAttribute="trailing" constant="32" id="GDF-u9-EbP"/>
@@ -411,6 +428,7 @@
                     <connections>
                         <outlet property="blueHL" destination="OfB-rL-AxG" id="Tqe-dz-HaB"/>
                         <outlet property="blueTag" destination="4te-1j-am8" id="qkn-CW-avc"/>
+                        <outlet property="checkBox" destination="83m-J2-GHp" id="Lsy-Al-cC6"/>
                         <outlet property="descriptionText" destination="IMK-Bx-VXW" id="zGa-uI-szI"/>
                         <outlet property="nameText" destination="jJJ-hx-a2f" id="syF-jW-515"/>
                         <outlet property="redHL" destination="6PW-Qf-8zQ" id="IKo-UT-rMW"/>
@@ -1319,24 +1337,26 @@
             <point key="canvasLocation" x="521.73913043478262" y="-208.25892857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xO3-TO-feO"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="500" height="500"/>
         <image name="2" width="700" height="700"/>
         <image name="3" width="700" height="700"/>
-        <image name="arrowtriangle.down.fill" catalog="system" width="64" height="62"/>
-        <image name="chevron.left" catalog="system" width="48" height="64"/>
-        <image name="circle" catalog="system" width="64" height="60"/>
-        <image name="circle.fill" catalog="system" width="64" height="60"/>
+        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="content-create" width="444" height="960"/>
-        <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="main" width="448" height="968"/>
-        <image name="music.note" catalog="system" width="48" height="64"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="play.circle" catalog="system" width="64" height="60"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
-        <image name="square.split.2x2.fill" catalog="system" width="64" height="56"/>
+        <image name="music.note" catalog="system" width="97" height="128"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square" catalog="system" width="128" height="114"/>
+        <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="xO3-TO-feO"/>
-    </inferredMetricsTieBreakers>
 </document>
