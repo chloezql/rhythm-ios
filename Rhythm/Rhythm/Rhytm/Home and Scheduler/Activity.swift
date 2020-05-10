@@ -10,20 +10,23 @@ import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class Activity: NSObject, Codable {
+class Activity: NSObject, Codable{
     var name: String
     var descrip: String
     var start_time = Date()
     var end_time = Date()
     //var list: [String] = []
     var color: String = ""
-
-    init(myName: String, myDesc: String, myStart: Date, myEnd: Date, myColor: String) {
+    var song = Videos(Title:" temp", Link: "temp",Image:"none" )
+    
+    init(myName: String, myDesc: String, myStart: Date, myEnd: Date, myColor: String, mySong:Videos) {
         self.name = myName
         self.descrip = myDesc
         self.start_time = myStart
         self.end_time = myEnd
         self.color = myColor
+        self.song = mySong
         super.init()
+        
     }
 }

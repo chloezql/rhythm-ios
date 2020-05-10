@@ -12,7 +12,8 @@ class TableViewCell: UITableViewCell {
 
    
     @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet var songimageView : UIImageView!
+    @IBOutlet weak var playbutton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
