@@ -10,10 +10,10 @@ import UIKit
 
 class DisplayScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var startTime: UILabel!
-    @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var activityName: UILabel!
     
-    @IBOutlet weak var songTitle: UILabel!
+
+    @IBOutlet weak var imageBackground: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,18 +31,16 @@ class DisplayScheduleTableViewCell: UITableViewCell {
         
         startTime.text = dateFormatter.string(from: startingTime)
         activityName.text = name
-        songTitle.text = title
-        if (color == ""){
-            colorButton.isHidden = true
-        }
-        else if (color == "blue"){
-            colorButton.tintColor = UIColor(red: 29/255, green: 59/255, blue: 210/255, alpha: 1)
+        
+        if (color == "blue"){
+            imageBackground.backgroundColor = UIColor(red: 29/255, green: 59/255, blue: 210/255, alpha: 1)
         }
         else if (color == "red"){
-            colorButton.tintColor = UIColor(red: 204/255, green: 0, blue: 0, alpha: 1)
+            imageBackground.backgroundColor  = UIColor(red: 204/255, green: 0, blue: 0, alpha: 1)
         }
         else if (color == "yellow"){
-            colorButton.tintColor = UIColor(red: 242/255, green: 252/255, blue: 0, alpha: 1)
+            imageBackground.backgroundColor  = UIColor(red: 242/255, green: 252/255, blue: 0, alpha: 1)
         }
+ 
     }
 }

@@ -13,8 +13,11 @@ protocol saveActivityDelegate{
 }
 
 
-class SaveActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UISearchBarDelegate {
+class SaveActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UISearchBarDelegate,PlaylistDelegate{
+    
+    
     //@IBOutlet weak var scrolllView: UIScrollView!
+    @IBOutlet weak var thumbnailSong: UIImageView!
     
     @IBOutlet weak var blueTag: UIButton!
     @IBOutlet weak var redTag: UIButton!
@@ -31,9 +34,13 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var selectTable: UITableView!
     @IBOutlet weak var timeTable: UITableView!
     var datePickerIndexPath: IndexPath?
+    
+    @IBOutlet weak var playlistViewController : PlaylistViewController?
+    
+    
     var myTexts: [String] = ["Start time", "End time"]
     var myDates: [Date] = [Date(),Date()]
-    
+    var mySong = Videos(Title:" temp", Link: "temp",Image:"none" )
     var hasSelectedAnActivity = false
     
     weak var delegate: ViewController?
@@ -47,6 +54,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playlistViewController?.mydelegate = self
         // Do any additional setup after loading the view.
         //set background image
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
@@ -82,6 +90,11 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         yellowTag.isSelected = false
        
         filteredSchedule = savedSchedule
+        
+        thumbnailSong.layer.borderColor = UIColor.blue.cgColor
+        thumbnailSong.layer.masksToBounds = true
+        thumbnailSong.layer.borderWidth = 1
+        
         
     }
     
@@ -184,6 +197,25 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
+    func addSong(song: Videos) {
+        mySong = song
+        print("addSong")
+        print(mySong.Title)
+        
+        
+        let url = URL(string: song.Image!)
+        //print(url)
+        let data = try? Data(contentsOf: url!)
+        thumbnailSong.image = UIImage(data: data!)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "savedToPlaylist"){
+            let playlistVC = segue.destination as! PlaylistViewController
+            playlistVC.mydelegate = self
+        }
+    }
     
     @IBAction func selected(_ sender: Any) {
         
