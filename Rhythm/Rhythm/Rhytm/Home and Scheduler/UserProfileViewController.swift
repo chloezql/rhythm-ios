@@ -24,20 +24,25 @@ class UserProfileViewController: UIViewController, editUserDelegate {
     @IBOutlet weak var editFirstName: UIButton!
     @IBOutlet weak var editLastName: UIButton!
     @IBOutlet weak var editEmail: UIButton!
+    @IBOutlet weak var profilePic: UIImageView!
     
     var currentUser: User!
     var valToEdit: String!
     var tag: Int!
-    var updated = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(updated == false)
-        {
-            let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
-            currentUser = homeVC.currentUser
-            updateUser(user: currentUser)
-        }
+        let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
+        currentUser = homeVC.currentUser
+        updateUser(user: currentUser)
+        
+        profilePic.roundImage()
+        profilePic.image = UIImage(named: "AH.jpg")
+        profilePic.layer.borderWidth = 1
+        profilePic.layer.masksToBounds = false
+        profilePic.layer.borderColor = UIColor.black.cgColor
+        profilePic.layer.cornerRadius = profilePic.frame.height/2
+        profilePic.clipsToBounds = true
         
     }
     
@@ -78,6 +83,7 @@ class UserProfileViewController: UIViewController, editUserDelegate {
             //vc.valueCurrentlyEditing = valToEdit
             vc.currentUser = currentUser
             vc.tag = tag
+            vc.delegate = self
         }
    
     }
@@ -85,18 +91,11 @@ class UserProfileViewController: UIViewController, editUserDelegate {
     
     func updateUser(user: User) {
         currentUser = user
-        updated = true
-        print("hello")
         self.firstNameLabel.text = currentUser.firstName
-        print(firstNameLabel.text!)
         self.lastNameLabel.text = currentUser.lastName
         self.emailLabel.text = currentUser.email
         
     }
-    
-    
-    
-    
     
     
     /*
