@@ -25,7 +25,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var editFirstName: UIButton!
     @IBOutlet weak var editLastName: UIButton!
     @IBOutlet weak var editEmail: UIButton!
-        
+    
     weak var delegate: ViewController?
     
     var currentUser: User!
@@ -36,16 +36,16 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         
         
-            //This works, with lag
+        //This works, with lag
         //getUserInfo()
         
         
         
-            //This doesnt work
-        //currentUser = self.delegate?.currentUser
-        //firstNameLabel.text = currentUser.firstName
-        //lastNameLabel.text = currentUser.lastName
-        //emailLabel.text = currentUser.email
+        let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
+        currentUser = homeVC.currentUser
+        firstNameLabel.text = currentUser.firstName
+        lastNameLabel.text = currentUser.lastName
+        emailLabel.text = currentUser.email
         
         
         // Do any additional setup after loading the view.
@@ -115,13 +115,13 @@ class UserProfileViewController: UIViewController {
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
