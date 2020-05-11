@@ -53,6 +53,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             }
         }
         
+        
+        
         // Do any additional setup after loading the view.
         photo.roundImage()
         photo.image = UIImage(named: "AH.jpg")
@@ -61,6 +63,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         photo.layer.borderColor = UIColor.black.cgColor
         photo.layer.cornerRadius = photo.frame.height/2
         photo.clipsToBounds = true
+        
         self.scheduleTable.delegate = self
         self.scheduleTable.dataSource = self
         scheduleTable.register(UINib(nibName: "DisplayScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "DisplayScheduleTableViewCellIdentifier")
@@ -141,13 +144,11 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     
     func updateUser(user: User)
     {
-        username.text = user.firstName
-        
         let name = user.firstName
         let lName = user.lastName
         let email = user.email
         
-        username.text = user.email
+        username.text = name
         self.currentUser = User(fName: name, lName: lName, eMail: email)
         //print(currentUser.firstName)
     }
@@ -242,7 +243,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     }
     
     
-    func getUserInfo()//(completion: @escaping (Error?) -> Void)
+    func getUserInfo()
     {
         db.collection("users").document(userID).getDocument { (document, error) in
             if let error = error{
