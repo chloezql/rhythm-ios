@@ -295,7 +295,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44.0
+        return 100.0
     }
     
     
