@@ -94,7 +94,8 @@ class UserProfileViewController: UIViewController, editUserDelegate {
         self.firstNameLabel.text = currentUser.firstName
         self.lastNameLabel.text = currentUser.lastName
         self.emailLabel.text = currentUser.email
-        
+        let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
+        homeVC.username.text = currentUser.firstName
     }
     
     
