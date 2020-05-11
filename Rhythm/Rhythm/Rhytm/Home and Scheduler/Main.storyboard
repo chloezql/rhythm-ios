@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYo-qv-EWg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYo-qv-EWg">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1189,10 +1189,66 @@
                                     <action selector="logOut:" destination="r1f-sn-ydG" eventType="touchUpInside" id="8fr-hf-wfY"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GOi-WO-rQL">
+                                <rect key="frame" x="154.33333333333334" y="402" width="105.33333333333334" height="92"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="WaQ-XN-7AP" userLabel="Labels">
+                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="92"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO4-xR-pVm" userLabel="First Name">
+                                                <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYd-bk-PY7" userLabel="Last Name">
+                                                <rect key="frame" x="0.0" y="35" width="82.666666666666671" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYR-ua-akR" userLabel="Email">
+                                                <rect key="frame" x="0.0" y="70" width="82.666666666666671" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="wos-st-pP8" userLabel="Edit Buttons">
+                                        <rect key="frame" x="87.666666666666657" y="0.0" width="17.666666666666671" height="92"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZM-LK-1jb" userLabel="Edit First Name">
+                                                <rect key="frame" x="0.0" y="0.0" width="17.666666666666668" height="22"/>
+                                                <state key="normal" image="pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="editAFieldWith_sender:" destination="r1f-sn-ydG" eventType="touchUpInside" id="d4q-eJ-kRp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qh-Pe-QNK" userLabel="Edit Last Name">
+                                                <rect key="frame" x="0.0" y="35" width="17.666666666666668" height="22"/>
+                                                <state key="normal" image="pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="editAFieldWith_sender:" destination="r1f-sn-ydG" eventType="touchUpInside" id="WJ0-Id-ATj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhK-rr-972" userLabel="Edit Email">
+                                                <rect key="frame" x="0.0" y="70" width="17.666666666666668" height="22"/>
+                                                <state key="normal" image="pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="editAFieldWith_sender:" destination="r1f-sn-ydG" eventType="touchUpInside" id="aU8-C1-Ry6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hcZ-Wg-WeM" firstAttribute="centerX" secondItem="PIA-0o-96y" secondAttribute="centerX" id="5bp-JM-ZdK"/>
+                            <constraint firstItem="GOi-WO-rQL" firstAttribute="centerY" secondItem="PIA-0o-96y" secondAttribute="centerY" id="9FU-xC-DaN"/>
+                            <constraint firstItem="GOi-WO-rQL" firstAttribute="centerX" secondItem="PIA-0o-96y" secondAttribute="centerX" id="BOg-Rf-ZXK"/>
                             <constraint firstItem="LDy-9a-n3t" firstAttribute="centerX" secondItem="PIA-0o-96y" secondAttribute="centerX" id="FiO-7z-sHI"/>
                             <constraint firstItem="VtD-0O-RRn" firstAttribute="bottom" secondItem="hcZ-Wg-WeM" secondAttribute="bottom" constant="50" id="YwO-7g-gIH"/>
                             <constraint firstItem="LDy-9a-n3t" firstAttribute="top" secondItem="VtD-0O-RRn" secondAttribute="top" constant="100" id="uI9-wN-pnO"/>
@@ -1200,6 +1256,14 @@
                         <viewLayoutGuide key="safeArea" id="VtD-0O-RRn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="cdF-5I-Mh1"/>
+                    <connections>
+                        <outlet property="editEmail" destination="qhK-rr-972" id="OY9-fn-ywp"/>
+                        <outlet property="editFirstName" destination="iZM-LK-1jb" id="lXW-1Z-23Y"/>
+                        <outlet property="editLastName" destination="1qh-Pe-QNK" id="KXb-2g-dtt"/>
+                        <outlet property="emailLabel" destination="RYR-ua-akR" id="jN8-7J-ReX"/>
+                        <outlet property="firstNameLabel" destination="cO4-xR-pVm" id="aax-7v-tRf"/>
+                        <outlet property="lastNameLabel" destination="JYd-bk-PY7" id="wnE-y6-ylh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9g-lo-2n8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1337,26 +1401,27 @@
             <point key="canvasLocation" x="521.73913043478262" y="-208.25892857142856"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="xO3-TO-feO"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="500" height="500"/>
         <image name="2" width="700" height="700"/>
         <image name="3" width="700" height="700"/>
-        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
-        <image name="checkmark.square" catalog="system" width="128" height="114"/>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowtriangle.down.fill" catalog="system" width="64" height="62"/>
+        <image name="checkmark.square" catalog="system" width="64" height="56"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
+        <image name="circle" catalog="system" width="64" height="60"/>
+        <image name="circle.fill" catalog="system" width="64" height="60"/>
         <image name="content-create" width="444" height="960"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="main" width="448" height="968"/>
-        <image name="music.note" catalog="system" width="97" height="128"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="play.circle" catalog="system" width="128" height="121"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="square" catalog="system" width="128" height="114"/>
-        <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
+        <image name="music.note" catalog="system" width="48" height="64"/>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="play.circle" catalog="system" width="64" height="60"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="square" catalog="system" width="64" height="56"/>
+        <image name="square.split.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xQQ-kU-dZe"/>
+    </inferredMetricsTieBreakers>
 </document>

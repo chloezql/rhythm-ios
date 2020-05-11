@@ -78,6 +78,7 @@ class loginViewController: UIViewController, UITextFieldDelegate{
         let vc = storyboard.instantiateViewController(withIdentifier: "homeVC") as UIViewController
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+        
     }
     
     func callError(errorText: String)

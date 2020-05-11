@@ -78,7 +78,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             let lName = lastName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let em = email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let pword =  password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                        
+            
+            let newUser = User(fName: fName, lName: lName, eMail: em)
+            
+            
             Auth.auth().createUser(withEmail: em, password: pword) { (result, error) in
                 if error != nil
                 {
@@ -88,13 +91,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                 else
                 {
                     let db = Firestore.firestore()
-                    db.collection("users").document(result!.user.uid).setData(["firstName":fName, "lastName": lName])
-//                    db.collection("users").addDocument(data: ["firstName": fName , "lastName": lName, "uid": result!.user.uid]) { (error) in
-//                        if error != nil
-//                        {
-//                            self.callError(errorText: error!.localizedDescription)
-//                        }
-            //}
+                    do{
+                        try _ = db.collection("users").document(result!.user.uid).setData(from: newUser)
+                    } catch{
+                        print("Unable to add new user to firestore")
+                    }
+                                        
                     self.transitionToHomeScreen()
                 }
             }
@@ -114,6 +116,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         let vc = storyboard.instantiateViewController(withIdentifier: "homeVC") as UIViewController
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+        
     }
     
     
