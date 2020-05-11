@@ -96,11 +96,12 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     //add activity
     func addActivity(activity: Activity,addOrNot: Bool) {
         mySchedule.append(activity)
-        addActivityToFirebase(activity: activity)
+        addActivityToFirebase(activity: activity,collection: "Activities")
         mySchedule.sort(by: {$0.start_time < $1.start_time})
         if addOrNot == true{
             savedList.append(activity)
             savedList.sort(by: {$0.name < $1.name})
+            addActivityToFirebase(activity: activity, collection: "SavedActivities")
         }
         scheduleTable.reloadData()
         
@@ -122,7 +123,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     //add activity from saved
     func addSavedActivity(activity: Activity) {
         mySchedule.append(activity)
-        addActivityToFirebase(activity: activity)
+        addActivityToFirebase(activity: activity, collection: "Activities")
         mySchedule.sort(by: {$0.start_time < $1.start_time})
         
         scheduleTable.reloadData()
@@ -130,18 +131,20 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     }
     
     //Add Activity to firebase
-    func addActivityToFirebase(activity: Activity)
+    func addActivityToFirebase(activity: Activity, collection: String)
     {
         dateFormatter.timeStyle = .short
         let dateAsString = dateFormatter.string(from: activity.start_time)
         do{
             try
                 _ =
-                db.collection("users").document(userID).collection("Activities").document(dateAsString).setData(from: activity)
+                db.collection("users").document(userID).collection(collection).document(dateAsString).setData(from: activity)
         } catch{
             print("Unable to add activity to firestore")
         }
     }
+    
+    
     
     
     func getActivitiesFromFirestore()
@@ -176,6 +179,39 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
                 }
             }
         }
+        
+        
+        //Get saved activities
+        db.collection("users").document(userID).collection("SavedActivities").getDocuments() { (snapshot, error) in
+            if let error = error
+            {
+                print(error)
+                return
+            }
+            else
+            {
+                for document in snapshot!.documents
+                {
+                    let result = Result{
+                        try document.data(as: Activity.self)
+                    }
+                    switch result{
+                    case .success(let newAct):
+                        let newAct = newAct
+                        self.savedList.append(newAct!)
+                        self.savedList.sort(by: {$0.start_time < $1.start_time})
+                        //self.scheduleTable.reloadData()
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                }
+            }
+        }
+        
+        
+        
+        
         
     }
     
