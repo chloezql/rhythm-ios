@@ -72,18 +72,21 @@
                                     <constraint firstAttribute="height" constant="100" id="v2e-l7-WH3"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="naj-Ri-2sO">
-                                <rect key="frame" x="127" y="-139" width="161" height="1024"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6ta-oR-Hbv">
+                                <rect key="frame" x="126.5" y="287.5" width="161" height="161"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="e81-7L-4pe"/>
+                                    <constraint firstAttribute="height" constant="161" id="iAu-7m-aam"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="0fh-De-Ly5" firstAttribute="centerX" secondItem="h0z-HH-Go1" secondAttribute="centerX" id="YSz-cD-yEm"/>
-                            <constraint firstItem="Nnn-Cm-WyU" firstAttribute="trailing" secondItem="naj-Ri-2sO" secondAttribute="trailing" constant="126" id="ZpG-Ea-b6u"/>
                             <constraint firstItem="Nnn-Cm-WyU" firstAttribute="bottom" secondItem="0fh-De-Ly5" secondAttribute="bottom" constant="200" id="fcs-1a-7Ua"/>
-                            <constraint firstItem="naj-Ri-2sO" firstAttribute="centerY" secondItem="Nnn-Cm-WyU" secondAttribute="centerY" constant="-80" id="igm-XP-moY"/>
                             <constraint firstItem="0fh-De-Ly5" firstAttribute="centerX" secondItem="Nnn-Cm-WyU" secondAttribute="centerX" id="k0F-Xj-NQW"/>
-                            <constraint firstItem="naj-Ri-2sO" firstAttribute="leading" secondItem="Nnn-Cm-WyU" secondAttribute="leading" constant="127" id="yZv-r6-4Fe"/>
+                            <constraint firstItem="6ta-oR-Hbv" firstAttribute="centerY" secondItem="h0z-HH-Go1" secondAttribute="centerY" constant="-80" id="lsA-0w-T2s"/>
+                            <constraint firstItem="6ta-oR-Hbv" firstAttribute="centerX" secondItem="h0z-HH-Go1" secondAttribute="centerX" id="xuf-It-1Nz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nnn-Cm-WyU"/>
                         <userDefinedRuntimeAttributes>
