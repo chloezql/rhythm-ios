@@ -143,7 +143,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
             activityToEdit = Activity(myName: nameText.text!,myDesc: descriptionText.text!,myStart: myDates[0], myEnd: myDates[1], myColor: currentColor , mySong : Videos(Title:" temp", Link: "temp",Image:"none" ))
             
             self.delegate?.saveChange(activity: activityToEdit, index: activityIndex)
-            self.delegate?.addActivityToFirebase(activity: activityToEdit)
+            self.delegate?.addActivityToFirebase(activity: activityToEdit, collection: "Activities")
 
             dismiss(animated: true, completion: nil)
             
@@ -168,7 +168,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     
     //go back without adding anything
     @IBAction func goBack(_ sender: Any) {
-        self.delegate?.addActivityToFirebase(activity: activityToEdit)
+        self.delegate?.addActivityToFirebase(activity: activityToEdit, collection: "Activities")
         dismiss(animated: true, completion: nil)
     }
     
