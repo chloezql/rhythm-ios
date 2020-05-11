@@ -34,6 +34,7 @@
 		9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E70F055245557BA00712582 /* GoogleService-Info.plist */; };
 		9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */; };
 		9EAE831D2468DC6C00982232 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAE831C2468DC6C00982232 /* User.swift */; };
+		9EAE831F24690B9700982232 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAE831E24690B9700982232 /* EditUserInfoViewController.swift */; };
 		9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30357244BD08A00ECB93A /* AppDelegate.swift */; };
 		9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30360244BD08A00ECB93A /* Rhytm.xcdatamodeld */; };
 		9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30363244BD08B00ECB93A /* Assets.xcassets */; };
@@ -103,6 +104,7 @@
 		9E70F055245557BA00712582 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9EAE831C2468DC6C00982232 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = "Rhytm/Login & Sign In/User.swift"; sourceTree = SOURCE_ROOT; };
+		9EAE831E24690B9700982232 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		9EC30354244BD08A00ECB93A /* Rhytm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhytm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC30357244BD08A00ECB93A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EC30361244BD08A00ECB93A /* Rhytm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rhytm.xcdatamodel; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				9E278140245C0970004C7888 /* ViewController.swift */,
 				EA1C71FC24651AFE00A36965 /* addViewController.swift */,
 				9EC845302467E8A200CB542C /* UserProfileViewController.swift */,
+				9EAE831E24690B9700982232 /* EditUserInfoViewController.swift */,
 				9E0B1DA5246018AA00C02DA5 /* ActivityCollectionViewCell.swift */,
 				9E0B1DA1246018A900C02DA5 /* ActivityCollectionViewCell.xib */,
 				9E0B1DA2246018AA00C02DA5 /* SavedDisplayViewController.swift */,
@@ -562,6 +565,7 @@
 			files = (
 				9EAE831D2468DC6C00982232 /* User.swift in Sources */,
 				9E0B1DA7246018AA00C02DA5 /* SavedDisplayViewController.swift in Sources */,
+				9EAE831F24690B9700982232 /* EditUserInfoViewController.swift in Sources */,
 				9EC845312467E8A200CB542C /* UserProfileViewController.swift in Sources */,
 				9EFC6EB0245BF76600B1CB93 /* Activity.swift in Sources */,
 				9ECA001D245A408B00C944FF /* loginViewController.swift in Sources */,
