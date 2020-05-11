@@ -12,11 +12,10 @@ import FirebaseAuth
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, editUserDelegate {
     
     let userID = Auth.auth().currentUser!.uid
     let db = Firestore.firestore()
-    
     
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
@@ -26,22 +25,20 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var editLastName: UIButton!
     @IBOutlet weak var editEmail: UIButton!
     
-    weak var delegate: ViewController?
-    
     var currentUser: User!
     var valToEdit: String!
     var tag: Int!
+    var updated = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
-        currentUser = homeVC.currentUser
-        firstNameLabel.text = currentUser.firstName
-        lastNameLabel.text = currentUser.lastName
-        emailLabel.text = currentUser.email
+        if(updated == false)
+        {
+            let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
+            currentUser = homeVC.currentUser
+            updateUser(user: currentUser)
+        }
         
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func logOut(_ sender: Any) {
@@ -83,6 +80,18 @@ class UserProfileViewController: UIViewController {
             vc.tag = tag
         }
    
+    }
+    
+    
+    func updateUser(user: User) {
+        currentUser = user
+        updated = true
+        print("hello")
+        self.firstNameLabel.text = currentUser.firstName
+        print(firstNameLabel.text!)
+        self.lastNameLabel.text = currentUser.lastName
+        self.emailLabel.text = currentUser.email
+        
     }
     
     

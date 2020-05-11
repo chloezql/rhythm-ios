@@ -12,6 +12,11 @@ import FirebaseAuth
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
+protocol editUserDelegate
+{
+    func updateUser(user: User)
+}
+
 class EditUserInfoViewController: UIViewController {
     
     
@@ -19,6 +24,8 @@ class EditUserInfoViewController: UIViewController {
     @IBOutlet weak var newValTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
+    
+    weak var delegate: UserProfileViewController?
     
     var currentUser: User!
     var tag: Int!
@@ -32,7 +39,6 @@ class EditUserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
-        
         
         switch tag {
         case 1:
@@ -93,19 +99,19 @@ class EditUserInfoViewController: UIViewController {
         switch tag {
         case 1:
             fieldName = "firstName"
-            //homeVC.currentUser.firstName = newValue
+            currentUser.firstName = newValue
         case 2:
             fieldName = "lastName"
-            //homeVC.currentUser.lastName = newValue
+            currentUser.lastName = newValue
         case 3:
             fieldName = "email"
-            //homeVC.currentUser.email = newValue
+            currentUser.email = newValue
         default:
             fieldName = "error"
         }
-        
-        
-        
+
+        //This method not being called
+        self.delegate?.updateUser(user: currentUser)
         
         let ref = db.collection("users").document(userID)
         ref.updateData([fieldName : newValue]) { (err) in
