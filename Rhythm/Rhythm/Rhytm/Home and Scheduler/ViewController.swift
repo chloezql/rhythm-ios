@@ -34,7 +34,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     let db = Firestore.firestore()
     
     let dateFormatter = DateFormatter()
-
+    
     
     
     override func viewDidLoad() {
@@ -68,7 +68,24 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             setNotification(time: acti.start_time)
         }
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        scheduleTable.refreshControl = refreshControl
+        
     }
+    
+    
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        for acti in mySchedule{
+            if acti.end_time < Date(){
+                mySchedule.remove(at: mySchedule.firstIndex(of: acti)!)
+            }
+        }
+        scheduleTable.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
     
     
     
@@ -200,7 +217,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
                         let newAct = newAct
                         self.savedList.append(newAct!)
                         self.savedList.sort(by: {$0.start_time < $1.start_time})
-                        //self.scheduleTable.reloadData()
+                    //self.scheduleTable.reloadData()
                     case .failure(let error):
                         print(error)
                     }
@@ -311,7 +328,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         
         
         self.indexToEdit = indexPath.row
-
+        
         // Create an instance of PlayerTableViewController and pass the variable
         //let destinationVC = TimerViewController()
         //destinationVC.schedule = schedule
