@@ -27,6 +27,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     var indexToEdit = -1
     var myIndex = 0
     
+    var currentUser: User!
+    
     var addNewSegue: UIStoryboardSegue!
     var addSaveSegue: UIStoryboardSegue!
     
@@ -40,7 +42,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     override func viewDidLoad() {
         super.viewDidLoad()
         getActivitiesFromFirestore()
-        
+        getUserInfo()
+        //username.text = currentUser.firstName
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
         //ask user if allow notification
@@ -136,6 +139,18 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         }
     }
     
+    func updateUser(user: User)
+    {
+        username.text = user.firstName
+        
+        let name = user.firstName
+        let lName = user.lastName
+        let email = user.email
+        
+        username.text = user.email
+        self.currentUser = User(fName: name, lName: lName, eMail: email)
+        //print(currentUser.firstName)
+    }
     
     //add activity from saved
     func addSavedActivity(activity: Activity) {
@@ -197,7 +212,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             }
         }
         
-        
         //Get saved activities
         db.collection("users").document(userID).collection("SavedActivities").getDocuments() { (snapshot, error) in
             if let error = error
@@ -225,12 +239,32 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
                 }
             }
         }
-        
-        
-        
-        
-        
     }
+    
+    
+    func getUserInfo()//(completion: @escaping (Error?) -> Void)
+    {
+        db.collection("users").document(userID).getDocument { (document, error) in
+            if let error = error{
+                print(error)
+                return
+            }
+            let result = Result{
+                try document?.data(as: User.self)
+            }
+            
+            switch result{
+            case .success(let newUser):
+                let newUser = newUser
+                self.updateUser(user: newUser!)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
+    
     
     func removeFromFirebase(activity: Activity)
     {

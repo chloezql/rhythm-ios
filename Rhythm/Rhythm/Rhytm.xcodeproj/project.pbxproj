@@ -33,6 +33,7 @@
 		9E604B772455848900EEDBCA /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E604B762455848900EEDBCA /* welcomeViewController.swift */; };
 		9E70F056245557BB00712582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E70F055245557BA00712582 /* GoogleService-Info.plist */; };
 		9EACAA6B245A3FE20025B2F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */; };
+		9EAE831D2468DC6C00982232 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAE831C2468DC6C00982232 /* User.swift */; };
 		9EC30358244BD08A00ECB93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30357244BD08A00ECB93A /* AppDelegate.swift */; };
 		9EC30362244BD08A00ECB93A /* Rhytm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9EC30360244BD08A00ECB93A /* Rhytm.xcdatamodeld */; };
 		9EC30364244BD08B00ECB93A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC30363244BD08B00ECB93A /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		9E604B762455848900EEDBCA /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
 		9E70F055245557BA00712582 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EACAA6A245A3FE20025B2F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9EAE831C2468DC6C00982232 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = "Rhytm/Login & Sign In/User.swift"; sourceTree = SOURCE_ROOT; };
 		9EC30354244BD08A00ECB93A /* Rhytm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhytm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC30357244BD08A00ECB93A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EC30361244BD08A00ECB93A /* Rhytm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rhytm.xcdatamodel; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				9EFC6E9E245BF76600B1CB93 /* DisplayScheduleTableViewCell.swift */,
 				9EFC6E96245BF76500B1CB93 /* DisplayScheduleTableViewCell.xib */,
 				9EFC6EA1245BF76600B1CB93 /* Activity.swift */,
+				9EAE831C2468DC6C00982232 /* User.swift */,
 			);
 			path = "Home and Scheduler";
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EAE831D2468DC6C00982232 /* User.swift in Sources */,
 				9E0B1DA7246018AA00C02DA5 /* SavedDisplayViewController.swift in Sources */,
 				9EC845312467E8A200CB542C /* UserProfileViewController.swift in Sources */,
 				9EFC6EB0245BF76600B1CB93 /* Activity.swift in Sources */,
