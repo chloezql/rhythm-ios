@@ -29,18 +29,11 @@ class UserProfileViewController: UIViewController {
     weak var delegate: ViewController?
     
     var currentUser: User!
-    
-    
+    var valToEdit: String!
+    var tag: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        //This works, with lag
-        //getUserInfo()
-        
-        
-        
         let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
         currentUser = homeVC.currentUser
         firstNameLabel.text = currentUser.firstName
@@ -60,14 +53,16 @@ class UserProfileViewController: UIViewController {
     {
         switch _sender{
         case editFirstName:
-            print("")
+            tag = 1
         case editLastName:
-            print("")
+            tag = 2
         case editEmail:
-            print("")
+            tag = 3
         default:
-            print("")
+            tag = 0
         }
+        self.performSegue(withIdentifier: "editInfoSegue", sender: self)
+        
     }
     
     func transitionToLogin()
@@ -79,34 +74,15 @@ class UserProfileViewController: UIViewController {
     }
     
     
-    func getUserInfo()//(completion: @escaping (Error?) -> Void)
-    {
-        db.collection("users").document(userID).getDocument { (document, error) in
-            if let error = error{
-                print(error)
-                return
-            }
-            let result = Result{
-                try document?.data(as: User.self)
-            }
-            
-            switch result{
-            case .success(let newUser):
-                let newUser = newUser
-                self.updateUser(user: newUser!)
-            case .failure(let error):
-                print(error)
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editInfoSegue"
+        {
+            let vc: EditUserInfoViewController = segue.destination as! EditUserInfoViewController
+            //vc.valueCurrentlyEditing = valToEdit
+            vc.currentUser = currentUser
+            vc.tag = tag
         }
-    }
-    
-    
-    func updateUser(user: User)
-    {
-        currentUser = user
-        firstNameLabel.text = currentUser.firstName
-        lastNameLabel.text = currentUser.lastName
-        emailLabel.text = currentUser.email
+   
     }
     
     
