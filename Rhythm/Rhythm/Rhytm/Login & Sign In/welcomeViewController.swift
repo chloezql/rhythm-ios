@@ -16,18 +16,16 @@ class welcomeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "login-background.png")!)
         
+        //Try signing in the user using previous login credentials
+        //This keeps user signed in if the app is closed
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil{
                 self.transitionToHomeScreen()
             }
         }
-        
-        
-
-        // Do any additional setup after loading the view.
     }
     
-    
+    //Handle the transition to the 'Main' storyboard, specifically the 'homeVC' view controller
     func transitionToHomeScreen()
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
