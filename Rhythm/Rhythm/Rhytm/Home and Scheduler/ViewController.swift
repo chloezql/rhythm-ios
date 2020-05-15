@@ -27,11 +27,13 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     var indexToEdit = -1
     var myIndex = 0
     
+    //Current user object stored locally
     var currentUser: User!
     
     var addNewSegue: UIStoryboardSegue!
     var addSaveSegue: UIStoryboardSegue!
     
+    //userID used to access user data stored in firestore
     let userID = Auth.auth().currentUser!.uid
     let db = Firestore.firestore()
     
@@ -43,7 +45,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         super.viewDidLoad()
         getActivitiesFromFirestore()
         getUserInfo()
-        //username.text = currentUser.firstName
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
         //ask user if allow notification
@@ -142,6 +143,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         }
     }
     
+    //update user object locally
     func updateUser(user: User)
     {
         let name = user.firstName
@@ -150,7 +152,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         
         username.text = name
         self.currentUser = User(fName: name, lName: lName, eMail: email)
-        //print(currentUser.firstName)
     }
     
     //add activity from saved
@@ -164,6 +165,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     }
     
     //Add Activity to firebase
+    //activity: activity to add
+    //collection: string specifying whether adding to "Activities" or "SavedActivities"
     func addActivityToFirebase(activity: Activity, collection: String)
     {
         dateFormatter.timeStyle = .short
@@ -179,9 +182,11 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     
     
     
-    
+    //Get all activities from firestore database
     func getActivitiesFromFirestore()
     {
+        //Try and retrieve all activity objects stored in the users "Activities" collection
+        //Uses the userID to specify which users data to retrieve
         db.collection("users").document(userID).collection("Activities").getDocuments() { (snapshot, error) in
             if let error = error
             {
@@ -213,7 +218,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             }
         }
         
-        //Get saved activities
+        //Try and retrieve all activity objects stored in the users "SavedActivities" collection
+        //Uses the userID to specify which users data to retrieve
         db.collection("users").document(userID).collection("SavedActivities").getDocuments() { (snapshot, error) in
             if let error = error
             {
@@ -232,7 +238,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
                         let newAct = newAct
                         self.savedList.append(newAct!)
                         self.savedList.sort(by: {$0.start_time < $1.start_time})
-                    //self.scheduleTable.reloadData()
                     case .failure(let error):
                         print(error)
                     }
@@ -242,7 +247,9 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         }
     }
     
-    
+    //Get the users info from firestore
+    //Utilize userID to specify user
+    //Call updateUser to update the local user object with the remote data
     func getUserInfo()
     {
         db.collection("users").document(userID).getDocument { (document, error) in
@@ -266,18 +273,20 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     
     
     
-    
+    //Remove specified activity from the database
+    //activity: Activity object which is desired to be deleted
     func removeFromFirebase(activity: Activity)
     {
         let docuTitle = activityTitle(activity: activity)
         db.collection("users").document(userID).collection("Activities").document(docuTitle).delete()
     }
     
-    
+    //Creates a title for the activity using the unique start and end time
+    //Ensures that the activities can be easily accessed in the firestore database
+    //used when adding activity as well as when identifying which activity to delete
     func activityTitle(activity:Activity) ->String
     {
         let title = dateFormatter.string(from: activity.start_time)
-        //print(title)
         return title
     }
     

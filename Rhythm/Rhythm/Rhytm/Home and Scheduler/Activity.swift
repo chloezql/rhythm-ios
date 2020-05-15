@@ -10,6 +10,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+//Codable ensures that it can be passed into fireStore database as custom object
 class Activity: NSObject, Codable{
     var name: String
     var descrip: String
