@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class loginViewController: UIViewController, UITextFieldDelegate{
 
+    
+    //Componenets from storyboard
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
@@ -19,16 +21,19 @@ class loginViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Simple page setup, hide error label
         errorLabel.isHidden = true
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
         // Do any additional setup after loading the view.
     }
     
-    
+    //Hide the keyboard when the user taps outside the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
            self.view.endEditing(true)
        }
     
+    //Hide the keyboard when return is pressed
     func textFieldShouldReturn(_textField: UITextField) -> Bool
     {
         _textField.resignFirstResponder();
@@ -36,6 +41,7 @@ class loginViewController: UIViewController, UITextFieldDelegate{
     }
 
     
+    //Check the fields and ensure the user has entered an email and password
     func checkFields() -> Bool
     {
         if(email.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -49,14 +55,17 @@ class loginViewController: UIViewController, UITextFieldDelegate{
     }
     
     
-    
+    //Manages actions when login button is pressed
     @IBAction func loginPressed(_ sender: Any)
     {
         if checkFields()
         {
+            //Remove spaces and new line characters from the email and password textfields
             let em = email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let pword = password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
+            //If error while authenticating, display error
+            //Else transition to home screen
             Auth.auth().signIn(withEmail: em, password: pword) { (result, error) in
                 if error != nil
                 {
@@ -72,6 +81,7 @@ class loginViewController: UIViewController, UITextFieldDelegate{
         
     }
     
+    //Handle the transition to the 'Main' storyboard, specifically the 'homeVC' view controller
     func transitionToHomeScreen()
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -80,7 +90,8 @@ class loginViewController: UIViewController, UITextFieldDelegate{
         self.present(vc, animated: true, completion: nil)
         
     }
-    
+    //Handle displaying error
+    //errorText: A string containing the error message to display
     func callError(errorText: String)
     {
         errorLabel.isHidden = false
