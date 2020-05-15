@@ -43,14 +43,15 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
         // Do any additional setup after loading the view.
         super.viewDidLoad()
         
-        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
-        
+        //set up table view
         timeTable.tableFooterView = UIView()
         timeTable.register(UINib(nibName: "DatePickerTableViewCell", bundle: nil), forCellReuseIdentifier: "DatePickerTableViewCellIdentifier")
         timeTable.register(UINib(nibName: "DateTextTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTextTableViewCellIdentifier")
         
         self.timeTable.delegate = self
         self.timeTable.dataSource = self
+        
+        //show information of current activity
         nameText.text = activityToEdit.name
         descriptionText.text = activityToEdit.descrip
         
@@ -151,7 +152,7 @@ class EditActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
-    
+    //no two activites can have the same start time
     func invalidStartTime() -> (Bool)
     {
         let formatter = self.delegate!.dateFormatter

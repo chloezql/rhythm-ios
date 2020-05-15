@@ -10,14 +10,12 @@ import UIKit
 
 class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     var mySchedule: [Activity] = []
-    //weak var delegate: ViewController?
     
     @IBOutlet weak var displaySavedActivities: UICollectionView!
     var menuController = UIMenuController.shared
     var currentSelected = -1
     
-    
-    
+    //refresh by fetch data from home view controller every time going to this tab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
@@ -38,6 +36,7 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
         self.displaySavedActivities.dataSource = self
         displaySavedActivities.register(UINib(nibName: "ActivityCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ActivityCollectionViewCellIdentifier")
         
+        //set up spacing and location of each cell
         let flow = UICollectionViewFlowLayout()
         flow.sectionInset = UIEdgeInsets(top: 30, left: 6, bottom: 10, right: 6)
         flow.itemSize = CGSize(width: CGFloat(128), height: CGFloat(128))
@@ -46,6 +45,7 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
         
         displaySavedActivities.setCollectionViewLayout(flow, animated: false)
         
+        //allow long press a cell to delete
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(deleteActivity))
         longPressGesture.minimumPressDuration = 1.0
         longPressGesture.delegate = self
@@ -57,15 +57,15 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
     //handle long press cell and delete from list
     @objc func deleteActivity(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .began && mySchedule.count > 0 {
-           
             self.becomeFirstResponder()
-
             let position = gestureRecognizer.location(in: self.displaySavedActivities)
             let indexPath = self.displaySavedActivities.indexPathForItem(at: position)
             
+            //no action if press on place with no cells
             if(indexPath?.item != nil){
                 currentSelected = indexPath!.item
                 
+                //alert to make sure user wants to delete
                 let alert = UIAlertController(title: "Do you want to delete this template", message: "you cannot recover it once deleted", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "cancel", style: .default, handler: nil)
                 let deleteAction = UIAlertAction(title: "delete", style: .default, handler: deleteSavedActivity)
@@ -76,7 +76,7 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
             
         }
     }
-
+    //delete an activity from saved list
     func deleteSavedActivity(action: UIAlertAction){
         mySchedule.remove(at: currentSelected)
         displaySavedActivities.reloadData()
@@ -84,7 +84,7 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
         homeVC.savedList = self.mySchedule
     }
 
-    
+    //set up collection view
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }

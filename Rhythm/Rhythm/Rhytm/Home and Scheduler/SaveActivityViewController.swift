@@ -16,7 +16,6 @@ protocol saveActivityDelegate{
 class SaveActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UISearchBarDelegate,PlaylistDelegate{
     
     
-    //@IBOutlet weak var scrolllView: UIScrollView!
     @IBOutlet weak var thumbnailSong: UIImageView!
     
     @IBOutlet weak var blueTag: UIButton!
@@ -56,9 +55,6 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         playlistViewController?.mydelegate = self
         // Do any additional setup after loading the view.
-        //set background image
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
-        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
 
         timeTable.tableFooterView = UIView()
         selectTable.tableFooterView = UIView()
@@ -168,24 +164,22 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
-    //display/close pickerView
+    //display/close table view and select button
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        
-        
         selectButton.isHidden = false
         selectTable.isHidden = false
         return true
     }
     
+    //if click outside of searchBar
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        
         selectButton.isHidden = true
         selectTable.isHidden = true
         return true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        //filter data by user's input
         filteredSchedule = searchText.isEmpty ? savedSchedule : savedSchedule.filter { (item: Activity) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
@@ -217,6 +211,7 @@ class SaveActivityViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    //display selected activity information
     @IBAction func selected(_ sender: Any) {
         
         if (selectedIndex < 0 || (selectTable.isHidden == false && selectTable.numberOfRows(inSection: 0) == 0)){

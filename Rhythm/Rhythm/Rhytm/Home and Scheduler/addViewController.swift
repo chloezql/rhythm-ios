@@ -26,7 +26,7 @@ class addViewController: UIViewController {
     }
     
 
-    
+    //segue
     @IBAction func createNew(_ sender: Any) {
         self.performSegue(withIdentifier: "createNewSegue", sender: self)
     }

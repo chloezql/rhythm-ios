@@ -15,8 +15,7 @@ protocol activityDelegate{
 class NewActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UITextFieldDelegate,
     PlaylistDelegate{
     
-    //@IBOutlet weak var scrollView: UIScrollView!
-    
+
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var descriptionText: UITextField!
     @IBOutlet weak var timeTable: UITableView!
@@ -52,7 +51,6 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         playlistViewController?.mydelegate = self
          self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
-        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
         timeTable.tableFooterView = UIView()
         
@@ -75,8 +73,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         thumbnailSong.layer.masksToBounds = true
         thumbnailSong.layer.borderWidth = 1
         
-        
-         NewActivityViewController.sharedInstace = self;
+        NewActivityViewController.sharedInstace = self;
         
     }
     

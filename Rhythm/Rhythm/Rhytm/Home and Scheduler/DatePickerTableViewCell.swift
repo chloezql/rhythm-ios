@@ -5,7 +5,7 @@
 //  Created by Ziyuan Li on 4/25/20.
 //  Copyright © 2020 NYUiOS. All rights reserved.
 //
-
+// Set up table view cell of date picker
 import UIKit
 
 protocol datePickerDelegate: class {
