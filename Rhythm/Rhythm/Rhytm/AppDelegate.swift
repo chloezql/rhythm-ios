@@ -19,9 +19,12 @@ import FirebaseStorage
 class AppDelegate: UIResponder, UIApplicationDelegate { //GIDSignInDelegate {
         
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+
+        UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0)
 
         FirebaseApp.configure()
-
+        
         let db = Firestore.firestore()
         print(db) 
         return true

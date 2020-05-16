@@ -28,7 +28,7 @@ class TimerViewController : UIViewController{
     var schedule: Activity!
     var difference:Int!
     var timer = Timer()
-    var song = Videos(Title:" temp", Link: "https://firebasestorage.googleapis.com/v0/b/rhythm-4586f.appspot.com/o/songs%2FNils%20Frahm%20-%20You.mp3?alt=media&token=94d6ed5f-7ca6-463f-a94c-5e5dcebbf2c0",Image:"https://firebasestorage.googleapis.com/v0/b/rhythm-4586f.appspot.com/o/1.jpg?alt=media&token=5223c938-6977-4114-a988-04422e647c01" )
+    var song = Videos(Title:" temp", Link: "https://firebasestorage.googleapis.com/v0/b/rhythm-4586f.appspot.com/o/songs%2FNils%20Frahm%20-%20You.mp3?alt=media&token=94d6ed5f-7ca6-463f-a94c-5e5dcebbf2c0",Image:"image" )
     var animating : Bool = false
     override func viewDidLoad(){
         super.viewDidLoad()

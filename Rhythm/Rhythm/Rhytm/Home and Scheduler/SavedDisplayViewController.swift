@@ -32,7 +32,7 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
         let homeVC = bar.viewControllers![0] as! ViewController
         mySchedule = homeVC.savedList
         
-        displaySavedActivities.backgroundColor = UIColor(red: 205/255, green: 213/255, blue: 238/255, alpha: 1)
+        displaySavedActivities.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         
         self.displaySavedActivities.delegate = self
         self.displaySavedActivities.dataSource = self

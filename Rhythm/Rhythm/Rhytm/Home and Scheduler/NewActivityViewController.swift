@@ -51,7 +51,7 @@ class NewActivityViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
         super.viewDidLoad()
         playlistViewController?.mydelegate = self
-         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
+         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "create.png")!)
         //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height+100)
         
         timeTable.tableFooterView = UIView()

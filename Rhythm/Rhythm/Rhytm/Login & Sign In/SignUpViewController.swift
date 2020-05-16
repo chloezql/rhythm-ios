@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         errorMessage.isHidden = true
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
         // Do any additional setup after loading the view.
     }
     

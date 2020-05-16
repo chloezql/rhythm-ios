@@ -14,7 +14,7 @@ class welcomeViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "login-background.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "welcome-background.png")!)
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil{

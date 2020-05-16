@@ -20,7 +20,7 @@ class loginViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
         // Do any additional setup after loading the view.
     }
     

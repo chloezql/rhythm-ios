@@ -16,25 +16,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="440" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUQ-tu-cpW">
-                        <rect key="frame" x="161" y="13" width="259" height="78"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uUQ-tu-cpW">
+                        <rect key="frame" x="161" y="10" width="259" height="84"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="259" id="JFI-FE-USP"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <integer key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rhT-XF-fCm">
+                        <rect key="frame" x="110" y="-5" width="3" height="112"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="tintColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="3" id="Srs-08-kAG"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyG-5j-7rQ">
-                        <rect key="frame" x="0.0" y="0.0" width="121" height="104"/>
+                        <rect key="frame" x="0.0" y="0.0" width="118" height="104"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkt-K1-OVF">
-                        <rect key="frame" x="195" y="32" width="200" height="44"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <rect key="frame" x="187" y="24" width="208" height="57"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="19"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -43,33 +54,23 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rhT-XF-fCm">
-                        <rect key="frame" x="110" y="0.5" width="3" height="103"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="tintColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="3" id="Srs-08-kAG"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="vyG-5j-7rQ" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="25Z-U7-Pjq"/>
                     <constraint firstItem="vyG-5j-7rQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5Dw-D5-V2B"/>
-                    <constraint firstItem="uUQ-tu-cpW" firstAttribute="leading" secondItem="vyG-5j-7rQ" secondAttribute="trailing" constant="40" id="7hQ-8U-8v5"/>
+                    <constraint firstItem="Pkt-K1-OVF" firstAttribute="centerY" secondItem="uUQ-tu-cpW" secondAttribute="centerY" id="5mG-J4-2DA"/>
                     <constraint firstItem="rhT-XF-fCm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="110" id="7iL-Ct-rMh"/>
-                    <constraint firstItem="Pkt-K1-OVF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="2" id="GY1-H0-aGS"/>
-                    <constraint firstItem="uUQ-tu-cpW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="Lm0-Yy-FDW"/>
-                    <constraint firstAttribute="trailing" secondItem="vyG-5j-7rQ" secondAttribute="trailing" constant="317" id="Q4l-Sg-MNY"/>
+                    <constraint firstItem="Pkt-K1-OVF" firstAttribute="leading" secondItem="vyG-5j-7rQ" secondAttribute="trailing" constant="68" id="Bne-Za-tE1"/>
+                    <constraint firstItem="Pkt-K1-OVF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-31" id="CZy-O9-zFG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Pkt-K1-OVF" secondAttribute="trailing" constant="25" id="N7x-K1-v20"/>
+                    <constraint firstItem="uUQ-tu-cpW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Opv-RJ-DOC"/>
                     <constraint firstItem="rhT-XF-fCm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="110" id="W9P-bW-JBH"/>
-                    <constraint firstAttribute="bottom" secondItem="uUQ-tu-cpW" secondAttribute="bottom" constant="13" id="W9X-rQ-gUs"/>
-                    <constraint firstAttribute="bottom" secondItem="rhT-XF-fCm" secondAttribute="bottom" id="ZrI-vA-6v3"/>
-                    <constraint firstItem="Pkt-K1-OVF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="aYk-ir-klu"/>
-                    <constraint firstItem="Pkt-K1-OVF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="195" id="hV2-9f-mSA"/>
-                    <constraint firstAttribute="trailing" secondItem="Pkt-K1-OVF" secondAttribute="trailing" constant="45" id="jHp-ft-gtx"/>
+                    <constraint firstAttribute="bottom" secondItem="uUQ-tu-cpW" secondAttribute="bottom" constant="10" id="ZGl-LB-1yy"/>
+                    <constraint firstAttribute="bottom" secondItem="rhT-XF-fCm" secondAttribute="bottom" constant="-3.5" id="ZrI-vA-6v3"/>
+                    <constraint firstItem="Pkt-K1-OVF" firstAttribute="centerX" secondItem="uUQ-tu-cpW" secondAttribute="centerX" id="g8E-st-sg3"/>
                     <constraint firstItem="vyG-5j-7rQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="n53-aj-igu"/>
-                    <constraint firstItem="rhT-XF-fCm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qjR-WT-Orn"/>
-                    <constraint firstItem="uUQ-tu-cpW" firstAttribute="leading" secondItem="rhT-XF-fCm" secondAttribute="trailing" constant="48" id="thf-ru-leC"/>
-                    <constraint firstAttribute="trailing" secondItem="uUQ-tu-cpW" secondAttribute="trailing" constant="20" id="vBM-nJ-vFf"/>
+                    <constraint firstItem="uUQ-tu-cpW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qTJ-u0-52H"/>
+                    <constraint firstItem="rhT-XF-fCm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-5.5" id="qjR-WT-Orn"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
