@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         errorMessage.isHidden = true
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
     }
     
     //Hide keyboard when user taps 'return' on keyboard
