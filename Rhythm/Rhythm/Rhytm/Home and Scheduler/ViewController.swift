@@ -274,10 +274,10 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     
     //Remove specified activity from the database
     //activity: Activity object which is desired to be deleted
-    func removeFromFirebase(activity: Activity)
+    func removeFromFirebase(activity: Activity, collection: String)
     {
         let docuTitle = activityTitle(activity: activity)
-        db.collection("users").document(userID).collection("Activities").document(docuTitle).delete()
+        db.collection("users").document(userID).collection(collection).document(docuTitle).delete()
     }
     
     //Creates a title for the activity using the unique start and end time
@@ -323,7 +323,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             
             //Delete from firebase
             let actToRemove = mySchedule[mySchedule.index(after: (indexPath.row)-1)]
-            removeFromFirebase(activity: actToRemove)
+            removeFromFirebase(activity: actToRemove, collection: "Activities")
             //remove old notifications and add new ones
             mySchedule.remove(at: indexPath.row)
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
@@ -340,7 +340,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion) in
             
             let actToRemove = self.mySchedule[self.mySchedule.index(after: (indexPath.row)-1)]
-            self.removeFromFirebase(activity: actToRemove)            
+            self.removeFromFirebase(activity: actToRemove, collection: "Activities")            
             self.indexToEdit = indexPath.row
             self.performSegue(withIdentifier: "editSegue", sender: self)
             completion(true)

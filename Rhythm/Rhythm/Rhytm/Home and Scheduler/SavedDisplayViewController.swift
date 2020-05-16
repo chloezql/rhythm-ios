@@ -78,10 +78,12 @@ class SavedDisplayViewController: UIViewController, UICollectionViewDelegate, UI
     }
     //delete an activity from saved list
     func deleteSavedActivity(action: UIAlertAction){
+        let toDelete = mySchedule[currentSelected]
         mySchedule.remove(at: currentSelected)
         displaySavedActivities.reloadData()
         let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
         homeVC.savedList = self.mySchedule
+        homeVC.removeFromFirebase(activity: toDelete, collection: "SavedActivities")
     }
 
     //set up collection view
