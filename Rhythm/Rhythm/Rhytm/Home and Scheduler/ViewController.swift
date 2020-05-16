@@ -27,11 +27,13 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     var indexToEdit = -1
     var myIndex = 0
     
+    //Current user object stored locally
     var currentUser: User!
     
     var addNewSegue: UIStoryboardSegue!
     var addSaveSegue: UIStoryboardSegue!
     
+    //userID used to access user data stored in firestore
     let userID = Auth.auth().currentUser!.uid
     let db = Firestore.firestore()
     
@@ -43,9 +45,9 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         super.viewDidLoad()
         getActivitiesFromFirestore()
         getUserInfo()
-        //username.text = currentUser.firstName
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
+        
         //ask user if allow notification
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
@@ -53,9 +55,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             }
         }
         
-        
-        
         // Do any additional setup after loading the view.
+        //load image and chane size
         photo.roundImage()
         photo.image = UIImage(named: "AH.jpg")
         photo.layer.borderWidth = 1
@@ -64,24 +65,26 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         photo.layer.cornerRadius = photo.frame.height/2
         photo.clipsToBounds = true
         
+        //set up table view
         self.scheduleTable.delegate = self
         self.scheduleTable.dataSource = self
         scheduleTable.register(UINib(nibName: "DisplayScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "DisplayScheduleTableViewCellIdentifier")
         
         scheduleTable.tableFooterView = UIView()
         
+        //add notification
         for acti in mySchedule{
             setNotification(time: acti.start_time)
         }
         
+        //pull to refresh
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        
         scheduleTable.refreshControl = refreshControl
         
     }
     
-    
+    //delete past activities when refresh
     @objc func refresh(_ refreshControl: UIRefreshControl) {
         for acti in mySchedule{
             if acti.end_time < Date(){
@@ -91,9 +94,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         scheduleTable.reloadData()
         refreshControl.endRefreshing()
     }
-    
-    
-    
     
     //set up notification
     func setNotification(time:Date){
@@ -109,7 +109,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request) { (error) in
             if error != nil {
-                // Handle any errors.
             }
         }
         
@@ -132,6 +131,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     }
     
     //update activity when segue back after editing
+    //also reset notification
     func saveChange(activity: Activity, index:Int){
         mySchedule[index] = activity
         mySchedule.sort(by: {$0.start_time < $1.start_time})
@@ -142,6 +142,7 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         }
     }
     
+    //update user object locally
     func updateUser(user: User)
     {
         let name = user.firstName
@@ -150,7 +151,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         
         username.text = name
         self.currentUser = User(fName: name, lName: lName, eMail: email)
-        //print(currentUser.firstName)
     }
     
     //add activity from saved
@@ -164,6 +164,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     }
     
     //Add Activity to firebase
+    //activity: activity to add
+    //collection: string specifying whether adding to "Activities" or "SavedActivities"
     func addActivityToFirebase(activity: Activity, collection: String)
     {
         dateFormatter.timeStyle = .short
@@ -179,9 +181,11 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     
     
     
-    
+    //Get all activities from firestore database
     func getActivitiesFromFirestore()
     {
+        //Try and retrieve all activity objects stored in the users "Activities" collection
+        //Uses the userID to specify which users data to retrieve
         db.collection("users").document(userID).collection("Activities").getDocuments() { (snapshot, error) in
             if let error = error
             {
@@ -213,7 +217,8 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             }
         }
         
-        //Get saved activities
+        //Try and retrieve all activity objects stored in the users "SavedActivities" collection
+        //Uses the userID to specify which users data to retrieve
         db.collection("users").document(userID).collection("SavedActivities").getDocuments() { (snapshot, error) in
             if let error = error
             {
@@ -232,7 +237,6 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
                         let newAct = newAct
                         self.savedList.append(newAct!)
                         self.savedList.sort(by: {$0.start_time < $1.start_time})
-                    //self.scheduleTable.reloadData()
                     case .failure(let error):
                         print(error)
                     }
@@ -242,7 +246,9 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
         }
     }
     
-    
+    //Get the users info from firestore
+    //Utilize userID to specify user
+    //Call updateUser to update the local user object with the remote data
     func getUserInfo()
     {
         db.collection("users").document(userID).getDocument { (document, error) in
@@ -266,25 +272,26 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
     
     
     
-    
+    //Remove specified activity from the database
+    //activity: Activity object which is desired to be deleted
     func removeFromFirebase(activity: Activity)
     {
         let docuTitle = activityTitle(activity: activity)
         db.collection("users").document(userID).collection("Activities").document(docuTitle).delete()
     }
     
-    
+    //Creates a title for the activity using the unique start and end time
+    //Ensures that the activities can be easily accessed in the firestore database
+    //used when adding activity as well as when identifying which activity to delete
     func activityTitle(activity:Activity) ->String
     {
         let title = dateFormatter.string(from: activity.start_time)
-        //print(title)
         return title
     }
     
     //set up tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mySchedule.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -354,28 +361,17 @@ class ViewController: UIViewController, activityDelegate, activityEditDelegate,s
             let vc: TimerViewController = segue.destination as! TimerViewController
             vc.schedule = mySchedule[indexToEdit]
         }
-        
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         self.indexToEdit = indexPath.row
-        
-        // Create an instance of PlayerTableViewController and pass the variable
-        //let destinationVC = TimerViewController()
-        //destinationVC.schedule = schedule
-        //destinationVC.performSegue(withIdentifier: "timerSegue", sender: self)
         self.performSegue(withIdentifier: "timerSegue", sender: self)
         tableView.deselectRow(at: indexPath, animated: false)
-        
     }
 }
 
 extension UIImageView {
-    
+    //set image to round
     func roundImage() {
         let radius = self.frame.width / 2
         self.layer.cornerRadius = radius

@@ -5,6 +5,7 @@
 //  Created by Ziyuan Li on 5/4/20.
 //  Copyright © 2020 NYUiOS. All rights reserved.
 //
+//Set up table cell under search bar
 
 import UIKit
 

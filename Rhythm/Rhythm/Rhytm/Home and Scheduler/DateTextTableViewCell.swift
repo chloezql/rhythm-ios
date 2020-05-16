@@ -5,7 +5,7 @@
 //  Created by Ziyuan Li on 4/25/20.
 //  Copyright © 2020 NYUiOS. All rights reserved.
 //
-
+// Set up table view cell and update when user picks a time with date picker 
 import UIKit
 
 

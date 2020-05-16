@@ -12,14 +12,16 @@ import FirebaseAuth
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
+//Add protocol to update the User object stored in the app
 protocol editUserDelegate
 {
     func updateUser(user: User)
 }
 
+
 class EditUserInfoViewController: UIViewController {
     
-    
+    //Labels and textfields
     @IBOutlet weak var currentValLabel: UILabel!
     @IBOutlet weak var newValTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,8 +30,10 @@ class EditUserInfoViewController: UIViewController {
     weak var delegate: UserProfileViewController?
     
     var currentUser: User!
+    //Tag is used to identify what the user wants to update
     var tag: Int!
     
+    //User ID to access the users info on firebase
     let userID = Auth.auth().currentUser!.uid
     let db = Firestore.firestore()
     
@@ -40,6 +44,11 @@ class EditUserInfoViewController: UIViewController {
         super.viewDidLoad()
         errorLabel.isHidden = true
         
+        
+        //Display the titles to match the desired edit field
+        //1: Editing first name
+        //2: Editing last name
+        //3: Editing email
         switch tag {
         case 1:
             currentValLabel.text = currentUser.firstName
@@ -61,6 +70,7 @@ class EditUserInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Save the info if user selects save info button
     @IBAction func SaveNewInfo(_ sender: Any) {
         let newVal = newValTextField.text
         switch tag {
@@ -77,7 +87,8 @@ class EditUserInfoViewController: UIViewController {
         }   
     }
     
-    
+    //Special function needed to update the email in the auth database
+    //Calls updateSimple iff successful in updating credentials in the auth database
     func updateEmail(newEmail: String)
     {
         Auth.auth().currentUser?.updateEmail(to: newEmail, completion: { (error) in
@@ -93,6 +104,9 @@ class EditUserInfoViewController: UIViewController {
         })
     }
     
+    //Update the desired value in the firestore cloud databse
+    //Updates the name, email, or first name
+    //Does not affect the auth database which is seperate
     func updateSimple(newValue: String)
     {
         var fieldName: String!
@@ -109,8 +123,8 @@ class EditUserInfoViewController: UIViewController {
         default:
             fieldName = "error"
         }
-
-        //This method not being called
+        
+        //Update the user object stored locally in the app
         self.delegate?.updateUser(user: currentUser)
         
         let ref = db.collection("users").document(userID)
@@ -124,11 +138,20 @@ class EditUserInfoViewController: UIViewController {
     }
     
     
-    
+    //Hide keyboard when user taps outside the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    //Hide keyboard when user taps 'return' on keyboard
+    func textFieldShouldReturn(_textField: UITextField) -> Bool
+    {
+        _textField.resignFirstResponder();
+
+    }
+    
+    //Display error label and text
+    //errorText: error string to display
     func callError(errorText: String)
     {
         errorLabel.isHidden = false

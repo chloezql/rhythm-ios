@@ -5,7 +5,7 @@
 //  Created by Ziyuan Li on 4/29/20.
 //  Copyright © 2020 NYUiOS. All rights reserved.
 //
-
+// Set up table view cell on home page
 import UIKit
 
 class DisplayScheduleTableViewCell: UITableViewCell {

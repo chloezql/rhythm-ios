@@ -13,10 +13,8 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 class UserProfileViewController: UIViewController, editUserDelegate {
-    
-    let userID = Auth.auth().currentUser!.uid
-    let db = Firestore.firestore()
-    
+        
+    //Labels and buttons
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -26,8 +24,9 @@ class UserProfileViewController: UIViewController, editUserDelegate {
     @IBOutlet weak var editEmail: UIButton!
     @IBOutlet weak var profilePic: UIImageView!
     
+    //store currentUser object locally
     var currentUser: User!
-    var valToEdit: String!
+    //Tag dictating what the user wishes to edit
     var tag: Int!
     
     override func viewDidLoad() {
@@ -46,11 +45,13 @@ class UserProfileViewController: UIViewController, editUserDelegate {
         
     }
     
+    //Logout when user taps log out button
     @IBAction func logOut(_ sender: Any) {
         try! Auth.auth().signOut()
         transitionToLogin()  
     }
     
+    //Sets tag and transition depending on which edit button is pressed
     @IBAction func editAField(_sender: UIButton)
     {
         switch _sender{
@@ -67,6 +68,7 @@ class UserProfileViewController: UIViewController, editUserDelegate {
         
     }
     
+    //Handle transition to login, called when user taps Log Out
     func transitionToLogin()
     {
         let storyboard = UIStoryboard(name: "login", bundle: nil)
@@ -76,11 +78,12 @@ class UserProfileViewController: UIViewController, editUserDelegate {
     }
     
     
+    //Prepare the tag and currentUser for use in EditUserInfoViewController
+    //Segue to EditUserInfoViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editInfoSegue"
         {
             let vc: EditUserInfoViewController = segue.destination as! EditUserInfoViewController
-            //vc.valueCurrentlyEditing = valToEdit
             vc.currentUser = currentUser
             vc.tag = tag
             vc.delegate = self
@@ -88,13 +91,16 @@ class UserProfileViewController: UIViewController, editUserDelegate {
    
     }
     
-    
+    //update the user object stored locally
+    //Delegate method used in EditUserInfoViewController
+    //Update User object stored locally
     func updateUser(user: User) {
         currentUser = user
         self.firstNameLabel.text = currentUser.firstName
         self.lastNameLabel.text = currentUser.lastName
         self.emailLabel.text = currentUser.email
-        
+        let homeVC = self.tabBarController!.viewControllers![0] as! ViewController
+        homeVC.username.text = currentUser.firstName
     }
     
     

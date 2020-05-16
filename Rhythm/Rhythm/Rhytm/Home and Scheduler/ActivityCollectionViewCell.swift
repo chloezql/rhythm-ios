@@ -6,6 +6,7 @@
 //  Copyright © 2020 NYUiOS. All rights reserved.
 //
 
+// Set up the collection view cell for displaying saved list
 import UIKit
 
 class ActivityCollectionViewCell: UICollectionViewCell {
