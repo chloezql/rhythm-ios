@@ -14,7 +14,6 @@ protocol activityEditDelegate{
 
 class EditActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, datePickerDelegate, UITextFieldDelegate{
     
-    //@IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var descriptionText: UITextField!

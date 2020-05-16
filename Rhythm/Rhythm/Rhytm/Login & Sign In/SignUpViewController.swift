@@ -29,12 +29,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         errorMessage.isHidden = true
-<<<<<<< HEAD
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
         // Do any additional setup after loading the view.
-=======
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "info-page.png")!)
->>>>>>> f717da2b44c3abec49918699681f756d35b51dfb
     }
     
     //Hide keyboard when user taps 'return' on keyboard
@@ -145,16 +141,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         return passwordTest.evaluate(with: password)
         
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
