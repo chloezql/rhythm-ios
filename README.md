@@ -1,2 +1,3 @@
-# RhythmFinal
-Final project for NYU iOS, 2020 Spring
+# Rhythm iOS Project
+## Scheduler with Music, with Swift
+
