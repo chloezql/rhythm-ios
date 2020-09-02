@@ -11,7 +11,7 @@ If you have an account already, you can sign in directly
 If you have already logged in on this device, you will be kept logging in unless you choose to log out
 If you don’t have an account yet, you can sign up
 Once you are logged in or signed up, you will be directed to the home page
-![][/screenshots/1.png]
+![](/screenshots/1.png)
 #### Home page
 First item on the tab bar
 If you have added activity through our app, your schedule table should be loaded
