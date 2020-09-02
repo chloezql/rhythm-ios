@@ -7,21 +7,21 @@ Try Rhythm! Rhythm will give you an awesome experience to be productive and enjo
 
 ## User Manual with Screenshots
 #### Welcome page
-If you have an account already, you can sign in directly
-If you have already logged in on this device, you will be kept logging in unless you choose to log out
-If you don’t have an account yet, you can sign up
-Once you are logged in or signed up, you will be directed to the home page
+* If you have an account already, you can sign in directly
+* If you have already logged in on this device, you will be kept logging in unless you choose to log out
+* If you don’t have an account yet, you can sign up
+* Once you are logged in or signed up, you will be directed to the home page
 ![](/screenshots/1.png)
 #### Home page
-First item on the tab bar
-If you have added activity through our app, your schedule table should be loaded
-You can always pull down to refresh your time table (past activities will be deleted)
-Swipe each activity to the left, you will have the option to delete the activity
-Swipe each activity to the right, you will have the option to edit the activity
-If you click directly on the activity
-Timer: shows how much time there is left till the end of this activity
-Music: you can play or pause music
-
+* First item on the tab bar
+* If you have added activity through our app, your schedule table should be loaded
+* You can always pull down to refresh your time table (past activities will be deleted)
+* Swipe each activity to the left, you will have the option to delete the activity
+* Swipe each activity to the right, you will have the option to edit the activity
+* If you click directly on the activity
+   * Timer: shows how much time there is left till the end of this activity
+   * Music: you can play or pause music
+![](/screenshots/2.png)
 #### Create activity page
 Second item on the tab bar
 You can choose to create a completely new activity or add from a saved template
