@@ -64,8 +64,7 @@ You are given the option to log out of your current account
 
 
 ## Technical documentation.
- ### A brief overview of the implementation and an overview of the logic. 
-    #### a). A list of all CocoaPods you used and any APIs
+   ### a). A list of all CocoaPods you used and any APIs
 CocoaPods Used
 Firebase/Core
 Firebase/Database
@@ -74,7 +73,7 @@ Firebase/Analytics
 Firebase/Auth
 Firebase/Firestore
 FirebaseFirestoreSwift
-    #### b). A list of other outside elements and their sources - code, graphics, etc.
+   ### b). A list of other outside elements and their sources - code, graphics, etc.
 Graphic
 Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
@@ -84,7 +83,7 @@ https://www.flaticon.com/search?word=edit
 <a href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a>
 "Designed by pikisuperstar / Freepik"
 
-    #### Code/Tutorials Used
+   ### Code/Tutorials Used
 Playlist reference to firebase: https://youtu.be/g0gmAUzeKBM
 Firebase media storage : https://youtu.be/MyeqhFGnJ_0
 How to build countdown function in swift : https://youtu.be/iNEjh6zDUsg
